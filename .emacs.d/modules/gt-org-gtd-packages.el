@@ -23,6 +23,12 @@
 (add-to-list 'package-selected-packages 'org-bullets)
 (add-to-list 'package-selected-packages 'org-superstar)
 (add-to-list 'package-selected-packages 'rainbow-delimiters)
+(add-to-list 'package-selected-packages 'org-protocol-jekyll)
+(add-to-list 'package-selected-packages 'org-hammy)
+(add-to-list 'package-selected-packages 'org-ql)
+(add-to-list 'package-selected-packages 'org-notely)
+(add-to-list 'package-selected-packages 'yequake)
+
 ;; (add-to-list 'package-selected-packages 'org-modern)
 
 (provide 'gt-org-gtd-packages)
