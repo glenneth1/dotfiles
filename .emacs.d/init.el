@@ -30,6 +30,7 @@
                                         ; the
                                         ; `package-selected-packages'
                                         ; list
+(require 'crafted-ide-packages)
 (require 'crafted-org-packages)
 (require 'crafted-ui-packages)
 (require 'gt-mail-packages)
@@ -48,6 +49,7 @@
 ;; Some example modules to configure Emacs. Don't blindly copy these,
 ;; they are here for example purposes.  Find the modules which work
 ;; for you and add them here.
+(require 'crafted-ide-config)
 (require 'crafted-defaults-config)
 (require 'crafted-org-config)
 (require 'crafted-package-config)
