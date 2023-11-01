@@ -188,7 +188,7 @@
 (use-package rainbow-delimiters
   :ensure t
   :config
-  (require 'rainbow-delimiters)
+;;  (require 'rainbow-delimiters)
   (rainbow-delimiters-mode 1))
 
 ;; (with-eval-after-load 'org (global-org-modern-mode))

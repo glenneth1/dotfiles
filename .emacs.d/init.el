@@ -31,8 +31,10 @@
                                         ; `package-selected-packages'
                                         ; list
 (require 'crafted-ide-packages)
+(require 'crafted-evil-packages)
 (require 'crafted-org-packages)
 (require 'crafted-ui-packages)
+(require 'crafted-writing-packages)
 (require 'gt-mail-packages)
 (require 'gt-org-gtd-packages)
 (require 'gt-python-packages)
@@ -49,6 +51,8 @@
 ;; Some example modules to configure Emacs. Don't blindly copy these,
 ;; they are here for example purposes.  Find the modules which work
 ;; for you and add them here.
+(require 'crafted-completion-config)
+(require 'crafted-evil-config)
 (require 'crafted-ide-config)
 (require 'crafted-defaults-config)
 (require 'crafted-org-config)
@@ -56,6 +60,7 @@
 (require 'crafted-startup-config)
 (require 'crafted-ui-config)
 (require 'crafted-updates-config)
+(require 'crafted-writing-config)
 (require 'gt-mail-config)
 (require 'gt-org-gtd-config)
 (require 'gt-python-config)
