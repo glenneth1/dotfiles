@@ -15,7 +15,7 @@
 (add-to-list 'package-selected-packages 'bufler)
 (add-to-list 'package-selected-packages 'doom-themes)
 (add-to-list 'package-selected-packages 'burly)
-
+(add-to-list 'package-selected-packages 'fix-word)
 
 
 (provide 'gt-ui-packages)

@@ -210,6 +210,9 @@ setting up an IDE-like layout)."
 (keymap-global-set "C-c e a" 'elfeed-add-feed)
 (keymap-global-set "C-c d n" 'denote-subdirectory)
 (keymap-global-set "C-c ." 'emojify-insert-emoji)
+(keymap-global-set "M-u" 'fix-word-upcase)
+(keymap-global-set "M-l" 'fix-word-downcase)
+(keymap-global-set "M-c" 'fix-word-capitalize)
 
 (use-package org-modern
   ;;(with-eval-after-load 'org (global-org-modern-mode)))
