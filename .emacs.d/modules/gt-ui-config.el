@@ -213,6 +213,8 @@ setting up an IDE-like layout)."
 (keymap-global-set "M-u" 'fix-word-upcase)
 (keymap-global-set "M-l" 'fix-word-downcase)
 (keymap-global-set "M-c" 'fix-word-capitalize)
+(keymap-global-set "C-c o f" '0x0-upload-file)
+(keymap-global-set "C-c o t" '0x0-upload-text)
 
 (use-package org-modern
   ;;(with-eval-after-load 'org (global-org-modern-mode)))
