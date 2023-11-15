@@ -16,7 +16,9 @@
 (add-to-list 'package-selected-packages 'ox-pandoc)
 (add-to-list 'package-selected-packages 'pandoc-mode)
 (add-to-list 'package-selected-packages 'nov)
-
+(add-to-list 'package-selected-packages 'org-noter)
+(add-to-list 'package-selected-packages 'org-noter-pdftools)
+(add-to-list 'package-selected-packages 'org-pdftools)
 
 (use-package pandoc
   :defer 3
