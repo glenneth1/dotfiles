@@ -158,6 +158,26 @@ setting up an IDE-like layout)."
 
 (server-start)
 
+ (defun d/eshell-toggle ()
+    "Minimal hack to toggle eshell."
+    (interactive)
+    (cond
+     ((derived-mode-p 'eshell-mode) (if (one-window-p) (switch-to-prev-buffer) (delete-window)))
+     ((one-window-p) (progn (select-window (split-window-below)) (shrink-window 7) (eshell)))
+     (t (progn (other-window 1)
+		       (if (derived-mode-p 'eshell-mode) (delete-window)
+		         (progn (other-window -1) (select-window (split-window-below)) (shrink-window 7) (eshell)))))))
+
+(defun disable-mode-line ()
+(setq mode-line-format nil))
+
+(use-package vterm
+:hook (vterm-mode . disable-line-numbers)
+:hook (vterm-mode . disable-mode-line)
+:config
+(setq shell-file-name "/bin/zsh"
+vterm-max-scrollback 5000))
+
 (set-face-attribute 'default nil
                     :font "JetBrains Mono"
                     :height 110
@@ -194,12 +214,14 @@ setting up an IDE-like layout)."
 ;; (keymap-global-set "C-c k b")'kill-current-buffer)
 (keymap-global-set "C-c o a" 'org-agenda)
 (keymap-global-set "C-c o t" 'load-theme)
+(keymap-global-set "C-c o v" 'vterm)
 (keymap-global-set "C-c t n" 'tab-bar-switch-to-next-tab)
 (keymap-global-set "C-c t p" 'tab-bar-switch-to-prev-tab)
 (keymap-global-set "C-c t t" 'org-clock-in)
 (keymap-global-set "C-c s t" 'org-clock-out)
 (keymap-global-set "C-c e c" 'ement-connect)
 (keymap-global-set "C-c e d" 'ement-disconnect)
+(keymap-global-set "C-c e t" 'd/eshell-toggle)
 (keymap-global-set "C-x x c" 'ix)
 (keymap-global-set "C-x x d" 'ix-delete)
 (keymap-global-set "C-c b s" 'bufler-sidebar)

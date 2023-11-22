@@ -19,6 +19,7 @@
 (add-to-list 'package-selected-packages 'org-noter)
 (add-to-list 'package-selected-packages 'org-noter-pdftools)
 (add-to-list 'package-selected-packages 'org-pdftools)
+(add-to-list 'package-selected-packages 'djvu)
 
 (use-package pandoc
   :defer 3

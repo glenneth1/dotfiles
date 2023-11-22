@@ -80,5 +80,8 @@ With a prefix ARG, remove start location."
   (with-eval-after-load 'pdf-annot
     (add-hook 'pdf-annot-activate-handler-functions #'org-noter-pdftools-jump-to-note)))
 
+(setq +latex-viewers '(pdf-tools))
+;; (latex +cdlatex +latexmk +lsp)
+
 (provide 'gt-writing-config)
 ;;; crafted-writing-packages.el ends here
