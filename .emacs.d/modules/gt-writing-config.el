@@ -81,6 +81,8 @@ With a prefix ARG, remove start location."
     (add-hook 'pdf-annot-activate-handler-functions #'org-noter-pdftools-jump-to-note)))
 
 (setq +latex-viewers '(pdf-tools))
+;; (add-hook LaTeX-mode-hook #'xenops-mode)
+
 ;; (latex +cdlatex +latexmk +lsp)
 
 (provide 'gt-writing-config)
