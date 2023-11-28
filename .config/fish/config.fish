@@ -45,7 +45,7 @@ end
 
 # User paths
 set -e fish_user_paths
-set -U fish_user_paths $HOME/.bin $HOME/.local/bin $HOME/Applications $fish_user_paths
+set -U fish_user_paths $HOME/.bin $HOME/.local/bin $HOME/Applications /usr/lib/surfraw $fish_user_paths
 
 # Starship prompt
 #if command -sq starship
