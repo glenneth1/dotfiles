@@ -245,6 +245,8 @@ vterm-max-scrollback 5000))
 (use-package emojify
   :hook (after-init . global-emojify-mode))
 
+(require 'vertico-posframe)
+(vertico-posframe-mode 1)
 
  (defun toggle-transparency ()
    (interactive)
