@@ -32,5 +32,44 @@
 (global-set-key (kbd "C-c C-i") 'gt-irc-connect)
 
 
+(erc-colorize-mode 1)
+
+(require 'erc-services)
+(erc-services-mode 1)
+
+(eval-after-load "erc"
+  '(progn
+
+     (setq erc-prompt-for-nickserv-password "")))
+
+
+;; Set autoconnect networks
+(defun my-erc ()
+  "Connect to my ZNC Bouncer server."
+
+  (interactive)
+  (erc-tls :server "100.98.92.133" :port 5555 :nick "glenneth" :full-name "Glenneth"))
+
+(erc-hl-nicks-mode 1)
+
+(setq erc-hide-list '("JOIN" "PART" "QUIT"))
+
+;; set browser to emacs browser
+;; (setq browse-url-browser-function 'eww-browse-url)
+
+;; ;; Auto-rename new eww buffers
+;; (defun gt-rename-eww-hook ()
+;;   "Rename eww browser's buffer so sites open in new page."
+;;   (rename-buffer "eww" t))
+;; (add-hook 'eww-mode-hook #'gt-rename-eww-hook)
+
+(use-package seriestracker
+  :demand                                                   ;;To force loading seriestracker
+  :config                                                   ;;These are the default
+  (setq seriestracker-file (concat user-emacs-directory "seriestracker.el"
+        seriestracker--fold-cycle 'seriestracker-all-folded ;; can also be 'seriestracker-all-unfolded or 'seriestracker-series-folded. Will deternine the folding at startup
+        seriestracker-show-watched "hide"                   ;; whether to hide or "show" the watched episodes
+        seriestracker-sorting-type "next")))                 ;; or "alpha" for alphabetic sort
+
 (provide 'gt-social-config)
 ;;; gt-python-config.el ends here

@@ -237,6 +237,11 @@ vterm-max-scrollback 5000))
 (keymap-global-set "M-c" 'fix-word-capitalize)
 (keymap-global-set "C-c o f" '0x0-upload-file)
 (keymap-global-set "C-c o t" '0x0-upload-text)
+(keymap-global-set "C-c r c" 'my-erc)
+(keymap-global-unset "C-1")
+(keymap-global-unset "C-2")
+(keymap-global-set "C-1" 'tab-previous)
+(keymap-global-set "C-2" 'tab-next)
 
 (use-package org-modern
   ;;(with-eval-after-load 'org (global-org-modern-mode)))
@@ -260,6 +265,49 @@ vterm-max-scrollback 5000))
                100)
           '(85 . 50) '(100 . 100)))))
 (global-set-key (kbd "C-c t") 'toggle-transparency)
+
+  ;; Fonts
+  (set-face-attribute 'default nil :font "Monofur NF-16" :weight 'Book)
+  (set-face-attribute 'fixed-pitch nil :font "Monofur NF-16" :weight 'Book)
+  (set-face-attribute 'variable-pitch nil :font "Belwe Std-14" :weight 'Light)
+
+  (defun my-org-mode-setup ()
+    "Custom configuration for Org mode."
+    (variable-pitch-mode 1)
+    (mapc
+     (lambda (face) ;; Set font faces for headings, blocks, and bullets
+       (set-face-attribute face nil :font "Belwe Std-14" :weight 'Light))
+     (list 'org-level-1
+           'org-level-2
+           'org-level-3
+           'org-level-4
+           'org-level-5
+           'org-level-6
+           'org-level-7
+           'org-level-8
+           'org-quote
+           'org-verbatim
+           'org-list-dt
+           'org-checkbox)))
+
+  (add-hook 'org-mode-hook 'my-org-mode-setup) ;; Apply configuration to Org mode files
+
+  (defun conf/org-font-setup ()
+    "Setup fixed-pitch font for Org."
+    (custom-set-faces
+     '(org-block ((t (:inherit fixed-pitch))))
+     '(org-table ((t (:inherit fixed-pitch))))
+     '(org-formula ((t (:inherit fixed-pitch))))
+     '(org-code ((t (:inherit fixed-pitch))))
+     '(org-verbatim ((t (:inherit fixed-pitch))))
+     '(org-special-keyword ((t (:inherit fixed-pitch))))
+     '(org-checkbox ((t (:inherit fixed-pitch))))
+     '(line-number ((t (:inherit fixed-pitch))))
+     '(line-number-current-line ((t (:inherit fixed-pitch))))
+     '(org-block-begin-line ((t (:inherit fixed-pitch))))
+     '(org-block-end-line ((t (:inherit org-block-begin-line))))))
+
+  (add-to-list 'org-mode-hook #'conf/org-font-setup)
 
 (provide 'gt-ui-config)
 ;;; gt-ui-config.el ends here

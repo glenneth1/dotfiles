@@ -124,6 +124,20 @@
 
 (add-hook 'message-send-hook 'org-mime-confirm-when-no-multipart)
 
+
+(setq gnus-secondary-select-methods
+  '(
+    (nnimap "localhost"
+    (nnimap-address "localhost")
+    (nnimap-server-port 1143)
+    (nnimap-stream network))))
+
+(setq gnus-posting-styles
+  '((".*" ; Matches all groups of messages
+    (address "Glenn Thompson <GThompson@versar.com>")
+    (From "Glenn Thompson <GThompson@versar.com>")
+    ("X-Message-SMTP-Method" "smtp localhost 1025 GThompson@versar.com"))))
+
 (provide 'gt-mail-config)
 
 ;;; gt-mail-config.el ends here

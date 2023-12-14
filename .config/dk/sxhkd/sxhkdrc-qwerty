@@ -1,0 +1,548 @@
+#################################################################
+# KEYBOARD BINDINGS FOR ANY TWM
+#################################################################
+
+#################################################################
+# SUPER + FUNCTION KEYS
+#################################################################
+
+# Vivaldi
+super + F1
+	vivaldi-stable
+
+# Atom
+super + F2
+	atom
+
+#Inkscape
+super + F3
+    inkscape
+
+#Gimp
+super + F4
+    gimp
+
+#Meld
+super + F5
+    meld
+
+#Vlc
+super + F6
+    vlc --video-on-top
+
+#Virtualbox
+super + F7
+    virtualbox
+
+#Thunar
+super + F8
+    thunar
+
+#Evolution
+super + F9
+    evolution
+
+#Spotify
+super + F10
+    spotify
+
+#Rofi Fullscreen
+super + F11
+    rofi -theme-str 'window \{width: 100%;height: 100%;\}' -show drun
+
+#Rofi
+super + F12
+    rofi -show drun
+
+#################################################################
+# SUPER + ... KEYS
+#################################################################
+
+#Atom
+super + e
+    atom
+
+#Browser
+super + w
+    vivaldi-stable
+
+#Conky-toggle
+super + c
+    conky-toggle
+
+#archlinux-logout
+super + x
+    archlinux-logout
+
+#Rofi theme selector
+super + r
+    rofi-theme-selector
+
+#Urxvt
+super + t
+    urxvt
+
+#Pavucontrol
+super + v
+    pavucontrol
+
+#Pragha
+super + m
+    pragha
+
+#alacritty
+super + Return
+    alacritty
+
+#Xkill
+super + Escape
+    xkill
+
+#Keyboard dependent
+#alacritty
+super + KP_Enter
+	alacritty
+
+#################################################################
+# SUPER + SHIFT KEYS
+#################################################################
+
+#File-Manager
+super + shift + Return
+	thunar
+
+#Keyboard dependent
+#File-Manager
+#super + shift + KP_Enter
+#	thunar
+
+#dmenu
+super + shift + d
+	dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
+
+#rofi
+super + d
+    ~/.config/dk/launcher/launcher.sh
+
+#reload sxhkd:
+super + shift + s
+	pkill -USR1 -x sxhkd
+
+#Keyboard dependent
+#super + shift + KP_Enter
+#	thunar
+
+
+#################################################################
+# CONTROL + ALT KEYS
+#################################################################
+
+#arcolinux-welcome-app
+ctrl + alt + w
+     arcolinux-welcome-app
+
+#archlinux-tweak-tool
+ctrl + alt + e
+    archlinux-tweak-tool
+
+#conky-rotate
+ctrl + alt + Next
+     conky-rotate -n
+
+#conky-rotate
+ctrl + alt + Prior
+    conky-rotate -p
+
+#File-Manager
+ctrl + alt + b
+     thunar
+
+#Catfish
+ctrl + alt + c
+     catfish
+
+#Chromium
+ctrl + alt + g
+    chromium -no-default-browser-check
+
+#Firefox
+ctrl + alt + f
+     firefox
+
+#Nitrogen
+ctrl + alt + i
+     nitrogen
+
+#archlinux-logout
+ctrl + alt + k
+     archlinux-logout
+
+#archlinux-logout
+ctrl + alt + l
+    archlinux-logout
+
+#Pamac-manager
+ctrl + alt + p
+    pamac-manager
+
+#Xfce4-settings-manager
+ctrl + alt + m
+     xfce4-settings-manager
+
+#Pulse Audio Control
+ctrl + alt + u
+     pavucontrol
+
+#Rofi theme selector
+ctrl + alt + r
+  rofi-theme-selector
+
+#Spotify
+ctrl + alt + s
+   spotify
+
+#alacritty
+ctrl + alt + Return
+    alacritty
+
+#alacritty
+ctrl + alt + t
+    alacritty
+
+#Vivaldi
+ctrl + alt + v
+    vivaldi-stable
+
+#Xfce4-appfinder
+ctrl + alt + a
+    xfce4-appfinder
+
+
+#Keyboard dependent
+#alacritty
+#ctrl + alt + KP_Enter
+#     alacritty
+
+
+#################################################################
+# ALT + ... KEYS
+#################################################################
+
+#Wallpaper trash
+alt + t
+    variety -t
+
+#Wallpaper next
+alt + n
+    variety -n
+
+#Wallpaper previous
+alt + p
+    variety -p
+
+#Wallpaper favorite
+alt + f
+    variety -f
+
+#Wallpaper previous
+alt + Left
+    variety -p
+
+#Wallpaper next
+alt + Right
+    variety -n
+
+#Wallpaper toggle-pause
+alt + Up
+    variety --toggle-pause
+
+#Wallpaper resume
+alt + Down
+    variety --resume
+
+#Xfce appfinder
+alt + F2
+    xfce4-appfinder --collapsed
+
+#Xfce4-appfinder
+alt + F3
+    xfce4-appfinder
+
+#Xlunch app launcher
+#alt + F5
+#    xlunch --config ~/.config/xlunch/default.conf --input ~/.config/xlunch/entries.dsv   
+
+
+#################################################################
+#VARIETY KEYS WITH PYWAL
+#################################################################
+
+#Wallpaper trash
+alt + shift + t
+    variety -t && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
+
+#Wallpaper next
+alt + shift + n
+    variety -n && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
+
+#Wallpaper previous
+alt + shift + p
+    variety -p && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
+
+#Wallpaper favorite
+alt + shift + f
+    variety -f && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
+
+#Wallpaper update
+alt + shift + u
+    wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
+
+#################################################################
+# CONTROL + SHIFT KEYS
+#################################################################
+
+#Xcfe4-TaskManager
+ctrl + shift + Escape
+    xfce4-taskmanager
+
+
+#################################################################
+#     SCREENSHOTS
+#################################################################
+
+#Scrot
+Print
+    scrot 'ArcoLinux-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'
+
+#screeenshooter
+ctrl + Print
+     xfce4-screenshooter
+
+#Gnome-Screenshot
+ctrl + shift + Print
+     gnome-screenshot -i
+
+#flameshot
+ctrl + super + Print
+     flameshot gui
+
+
+#################################################################
+#     FUNCTION KEYS
+#################################################################
+
+#xfce4-terminal dropdown
+F12
+    xfce4-terminal --drop-down
+
+
+#################################################################
+#     MULTIMEDIA KEYS
+#################################################################
+
+#Raises volume
+XF86AudioRaiseVolume
+    amixer -D pulse set Master 10%+
+
+#Lowers volume
+XF86AudioLowerVolume
+    amixer -D pulse set Master 10%-
+
+#Mute
+XF86AudioMute
+    amixer -D pulse set Master 1+ toggle
+
+#Playerctl works for Pragha, Spotify and others
+#Delete the line for playerctl if you want to use mpc
+#and replace it with the corresponding code
+#mpc works for e.g.ncmpcpp
+#mpc toggle
+#mpc next
+#mpc prev
+#mpc stop
+
+#PLAY
+XF86AudioPlay
+    playerctl play-pause
+
+#Next
+XF86AudioNext
+    playerctl next
+
+#previous
+XF86AudioPrev
+    playerctl previous
+
+#Stop
+XF86AudioStop
+    playerctl stop
+
+#Brightness up
+XF86MonBrightnessUp
+    xbacklight -inc 10
+
+#Brightness down
+XF86MonBrightnessDown
+    xbacklight -dec 10
+
+#########################
+#        POLYBAR        #
+#########################
+
+#Hide polybar
+super + y
+    polybar-msg cmd toggle
+
+
+#################################################################
+# CTRL + ALT KEYS
+#################################################################
+
+#Picom Toggle
+ctrl + alt + o
+    ~/.config/bspwm/scripts/picom-toggle.sh
+
+#################################################################
+#################################################################
+##################   DESKTOP SPECIFIC    ########################
+#################################################################
+#################################################################
+
+
+
+# example sxhkdrc for use with dk
+#########################################################
+
+# launcher
+alt + p
+	dmenu_run
+
+# terminal
+alt + shift + Return
+	alacritty
+
+# screenshot and selection capture
+{_,alt + }@Print
+	scrot {_,-s}
+
+# dedicated volume keys
+{XF86AudioRaiseVolume,XF86AudioLowerVolume}
+	pamixer {-i,-d} 2
+
+# dedicated backlight keys
+{XF86MonBrightnessUp,XF86MonBrightnessDown}
+	xbacklight {+10,-10}
+
+# alt volume keys
+alt + {Insert,Delete}
+	pamixer {-i,-d} 2
+
+# quit dk
+#alt + shift + q
+#	dkcmd exit
+
+# reload dkrc
+super + shift + r
+	$HOME/.config/dk/dkrc
+
+# restart dk
+alt + ctrl + shift + r
+	dkcmd restart
+
+# focus next or previous window
+alt + {j,k}
+	dkcmd win focus {next,prev}
+
+# close window
+super + q
+    dkcmd win kill
+
+super + shift + q
+    dkcmd win kill
+
+# swap tiled window in/out of master, cycle tiled windows in place
+alt + {space,Tab}
+    dkcmd win {swap,cycle}
+
+# swap tiled window in/out of master, cycle tiled windows in place
+#alt + space
+#	dkcmd win swap
+
+# swap tiled window in/out of master, cycle tiled windows in place
+super + Tab
+    dkcmd win cycle
+
+# swap tiled window in/out of master, cycle tiled windows in place
+super + shift + Tab
+    dkcmd win cycle
+
+# toggle fullscreen
+super + f
+	dkcmd win full
+
+# toggle floating or sticky
+ctrl + shift + {space,s}
+	dkcmd win {float,stick}
+
+# move window, signed (+/-) for relative changes
+ctrl + shift + {h,j,k,l}
+	dkcmd win resize {x=-20,y=+20,y=-20,x=+20}
+
+# resize window, signed (+/-) for relative changes
+alt + ctrl + {h,j,k,l}
+	dkcmd win resize {w=-20,h=+20,h=-20,w=+20}
+
+# move the active window up/down the stack
+alt + {Up,Down}
+	dkcmd win mvstack {up,down}
+
+#French azerty
+#keys={ampersand,eacute,quotedbl,apostrophe,parenleft,minus egrave,underscore,ccedilla,agrave}
+
+#Belgian azerty
+# view, send, or follow to a workspace (by number)
+#super + {ampersand,eacute,quotedbl,apostrophe,parenleft,section,egrave,exclam,ccedilla,agrave}
+#    dkcmd ws view {1,2,3,4,5,6,7,8,9,10}
+
+#super + shift + {1,2,3,4,5,6,7,8,9,0}
+#    dkcmd ws send {1,2,3,4,5,6,7,8,9,10}
+
+#super + ctrl + shift + {1,2,3,4,5,6,7,8,9,0}
+#    dkcmd ws follow {1,2,3,4,5,6,7,8,9,10}
+
+
+#Qwerty
+# view, send, or follow to a workspace (by number)
+super + {1-9,0}
+    dkcmd ws view {1-9,10}
+
+super + shift + {1-9,0}
+    dkcmd ws send {1-9,10}
+
+super + ctrl + shift + {1-9,0}
+    dkcmd ws follow {1-9,10}
+
+# view, send, or follow to the next, previous, last active,
+# next non-empty, or prev non-empty workspace
+alt + {_,shift + ,ctrl + }{bracketleft,bracketright,BackSpace,Left,Right}
+	dkcmd ws {view,send,follow} {prev,next,last,prevne,nextne}
+
+# view, send, or follow to the next, previous, or last active monitor
+alt + {_,shift + ,ctrl + }{comma,period,backslash}
+	dkcmd mon {view,send,follow} {prev,next,last}
+
+# change active workspace layout
+ctrl + shift + {t,r,m,g,s,w,f,u}
+	dkcmd set layout {tile,rtile,mono,grid,spiral,dwindle,none,tstack}
+
+# change number of windows in master or first stack
+alt + {_,shift + }{i,d}
+	dkcmd set {master,stack} {+1,-1}
+
+# change gap width
+alt + {equal,minus}
+	dkcmd set gap {+5,-5}
+
+# change border widths
+alt + ctrl + {_,shift + }{equal,minus}
+	dkcmd set border {width,outer_width} {+1,-1}

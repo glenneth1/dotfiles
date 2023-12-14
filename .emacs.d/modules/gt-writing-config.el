@@ -85,5 +85,12 @@ With a prefix ARG, remove start location."
 
 ;; (latex +cdlatex +latexmk +lsp)
 
+
+(add-to-list 'load-path "~/.emacs.d/src/typst-ts-mode/")
+(use-package typst-ts-mode
+;;  :elpaca (:type git :host sourcehut :repo "meow_king/typst-ts-mode")
+  :custom
+  (typst-ts-mode-watch-options "--open"))
+
 (provide 'gt-writing-config)
 ;;; crafted-writing-packages.el ends here
