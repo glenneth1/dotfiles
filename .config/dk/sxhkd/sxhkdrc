@@ -76,8 +76,8 @@ super + x
 
 #Rofi theme selector
 super + r
-    rofi-theme-selector
-
+    rofi -modi emoji -show emoji
+    
 #Urxvt
 super + t
     urxvt
