@@ -319,5 +319,9 @@ vterm-max-scrollback 5000))
 
 (setq-default mode-line-format (delq 'mode-line-modes mode-line-format))
 
+(setq global-visual-line-mode t)
+
+(setq global-display-line-numbers-mode t)
+
 (provide 'gt-ui-config)
 ;;; gt-ui-config.el ends here
