@@ -269,14 +269,14 @@ vterm-max-scrollback 5000))
   ;; Fonts
   (set-face-attribute 'default nil :font "Monofur NF-16" :weight 'Book)
   (set-face-attribute 'fixed-pitch nil :font "Monofur NF-16" :weight 'Book)
-  (set-face-attribute 'variable-pitch nil :font "Belwe Std-14" :weight 'Light)
+  (set-face-attribute 'variable-pitch nil :font "JetBrains Mono-11" :weight 'Light)
 
   (defun my-org-mode-setup ()
     "Custom configuration for Org mode."
     (variable-pitch-mode 1)
     (mapc
      (lambda (face) ;; Set font faces for headings, blocks, and bullets
-       (set-face-attribute face nil :font "Belwe Std-14" :weight 'Light))
+       (set-face-attribute face nil :font "JetBrains Mono-11" :weight 'Light))
      (list 'org-level-1
            'org-level-2
            'org-level-3
@@ -308,6 +308,16 @@ vterm-max-scrollback 5000))
      '(org-block-end-line ((t (:inherit org-block-begin-line))))))
 
   (add-to-list 'org-mode-hook #'conf/org-font-setup)
+
+
+(use-package edwina
+  :ensure t
+  :config
+  (setq display-buffer-base-action '(display-buffer-below-selected))
+  ;; (edwina-setup-dwm-keys)
+  (edwina-mode 1))
+
+(setq-default mode-line-format (delq 'mode-line-modes mode-line-format))
 
 (provide 'gt-ui-config)
 ;;; gt-ui-config.el ends here

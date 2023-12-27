@@ -190,6 +190,7 @@
   :config
 ;;  (require 'rainbow-delimiters)
   (rainbow-delimiters-mode 1))
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 ;; (with-eval-after-load 'org (global-org-modern-mode))
 

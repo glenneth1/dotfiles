@@ -92,5 +92,8 @@ With a prefix ARG, remove start location."
   :custom
   (typst-ts-mode-watch-options "--open"))
 
+(with-eval-after-load 'ox
+  (require 'ox-hugo))
+
 (provide 'gt-writing-config)
 ;;; crafted-writing-packages.el ends here

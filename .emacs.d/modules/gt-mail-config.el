@@ -66,7 +66,25 @@
                 (mu4e-drafts-folder  . "/Kirstol/Drafts")
                 (mu4e-sent-folder  . "/Kirstol/Sent")
                 (mu4e-refile-folder  . "/Kirstol/Archive")
-                (mu4e-trash-folder  . "/Kirstol/Trash")))))
+                (mu4e-trash-folder  . "/Kirstol/Trash")))
+
+;; Personal account
+       (make-mu4e-context
+        :name "Purpl"
+        :match-func
+          (lambda (msg)
+            (when msg
+              (string-prefix-p "/Kirstol" (mu4e-message-field msg :maildir))))
+        :vars '((user-mail-address . "glenn@purplasylum.net")
+                (user-full-name    . "Glenn Purpl")
+    (smtpmail-smtp-server  . "mail.privateemail.com")
+                (smtpmail-smtp-service . 465)
+                (smtpmail-stream-type  . ssl)
+                (mu4e-compose-signature . "Glenn via PurplAsylum")
+                (mu4e-drafts-folder  . "/Purpl/Drafts")
+                (mu4e-sent-folder  . "/Purpl/Sent")
+                (mu4e-refile-folder  . "/Purpl/Archive")
+                (mu4e-trash-folder  . "/Purpl/Trash")))))
 
   (setq mu4e-maildir-shortcuts
         '(("/Gmail/Inbox"             . ?i)
