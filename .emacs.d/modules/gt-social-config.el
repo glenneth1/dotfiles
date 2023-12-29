@@ -48,7 +48,7 @@
   "Connect to my ZNC Bouncer server."
 
   (interactive)
-  (erc-tls :server "100.98.92.133" :port 5555 :nick "glenneth" :full-name "Glenneth"))
+  (erc-tls :server "100.98.92.133" :port 5555 :nick "glenneth" :full-name "glenneth"))
 
 (erc-hl-nicks-mode 1)
 

@@ -97,5 +97,7 @@
 
 (setopt use-short-answers t)
 
+`(customize-set-variable 'crafted-startup-inhibit-splash t)'
+
 ;; Set default coding system (especially for Windows)
 (set-default-coding-systems 'utf-8)

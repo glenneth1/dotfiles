@@ -323,5 +323,26 @@ vterm-max-scrollback 5000))
 
 (setq global-display-line-numbers-mode t)
 
+(use-package dashboard
+  :ensure t 
+  :init
+  (setq initial-buffer-choice 'dashboard-open)
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-set-file-icons t)
+  (setq dashboard-banner-logo-title "Emacs Is More Than A Text Editor!")
+  ;;(setq dashboard-startup-banner 'logo) ;; use standard emacs logo as banner
+  (setq dashboard-startup-banner "~/.emacs.d/system-crafters-logo.png")  ;; use custom image as banner
+  (setq dashboard-center-content nil) ;; set to 't' for centered content
+  (setq dashboard-items '((recents . 10)
+                          (agenda . 10)
+                          (bookmarks . 5)
+                          (projects . 5)
+                          (registers . 5)))
+  :custom 
+  (dashboard-modify-heading-icons '((recents . "file-text")
+				      (bookmarks . "book")))
+  :config
+  (dashboard-setup-startup-hook))
+
 (provide 'gt-ui-config)
 ;;; gt-ui-config.el ends here
