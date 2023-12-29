@@ -40,9 +40,28 @@ manually with something like this:
             (message "adding eglot to %s" hook-name)
             (add-hook (intern hook-name) #'eglot-ensure))))))))
 
-;; add eglot to existing programming modes when eglot is loaded.
-(with-eval-after-load "eglot"
-  (crafted-ide--add-eglot-hooks eglot-server-programs))
+(defun crafted-ide--lsp-bin-exists-p (mode-def)
+  "Return non-nil if LSP binary of MODE-DEF is found via `executable-find'."
+  (let ((lsp-program (cdr mode-def)))
+    ;; `lsp-program' is either a list of strings or a function object
+    ;; calling `eglot-alternatives'.
+    (if (functionp lsp-program)
+        (condition-case nil
+            (car (funcall lsp-program))
+          ;; When an error occurs it's because Eglot checked for a
+          ;; binary and didn't find one among alternatives.
+          (error nil))
+      (executable-find (car lsp-program)))))
+
+(defun crafted-ide-eglot-auto-ensure-all ()
+  "Add `eglot-ensure' to major modes that offer LSP support.
+
+Major modes are only selected if the major mode's associated LSP
+binary is detected on the system."
+  (when (require 'eglot nil :noerror)
+    (crafted-ide--add-eglot-hooks (seq-filter
+                                   #'crafted-ide--lsp-bin-exists-p
+                                   eglot-server-programs))))
 
 ;; Shutdown server when last managed buffer is killed
 (customize-set-variable 'eglot-autoshutdown t)
@@ -63,15 +82,21 @@ Example: `(crafted-tree-sitter-load 'python)'"
            (intern (format "%s-mode-hook" (symbol-name lang-symbol)))))
       (add-hook mode-hook-name #'tree-sitter-mode))))
 
-(defun crafted-ide--configure-tree-sitter (opt-out)
+(defun crafted-ide--configure-tree-sitter (opt-in-only)
   "Configure tree-sitter for Emacs 29 or later.
-OPT-OUT is a list of symbols of language grammars to opt out before auto-install."
+
+OPT-IN-ONLY is a list of symbols of language grammars to
+auto-install instead of all grammars."
   ;; only attempt to use tree-sitter when Emacs was built with it.
   (when (member "TREE_SITTER" (split-string system-configuration-features))
     (when (require 'treesit-auto nil :noerror)
-      ;; add all items of opt-out to the `treesit-auto-opt-out-list'.
-      (when opt-out
-        (mapc (lambda (e) (add-to-list 'treesit-auto-opt-out-list e)) opt-out))
+      ;; add all items of opt-in-only to the `treesit-auto-langs'.
+      (when opt-in-only
+        ;; (mapc (lambda (e) (add-to-list 'treesit-auto-langs e)) opt-in-only)
+        (if (listp opt-in-only)
+            (customize-set-variable 'treesit-auto-langs opt-in-only)
+          (customize-set-variable 'treesit-auto-langs (list opt-in-only)))
+        )
       ;; prefer tree-sitter modes
       (global-treesit-auto-mode)
       ;; install all the tree-sitter grammars
@@ -84,17 +109,20 @@ OPT-OUT is a list of symbols of language grammars to opt out before auto-install
       ;; eventually derive from this mode.
       (add-hook 'prog-mode-hook #'combobulate-mode))))
 
-(defun crafted-ide-configure-tree-sitter (&optional opt-out)
+(defun crafted-ide-configure-tree-sitter (&optional opt-in-only)
   "Configure tree-sitter.
+
 Requires a C compiler (gcc, cc, c99) installed on the system.
-Note that OPT-OUT only affects setups with Emacs 29 or later.
+Note that OPT-IN-ONLY only affects setups with Emacs 29 or later.
 
 For Emacs 29 or later:
 Requires Emacs to be built using \"--with-tree-sitter\".
-All language grammars are auto-installed unless they are a member of OPT-OUT."
+All language grammars are auto-installed unless they are a member
+of OPT-IN-ONLY, in which case *only* those grammars are
+installed."
   (if (version< emacs-version "29")
       (crafted-ide--configure-tree-sitter-pre-29)
-    (crafted-ide--configure-tree-sitter opt-out)))
+    (crafted-ide--configure-tree-sitter opt-in-only)))
 
 ;; turn on editorconfig if it is available
 (when (require 'editorconfig nil :noerror)

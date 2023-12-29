@@ -156,6 +156,14 @@
     (From "Glenn Thompson <GThompson@versar.com>")
     ("X-Message-SMTP-Method" "smtp localhost 1025 GThompson@versar.com"))))
 
+
+(add-hook 'mu4e-view-mode-hook
+          'gt-mu4e-view-mode-hook)
+(defun gt-mu4e-view-mode-hook ()
+  "Custom 'mu4e-view-mode' behaviours.
+Used in 'mu4e-view-mode-hook'."
+  (setq-local shr-use-colors nil))
+
 (provide 'gt-mail-config)
 
 ;;; gt-mail-config.el ends here
