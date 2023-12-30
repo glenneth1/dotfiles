@@ -242,6 +242,7 @@ vterm-max-scrollback 5000))
 (keymap-global-unset "C-2")
 (keymap-global-set "C-1" 'tab-previous)
 (keymap-global-set "C-2" 'tab-next)
+(keymap-global-set "C-x g" 'magit)
 
 (use-package org-modern
   ;;(with-eval-after-load 'org (global-org-modern-mode)))
