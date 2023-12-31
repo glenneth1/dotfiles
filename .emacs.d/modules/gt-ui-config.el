@@ -345,5 +345,15 @@ vterm-max-scrollback 5000))
   :config
   (dashboard-setup-startup-hook))
 
+(defun dashboard-insert-agenda (&rest _)
+  "Insert a copy of org-agenda buffer."
+  (insert (save-window-excursion
+            (org-agenda-list)
+            (prog1 (buffer-string)
+              (kill-buffer)))))
+
+(setq dashboard-mode t)
+(setq dashboard-set-file-icons t)
+
 (provide 'gt-ui-config)
 ;;; gt-ui-config.el ends here
