@@ -5,6 +5,4 @@
 ## Github  : @adi1090x
 ## Twitter : @adi1090x
 
-## rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/dk/launcher/rofi/launcher.rasi
-
-rofi -show drun -font "Noto Sans 13"
+rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/dk/launcher/rofi/launcher.rasi

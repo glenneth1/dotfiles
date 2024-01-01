@@ -72,7 +72,7 @@ super + c
 
 #archlinux-logout
 super + x
-    archlinux-logout
+    ~/.config/rofi/files/powermenu/type-1/powermenu.sh
 
 #Rofi theme selector
 super + r
@@ -120,9 +120,13 @@ super + shift + Return
 super + shift + d
 	dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
 
+#Screenshot
+super + shift + f
+      ~/.config/rofi/files/applets/bin/screenshot.sh
+
 #rofi
 super + d
-    ~/.config/dk/launcher/launcher.sh
+    ~/.config/rofi/files/launchers/type-6/launcher.sh
 
 #reload sxhkd:
 super + shift + s
@@ -132,6 +136,9 @@ super + shift + s
 #super + shift + KP_Enter
 #	thunar
 
+#App as Root
+super + shift + a
+      ~/.config/rofi/files/applets/bin/appasroot.sh
 
 #################################################################
 # CONTROL + ALT KEYS
