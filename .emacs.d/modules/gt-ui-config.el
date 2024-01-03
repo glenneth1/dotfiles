@@ -355,5 +355,7 @@ vterm-max-scrollback 5000))
 (setq dashboard-mode t)
 (setq dashboard-set-file-icons t)
 
+(setq valign-mode t)
+
 (provide 'gt-ui-config)
 ;;; gt-ui-config.el ends here
