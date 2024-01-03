@@ -77,7 +77,11 @@ super + x
 #Rofi theme selector
 super + r
     rofi -modi emoji -show emoji
-    
+
+#rofi quick links
+super + s
+      ~/.config/rofi/files/applets/bin/quicklinks.sh
+
 #Urxvt
 super + t
     urxvt

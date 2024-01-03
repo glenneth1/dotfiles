@@ -65,9 +65,9 @@ run_rofi() {
 # Execute Command
 run_cmd() {
 	if [[ "$1" == '--opt1' ]]; then
-		xdg-open 'https://www.google.com/'
+		xdg-open 'https://www.google.co.uk/'
 	elif [[ "$1" == '--opt2' ]]; then
-		xdg-open 'https://mail.google.com/'
+		xdg-open 'https://mail.google.co.uk/'
 	elif [[ "$1" == '--opt3' ]]; then
 		xdg-open 'https://www.youtube.com/'
 	elif [[ "$1" == '--opt4' ]]; then
