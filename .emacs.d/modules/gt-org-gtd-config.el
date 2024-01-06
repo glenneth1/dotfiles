@@ -50,17 +50,17 @@
 (setq org-capture-templates
     `(("t" "Tasks / Projects")
       ("tt" "Task" entry (file+olp "~/Dropbox/org/Tasks.org" "Inbox")
-           "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
+           "\n * TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
       ("c" "Contact information")
       ("ca" "Acquaintances and friends" entry
        (file+headline "~/Dropbox/org/contacts.org" "Acquaintannces and friends")
-      "* %^{Name SURNAME}\n :PROPERTIES:\n :PHONE: %^{Country Number}\n :EMAIL: %^{Email address}\n :NOTES: %?\n :END:")
+      "\n * %^{Name SURNAME}\n :PROPERTIES:\n :PHONE: %^{Country Number}\n :EMAIL: %^{Email address}\n :NOTES: %?\n :END:")
       ("cf" "Family" entry
        (file+headline "~/Dropbox/org/contacts.org" "Family members")
-      "* %^{Name SURNAME}\n :PROPERTIES:\n :PHONE: %^{Country Number}\n :EMAIL: %^{Email address}\n :NOTES: %?\n :END:")
+      "\n * %^{Name SURNAME}\n :PROPERTIES:\n :PHONE: %^{Country Number}\n :EMAIL: %^{Email address}\n :NOTES: %?\n :END:")
       ("cw" "Work related" entry
        (file+headline "~/Dropbox/org/contacts.org" "Colleagues, functionaries, intermediaries")
-      "* %^{Name SURNAME}\n :PROPERTIES:\n :PHONE: %^{Country Number}\n :EMAIL: %^{Email address}\n:FUNCTION: %^{Function|Assistant|Inntermediary|External|VIP}\n :NOTES: %?\n :END:")
+      "\n * %^{Name SURNAME}\n :PROPERTIES:\n :PHONE: %^{Country Number}\n :LOCATION: %^{Location}\n :EMAIL: %^{Email address}\n :FUNCTION: %^{Function|Assistant|Inntermediary|External|VIP}\n :NOTES: %?\n :END:")
         ("g" "GTD item"
                  entry
                  (file (lambda () (org-gtd--path org-gtd-inbox-file-basename)))
@@ -74,13 +74,13 @@
         ("j" "Journal Entries")
         ("jj" "Journal" entry
            (file+olp+datetree "~/Dropbox/org/Journal.org")
-           "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
+           "\n * %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
            ;; ,(dw/read-file-as-string "~/Dropbox/org/Notes/Templates/Daily.org")
            :clock-in :clock-resume
            :empty-lines 1)
       ("jm" "Meeting" entry
            (file+olp+datetree "~/Dropbox/org/Journal.org")
-           "* %<%I:%M %p> - %a :meetings:\n\n%?\n\n"
+           "\n * %<%I:%M %p> - %a :meetings:\n\n%?\n\n"
            :clock-in :clock-resume
            :empty-lines 1)
     ("m" "Meetings")
@@ -125,9 +125,54 @@
          "* %^{Recipe title: }\n  :PROPERTIES:\n  :source-url:\n  :servings:\n  :prep-time:\n  :cook-time:\n  :ready-in:\n  :END:\n** Ingredients\n   %?\n** Directions\n\n")
   ("e" "Email Workflow")
     ("ef" "Follow Up" entry (file+olp "~/Dropbox/org/Mail.org" "Follow Up")
-          "* TODO Follow up with %:fromname on %a\nSCHEDULED:%t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%i\n" :immediate-finish t)
+          "\n * TODO Follow up with %:fromname on %a\nSCHEDULED:%t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%i\n" :immediate-finish t)
     ("er" "Read Later" entry (file+olp "~/Dropbox/org/Mail.org" "Read Later")
-          "* TODO Read %:subject\nSCHEDULED:%t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%a\n\n%i\n" :immediate-finish t)
+     "\n * TODO Read %:subject\nSCHEDULED:%t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%a\n\n%i\n" :immediate-finish t)
+("T" "TFS")
+        ("Te" "Events" entry
+        (file+headline "~/Dropbox/org/TFS/TFS.org" "Events")
+        "* EVENT %:from\n SCHEDULED: %^t\n :PROPERTIES:\n :TOPIC: %:subject %?\n :END:")
+        ("Tr" "R&R" entry
+        (file+headline "~/Dropbox/org/TFS/TFS.org" "R&R")
+        "* R&R %:from\n SCHEDULED: %^t\n RETURN:%^{Return Date}t\n WHO:%^{NAME}\n LOCATION:%^{Current Location}\n :END:")
+        ("Tm" "TEAM MOVEMENT" entry
+        (file+headline "~/Dropbox/org/TFS/TFS.org" "Team Movement")
+        "* MOVEMENT\n TEAM:%^{Team Number}\n FROM:%^{From location}\n TO:%^{To location}%\n SCHEDULED: %^t\n RETURN:%^{Return Date}t\n :END:")
+        ;; New Templates
+        ("Tu" "Project Update" entry (file+olp "~/Dropbox/org/TFS/TFS.org" "Updates")
+         "* %^{Update Title} - %^t\n"
+         "  - **Overall Project Status:** %^{Status}\n"
+         "  - **Key Accomplishments:** %?\n"
+         "  - **Challenges and Issues:** %^{Challenges}\n"
+         "  - **Upcoming Milestones:** %^{Milestones}\n"
+         "  - **Next Steps/Action Items:** %?\n")
+
+        ("Ti" "Action Item" entry (file+olp "~/Dropbox/org/TFS/TFS.org" "Action Items")
+         "* TODO %^{Action Item} - %^t\n  %?\n")
+
+        ("Ts" "Issue/Challenge" entry (file+olp "~/Dropbox/org/TFS/TFS.org" "Issues")
+         "* %^{Issue/Challenge} - %^t\n  %?\n")
+
+        ("Td" "Decision" entry (file+olp "~/Dropbox/org/TFS/TFS.org" "Decisions")
+         "* %^{Decision} - %^t\n  %?\n")
+
+        ("Tc" "Client Communication" entry (file+olp "~/Dropbox/org/TFS/TFS.org" "Client Communication")
+         "* %^{Client/Stakeholder} - %^t\n  %?\n")
+
+        ("Tb" "Budget/Expenses" entry (file+olp "~/Dropbox/org/TFS/TFS.org" "Budget/Expenses")
+         "* %^{Expense/Update} - %^t\n  %?\n")
+
+        ("Tx" "Documentation Task" entry (file+olp "~/Dropbox/org/TFS/TFS.org" "Documentation")
+         "* %^{Documentation Task} - %^t\n  %?\n")
+
+        ("Tk" "Knowledge Sharing" entry (file+olp "~/Dropbox/org/TFS/TFS.org" "Knowledge Sharing")
+         "* %^{Knowledge Topic} - %^t\n  %?\n")
+
+        ("Tf" "Feedback" entry (file+olp "~/Dropbox/org/TFS/TFS.org" "Feedback")
+         "* %^{Feedback} - %^t\n  %?\n")
+
+        ("Tt" "Training" entry (file+olp "~/Dropbox/org/TFS/TFS.org" "Training")
+         "* %^{Training Topic} - %^t\n  %?\n")
 ))
 
 (defun efs/capture-mail-follow-up (msg)

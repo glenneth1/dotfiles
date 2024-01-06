@@ -357,5 +357,48 @@ vterm-max-scrollback 5000))
 
 (setq valign-mode t)
 
+(use-package doom-modeline
+  :ensure t
+  :hook (after-init . doom-modeline-mode))
+
+
+(setopt fill-column 80
+        sentence-end-double-space nil
+        indent-tabs-mode nil  ; Use spaces instead of tabs
+        tab-width 4)
+
+
+(use-package pixel-scroll
+  :ensure nil
+  :custom
+  (pixel-scroll-precision-interpolation-factor 1.0)
+  :bind
+  (([remap scroll-up-command]   . fk/pixel-scroll-up-command)
+   ([remap scroll-down-command] . fk/pixel-scroll-down-command)
+   ([remap recenter-top-bottom] . fk/pixel-recenter-top-bottom))
+  :hook
+  (dashboard-after-initialize . pixel-scroll-precision-mode)
+  :config
+  (defun fk/pixel-scroll-up-command ()
+    "Similar to `scroll-up-command' but with pixel scrolling."
+    (interactive)
+    (pixel-scroll-precision-interpolate (- (* fk/default-scroll-lines (line-pixel-height)))))
+
+  (defun fk/pixel-scroll-down-command ()
+    "Similar to `scroll-down-command' but with pixel scrolling."
+    (interactive)
+    (pixel-scroll-precision-interpolate (* fk/default-scroll-lines (line-pixel-height))))
+
+  (defun fk/pixel-recenter-top-bottom ()
+    "Similar to `recenter-top-bottom' but with pixel scrolling."
+    (interactive)
+    (let* ((current-row (cdr (nth 6 (posn-at-point))))
+           (target-row (save-window-excursion
+                         (recenter-top-bottom)
+                         (cdr (nth 6 (posn-at-point)))))
+           (distance-in-pixels (* (- target-row current-row) (line-pixel-height))))
+      (pixel-scroll-precision-interpolate distance-in-pixels))))
+
+
 (provide 'gt-ui-config)
 ;;; gt-ui-config.el ends here
