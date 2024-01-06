@@ -133,46 +133,110 @@
         (file+headline "~/Dropbox/org/TFS/TFS.org" "Events")
         "* EVENT %:from\n SCHEDULED: %^t\n :PROPERTIES:\n :TOPIC: %:subject %?\n :END:")
         ("Tr" "R&R" entry
-        (file+headline "~/Dropbox/org/TFS/TFS.org" "R&R")
-        "* R&R %:from\n SCHEDULED: %^t\n RETURN:%^{Return Date}t\n WHO:%^{NAME}\n LOCATION:%^{Current Location}\n :END:")
+        (file+headline "~/Dropbox/org/TFS/R&R.org" "R&R")
+        "* %^{Name}%\n %:from\n SCHEDULED: %^t\n RETURN:%^{Return Date}t\n DESTINATION:%^{DESTINATION}\n LOCATION:%^{Current Location}\n :END:")
         ("Tm" "TEAM MOVEMENT" entry
         (file+headline "~/Dropbox/org/TFS/TFS.org" "Team Movement")
         "* MOVEMENT\n TEAM:%^{Team Number}\n FROM:%^{From location}\n TO:%^{To location}%\n SCHEDULED: %^t\n RETURN:%^{Return Date}t\n :END:")
         ;; New Templates
-        ("Tu" "Project Update" entry (file+olp "~/Dropbox/org/TFS/TFS.org" "Updates")
-         "* %^{Update Title} - %^t\n"
-         "  - **Overall Project Status:** %^{Status}\n"
-         "  - **Key Accomplishments:** %?\n"
-         "  - **Challenges and Issues:** %^{Challenges}\n"
-         "  - **Upcoming Milestones:** %^{Milestones}\n"
-         "  - **Next Steps/Action Items:** %?\n")
+        ("Tu" "Project Update" entry
+         (file+headline "~/Dropbox/org/TFS/TFS.org" "Updates")
+         "* %^{Update Title} - %^t\n
+          - **Overall Project Status:** %^{Status}\n
+          - **Key Accomplishments:** %?\n
+          - **Challenges and Issues:** %^{Challenges}\n
+          - **Upcoming Milestones:** %^{Milestones}\n
+          - **Next Steps/Action Items:** %^{Next Steps}\n")
 
-        ("Ti" "Action Item" entry (file+olp "~/Dropbox/org/TFS/TFS.org" "Action Items")
-         "* TODO %^{Action Item} - %^t\n  %?\n")
+        ("Ti" "Action Item" entry (file+olp "~/Dropbox/org/TFS/actions.org" "Action Items")
+         "* TODO %^{Action Item} - %^t\n
+          - **Assigned To:** %^{Assignee}\n
+          - **Priority:** %^{High|Medium|Low}\n
+          - **Due Date:** %^t\n
+          - **Description:** %?\n
+          - **Status:** TODO\n
+          - **Notes:** %?\n")
 
-        ("Ts" "Issue/Challenge" entry (file+olp "~/Dropbox/org/TFS/TFS.org" "Issues")
-         "* %^{Issue/Challenge} - %^t\n  %?\n")
+        ("Ts" "Issue/Challenge" entry (file+olp "~/Dropbox/org/TFS/issues.org" "Issues")
+         "* %^{Issue/Challenge Title} - %^t\n
+          - **Details/Context:** %?\n
+          - **Impact:** %?\n
+          - **Priority:** %^{High|Medium|Low}\n
+          - **Assigned To:** %^{Assignee}\n
+          - **Status:** %^{Open|In Progress|Resolved}\n
+          - **Next Steps/Action Items:** %?\n
+          - **Notes:** %?\n")
 
-        ("Td" "Decision" entry (file+olp "~/Dropbox/org/TFS/TFS.org" "Decisions")
-         "* %^{Decision} - %^t\n  %?\n")
+        ("Td" "Decision" entry (file+olp "~/Dropbox/org/TFS/docs.org" "Decisions")
+         "* TODO %^{Decision} - %^t\n
+          - **Decision Context:** %?\n
+          - **Options Considered:** %^{Options}\n
+          - **Decision Rationale:** %?\n
+          - **Implications and Risks:** %?\n
+          - **Next Steps/Action Items:** %^{Action Items}\n
+          - **Status:** TODO\n")
 
-        ("Tc" "Client Communication" entry (file+olp "~/Dropbox/org/TFS/TFS.org" "Client Communication")
-         "* %^{Client/Stakeholder} - %^t\n  %?\n")
+        ("Tc" "Client Communication" entry (file+olp "~/Dropbox/org/TFS/actions.org" "Client Communication")
+         "* TODO %^{Client/Stakeholder} - %^t\n
+          - **Meeting Type:** %^{Meeting Type}\n
+          - **Attendees:** %?\n
+          - **Agenda:** %^{Agenda}\n
+          - **Discussion Points:** %?\n
+          - **Action Items:** %^{Action Items}\n
+          - **Follow-up Needed:** %^{Follow-up Needed|Yes|No}\n
+          - **Next Meeting Date:** %^t\n
+          - **Notes:** %?\n
+          - **Status:** TODO\n") 
 
-        ("Tb" "Budget/Expenses" entry (file+olp "~/Dropbox/org/TFS/TFS.org" "Budget/Expenses")
+        ("Tb" "Budget/Expenses" entry (file+olp "~/Dropbox/org/TFS/budget.org" "Budget/Expenses")
          "* %^{Expense/Update} - %^t\n  %?\n")
 
-        ("Tx" "Documentation Task" entry (file+olp "~/Dropbox/org/TFS/TFS.org" "Documentation")
-         "* %^{Documentation Task} - %^t\n  %?\n")
+        ("Tx" "Documentation Task" entry (file+olp "~/Dropbox/org/TFS/docs.org" "Documentation")
+         "* TODO %^{Documentation Task} - %^t\n
+          - **Assigned To:** %^{Assignee}\n
+          - **Priority:** %^{High|Medium|Low}\n
+          - **Due Date:** %^t\n
+          - **Description:** %?\n
+          - **Status:** TODO\n
+          - **Notes:** %?\n")
 
-        ("Tk" "Knowledge Sharing" entry (file+olp "~/Dropbox/org/TFS/TFS.org" "Knowledge Sharing")
-         "* %^{Knowledge Topic} - %^t\n  %?\n")
+        ("Tk" "Knowledge Sharing" entry (file+olp "~/Dropbox/org/TFS/actions.org" "Knowledge Sharing")
+         "* %^{Topic Title} - %^t\n
+          - **Presenter/Author:** %^{Presenter/Author}\n
+          - **Audience:** %^{Audience}\n
+          - **Format:** %^{Presentation|Documentation|Discussion}\n
+          - **Key Points:** %?\n
+          - **Takeaways:** %?\n
+          - **Resources/References:** %?\n
+          - **Questions/Discussion:** %?\n
+          - **Follow-up Actions:** %?\n
+          - **Feedback:** %^{Positive|Constructive|None}\n")
 
-        ("Tf" "Feedback" entry (file+olp "~/Dropbox/org/TFS/TFS.org" "Feedback")
-         "* %^{Feedback} - %^t\n  %?\n")
+        ("Tf" "Feedback" entry (file+olp "~/Dropbox/org/TFS/feedback.org" "Feedback")
+         "* %^{Feedback Title} - %^t\n
+          - **Feedback From:** %^{Sender}\n
+          - **Feedback Type:** %^{Positive|Constructive|Negative}\n
+          - **Project/Task/Person:** %?\n
+          - **Specifics/Details:** %?\n
+          - **Impact/Implications:** %?\n
+          - **Suggestions/Actions:** %?\n
+          - **Status:** %^{Open|Acknowledged|Resolved}\n
+          - **Follow-up Required:** %^{Yes|No}\n
+          - **Follow-up Action Items:** %?\n
+          - **Notes:** %?\n")
 
         ("Tt" "Training" entry (file+olp "~/Dropbox/org/TFS/TFS.org" "Training")
-         "* %^{Training Topic} - %^t\n  %?\n")
+         "* %^{Training Title} - %^t\n
+          - **Trainer/Instructor:** %^{Trainer/Instructor}\n
+          - **Participants:** %^{Participants}\n
+          - **Location:** %^{Location}\n
+          - **Duration:** %^{Duration}\n
+          - **Agenda:** %?\n
+          - **Key Learnings:** %?\n
+          - **Exercises/Hands-on:** %?\n
+          - **Materials/Resources:** %?\n
+          - **Feedback:** %^{Positive|Constructive|None}\n
+          - **Follow-up Actions:** %?\n")
 ))
 
 (defun efs/capture-mail-follow-up (msg)
