@@ -134,7 +134,7 @@
         "* EVENT %:from\n SCHEDULED: %^t\n :PROPERTIES:\n :TOPIC: %:subject %?\n :END:")
         ("Tr" "R&R" entry
         (file+headline "~/Dropbox/org/TFS/R&R.org" "R&R")
-        "* %^{Name}%\n %:from\n SCHEDULED: %^t\n RETURN:%^{Return Date}t\n DESTINATION:%^{DESTINATION}\n LOCATION:%^{Current Location}\n :END:")
+        "* %^{Name}\n %:from\n SCHEDULED: %^t\n RETURN:%^{Return Date}t\n DESTINATION:%^{DESTINATION}\n LOCATION:%^{Current Location}\n :END:")
         ("Tm" "TEAM MOVEMENT" entry
         (file+headline "~/Dropbox/org/TFS/TFS.org" "Team Movement")
         "* MOVEMENT\n TEAM:%^{Team Number}\n FROM:%^{From location}\n TO:%^{To location}%\n SCHEDULED: %^t\n RETURN:%^{Return Date}t\n :END:")
@@ -182,6 +182,7 @@
           - **Attendees:** %?\n
           - **Agenda:** %^{Agenda}\n
           - **Discussion Points:** %?\n
+          - **Meeting Outcomes/Agreements:** %?\n
           - **Action Items:** %^{Action Items}\n
           - **Follow-up Needed:** %^{Follow-up Needed|Yes|No}\n
           - **Next Meeting Date:** %^t\n
@@ -189,7 +190,15 @@
           - **Status:** TODO\n") 
 
         ("Tb" "Budget/Expenses" entry (file+olp "~/Dropbox/org/TFS/budget.org" "Budget/Expenses")
-         "* %^{Expense/Update} - %^t\n  %?\n")
+         "* TODO %^{Expense/Update} - %^t\n
+          - **Amount:** %^{Amount}\n
+          - **Expense Category:** %^{Category}\n
+          - **Justification:** %?\n
+          - **Approval Status:** %^{Approval Status}\n
+          - **Receipts Attached:** %^{Yes|No}\n
+          - **Next Steps/Action Items:** %^{Action Items}\n
+          - **Status:** TODO\n")
+
 
         ("Tx" "Documentation Task" entry (file+olp "~/Dropbox/org/TFS/docs.org" "Documentation")
          "* TODO %^{Documentation Task} - %^t\n
@@ -205,6 +214,7 @@
           - **Presenter/Author:** %^{Presenter/Author}\n
           - **Audience:** %^{Audience}\n
           - **Format:** %^{Presentation|Documentation|Discussion}\n
+          - **Source/Context:** %^{Source/Context}\n
           - **Key Points:** %?\n
           - **Takeaways:** %?\n
           - **Resources/References:** %?\n
@@ -215,9 +225,11 @@
         ("Tf" "Feedback" entry (file+olp "~/Dropbox/org/TFS/feedback.org" "Feedback")
          "* %^{Feedback Title} - %^t\n
           - **Feedback From:** %^{Sender}\n
+          - **Sender's Contact:** %^{Contact Details}\n
           - **Feedback Type:** %^{Positive|Constructive|Negative}\n
           - **Project/Task/Person:** %?\n
           - **Specifics/Details:** %?\n
+          - **Rating (1-5):** %^{Rating}\n
           - **Impact/Implications:** %?\n
           - **Suggestions/Actions:** %?\n
           - **Status:** %^{Open|Acknowledged|Resolved}\n
