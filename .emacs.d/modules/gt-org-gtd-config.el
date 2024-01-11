@@ -50,7 +50,16 @@
 (setq org-capture-templates
     `(("t" "Tasks / Projects")
       ("tt" "Task" entry (file+olp "~/Dropbox/org/Tasks.org" "Inbox")
-           "\n * TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
+       "* TODO %?\n
+        %U\n
+        %a\n
+        %i\n
+        - **Priority:** %^{High|Medium|Low}\n ; Add priority
+        - **Due Date:** %^t\n ; Add due date
+        - **Project:** %^{Project}\n ; Add project association
+        - **Tags:** %^{Tags}\n ; Add tags for categorization
+        - **Assigned To:** %^{Assignee}\n" ; Add assignment
+ :empty-lines 1)
       ("c" "Contact information")
       ("ca" "Acquaintances and friends" entry
        (file+headline "~/Dropbox/org/contacts.org" "Acquaintannces and friends")
@@ -123,11 +132,14 @@
         ("rm" "Manual Cookbook" entry
    (file "~/Dropbox/org/Recipes/cookbook.org")
          "* %^{Recipe title: }\n  :PROPERTIES:\n  :source-url:\n  :servings:\n  :prep-time:\n  :cook-time:\n  :ready-in:\n  :END:\n** Ingredients\n   %?\n** Directions\n\n")
-  ("e" "Email Workflow")
-    ("ef" "Follow Up" entry (file+olp "~/Dropbox/org/Mail.org" "Follow Up")
+("e" "Email Workflow")
+        ("ee" "Email"
+         entry (expand-file-name "email.org" org-directory)
+         "* %?" :empty-lines 1))
+        ("ef" "Follow Up" entry (file+olp "~/Dropbox/org/Mail.org" "Follow Up")
           "\n * TODO Follow up with %:fromname on %a\nSCHEDULED:%t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%i\n" :immediate-finish t)
-    ("er" "Read Later" entry (file+olp "~/Dropbox/org/Mail.org" "Read Later")
-     "\n * TODO Read %:subject\nSCHEDULED:%t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%a\n\n%i\n" :immediate-finish t)
+        ("er" "Read Later" entry (file+olp "~/Dropbox/org/Mail.org" "Read Later")
+         "\n * TODO Read %:subject\nSCHEDULED:%t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%a\n\n%i\n" :immediate-finish t)
 ("T" "TFS")
         ("Te" "Events" entry
         (file+headline "~/Dropbox/org/TFS/TFS.org" "Events")
@@ -137,7 +149,7 @@
         "* %^{Name}\n %:from\n SCHEDULED: %^t\n RETURN:%^{Return Date}t\n DESTINATION:%^{DESTINATION}\n LOCATION:%^{Current Location}\n :END:")
         ("Tm" "TEAM MOVEMENT" entry
         (file+headline "~/Dropbox/org/TFS/TFS.org" "Team Movement")
-        "* MOVEMENT\n TEAM:%^{Team Number}\n FROM:%^{From location}\n TO:%^{To location}%\n SCHEDULED: %^t\n RETURN:%^{Return Date}t\n :END:")
+        "* TEAM: %^{Team Number}\n MEMBERS:%^{Members Names}\n FROM:%^{From location}\n TO:%^{To location}%\n SCHEDULED: %^t\n RETURN:%^{Return Date}t\n **Notes:** %?\n:END:\n")
         ;; New Templates
         ("Tu" "Project Update" entry
          (file+headline "~/Dropbox/org/TFS/TFS.org" "Updates")
