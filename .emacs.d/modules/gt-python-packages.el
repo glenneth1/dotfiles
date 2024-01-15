@@ -18,4 +18,4 @@
 (add-to-list 'package-selected-packages 'highlight-indent-guides)
 
 (provide 'gt-python-packages)
-;;; crafted-writing-packages.el ends here
+;;; gt-python-packages.el ends here

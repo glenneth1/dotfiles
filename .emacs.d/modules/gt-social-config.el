@@ -1,4 +1,4 @@
-;;;; gt-python-config.el --- Configuration for writing text documents  -*- lexical-binding: t; -*-
+;;;; gt-social-config.el --- Configuration for writing text documents  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023
 ;; SPDX-License-Identifier: MIT
@@ -72,4 +72,4 @@
         seriestracker-sorting-type "next")))                 ;; or "alpha" for alphabetic sort
 
 (provide 'gt-social-config)
-;;; gt-python-config.el ends here
+;;; gt-social-config.el ends here

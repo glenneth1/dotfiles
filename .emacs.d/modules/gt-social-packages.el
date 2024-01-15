@@ -17,4 +17,4 @@
 (add-to-list 'package-selected-packages 'elfeed)
 
 (provide 'gt-social-packages)
-;;; crafted-writing-packages.el ends here
+;;; gt-social-packages.el ends here
