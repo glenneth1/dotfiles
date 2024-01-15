@@ -400,5 +400,13 @@ vterm-max-scrollback 5000))
       (pixel-scroll-precision-interpolate distance-in-pixels))))
 
 
+(use-package xwwp-full
+  :load-path "~/.emacs.d/xwwp"
+  :custom
+  (xwwp-follow-link-completion-system 'helm)
+  :bind (:map xwidget-webkit-mode-map
+              ("v" . xwwp-follow-link)
+              ("t" . xwwp-ace-toggle)))
+
 (provide 'gt-ui-config)
 ;;; gt-ui-config.el ends here
