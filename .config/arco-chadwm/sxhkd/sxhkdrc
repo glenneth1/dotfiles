@@ -76,7 +76,8 @@ super + c
 
 #archlinux-logout
 super + x
-    archlinux-logout
+    ~/.config/rofi/files/powermenu/type-1/powermenu.sh
+#    archlinux-logout
 
 #powermenu
 super + shift + x
@@ -85,6 +86,10 @@ super + shift + x
 #Rofi theme selector
 super + r
     rofi-theme-selector
+
+#rofi quick links
+super + s
+      ~/.config/rofi/files/applets/bin/quicklinks.sh
 
 #Urxvt
 super + t
@@ -128,9 +133,10 @@ super + shift + KP_Enter
 super + shift + d
 	dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
 
-#rofi large
+#rofi
 super + d
-    rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/arco-chadwm/rofi/launcher2.rasi
+    ~/.config/rofi/files/launchers/type-6/launcher.sh
+#    rofi -show drun
 
 #reload sxhkd:
 super + shift + s
