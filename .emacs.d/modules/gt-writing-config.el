@@ -19,10 +19,10 @@
   :defer 3
   :after org)
 
-(use-package pandoc-mode
-;;   :demand t
+;; (use-package pandoc-mode
+;;   :ensure t
 ;;   :config
-  pandoc-mode 1)
+;;   pandoc-mode 1)
 
 (use-package pdf-tools
   :demand t

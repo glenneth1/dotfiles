@@ -63,13 +63,13 @@
 ;;   (rename-buffer "eww" t))
 ;; (add-hook 'eww-mode-hook #'gt-rename-eww-hook)
 
-(use-package seriestracker
-  :demand                                                   ;;To force loading seriestracker
-  :config                                                   ;;These are the default
-  (setq seriestracker-file (concat user-emacs-directory "seriestracker.el"
-        seriestracker--fold-cycle 'seriestracker-all-folded ;; can also be 'seriestracker-all-unfolded or 'seriestracker-series-folded. Will deternine the folding at startup
-        seriestracker-show-watched "hide"                   ;; whether to hide or "show" the watched episodes
-        seriestracker-sorting-type "next")))                 ;; or "alpha" for alphabetic sort
+;; (use-package seriestracker
+;;   :demand                                                   ;;To force loading seriestracker
+;;   :config                                                   ;;These are the default
+;;   (setq seriestracker-file (concat user-emacs-directory "seriestracker.el"
+;;         seriestracker--fold-cycle 'seriestracker-all-folded ;; can also be 'seriestracker-all-unfolded or 'seriestracker-series-folded. Will deternine the folding at startup
+;;         seriestracker-show-watched "hide"                   ;; whether to hide or "show" the watched episodes
+;;         seriestracker-sorting-type "next")))                 ;; or "alpha" for alphabetic sort
 
 (provide 'gt-social-config)
 ;;; gt-social-config.el ends here

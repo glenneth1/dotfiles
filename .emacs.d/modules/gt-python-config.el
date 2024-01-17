@@ -33,7 +33,7 @@
               ("C-c f" . flymake-show-buffer-diagnostics)
               ("C-c r" . eglot-rename)))
 
-(desktop-save-mode 1)
+;; (desktop-save-mode 1)
 
 (use-package highlight-indent-guides
   :ensure t

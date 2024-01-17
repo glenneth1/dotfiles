@@ -30,117 +30,117 @@
 
 ;;; Code:
 
-(use-package bufler
-  :config
-  (bufler-workspace-mode))
+;; (use-package bufler
+;;   :config
+;;   (bufler-workspace-mode))
 
-(bufler-defgroups
-  (group
-   ;; Subgroup collecting all named workspaces.
-   (auto-workspace))
-  (group
-   ;; Subgroup collecting all `help-mode' and `info-mode' buffers.
-   (group-or "*Help/Info*"
-             (mode-match "*Help*" (rx bos "help-"))
-             (mode-match "*Info*" (rx bos "info-"))))
-  (group
-   ;; Subgroup collecting all special buffers (i.e. ones that are not
-   ;; file-backed), except `magit-status-mode' buffers (which are allowed to fall
-   ;; through to other groups, so they end up grouped with their project buffers).
-   (group-and "*Special*"
-              (lambda (buffer)
-                (unless (or (funcall (mode-match "Magit" (rx bos "magit-status"))
-                                     buffer)
-                            (funcall (mode-match "Dired" (rx bos "dired"))
-                                     buffer)
-                            (funcall (auto-file) buffer))
-                  "*Special*")))
+;; (bufler-defgroups
+;;   (group
+;;    ;; Subgroup collecting all named workspaces.
+;;    (auto-workspace))
+;;   (group
+;;    ;; Subgroup collecting all `help-mode' and `info-mode' buffers.
+;;    (group-or "*Help/Info*"
+;;              (mode-match "*Help*" (rx bos "help-"))
+;;              (mode-match "*Info*" (rx bos "info-"))))
+;;   (group
+;;    ;; Subgroup collecting all special buffers (i.e. ones that are not
+;;    ;; file-backed), except `magit-status-mode' buffers (which are allowed to fall
+;;    ;; through to other groups, so they end up grouped with their project buffers).
+;;    (group-and "*Special*"
+;;               (lambda (buffer)
+;;                 (unless (or (funcall (mode-match "Magit" (rx bos "magit-status"))
+;;                                      buffer)
+;;                             (funcall (mode-match "Dired" (rx bos "dired"))
+;;                                      buffer)
+;;                             (funcall (auto-file) buffer))
+;;                   "*Special*")))
 
-   (group
-    ;; Subgroup collecting these "special special" buffers
-    ;; separately for convenience.
-    (name-match "**Special**"
-                (rx bos "*" (or "Messages" "Warnings" "scratch" "Backtrace") "*")))
-   (group 
-    ;; Group collecting all other Ement buffers
-    (mode-match "*Ement*" (rx bos "ement-")))
-   (group
-    ;; Subgroup collecting all other Magit buffers, grouped by directory.
-    (mode-match "*Magit* (non-status)" (rx bos (or "magit" "forge") "-"))
-    (auto-directory))
-   ;; Subgroup for Helm buffers.
-   (mode-match "*Helm*" (rx bos "helm-"))
-   ;; Remaining special buffers are grouped automatically by mode.
-   (auto-mode))
-  ;; All buffers under "~/.emacs.d" (or wherever it is).
-  (dir user-emacs-directory)
-  (group
-   ;; Subgroup collecting buffers in `org-directory' (or "~/org" if
-   ;; `org-directory' is not yet defined).
-   (dir (if (bound-and-true-p org-directory)
-            org-directory
-          "~/Dropbox/org"))
-   (group
-    ;; Subgroup collecting indirect Org buffers, grouping them by file.
-    ;; This is very useful when used with `org-tree-to-indirect-buffer'.
-    (auto-indirect)
-    (auto-file))
-   ;; Group remaining buffers by whether they're file backed, then by mode.
-   (group-not "*special*" (auto-file))
-   (auto-mode))
-  (group
-   ;; Subgroup collecting buffers in a projectile project.
-   (auto-projectile))
-  (group
-   ;; Subgroup collecting buffers in a version-control project,
-   ;; grouping them by directory.
-   (auto-project))
-  ;; Group remaining buffers by directory, then major mode.
-  (auto-directory)
-  (auto-mode))
+;;    (group
+;;     ;; Subgroup collecting these "special special" buffers
+;;     ;; separately for convenience.
+;;     (name-match "**Special**"
+;;                 (rx bos "*" (or "Messages" "Warnings" "scratch" "Backtrace") "*")))
+;;    (group 
+;;     ;; Group collecting all other Ement buffers
+;;     (mode-match "*Ement*" (rx bos "ement-")))
+;;    (group
+;;     ;; Subgroup collecting all other Magit buffers, grouped by directory.
+;;     (mode-match "*Magit* (non-status)" (rx bos (or "magit" "forge") "-"))
+;;     (auto-directory))
+;;    ;; Subgroup for Helm buffers.
+;;    (mode-match "*Helm*" (rx bos "helm-"))
+;;    ;; Remaining special buffers are grouped automatically by mode.
+;;    (auto-mode))
+;;   ;; All buffers under "~/.emacs.d" (or wherever it is).
+;;   (dir user-emacs-directory)
+;;   (group
+;;    ;; Subgroup collecting buffers in `org-directory' (or "~/org" if
+;;    ;; `org-directory' is not yet defined).
+;;    (dir (if (bound-and-true-p org-directory)
+;;             org-directory
+;;           "~/Dropbox/org"))
+;;    (group
+;;     ;; Subgroup collecting indirect Org buffers, grouping them by file.
+;;     ;; This is very useful when used with `org-tree-to-indirect-buffer'.
+;;     (auto-indirect)
+;;     (auto-file))
+;;    ;; Group remaining buffers by whether they're file backed, then by mode.
+;;    (group-not "*special*" (auto-file))
+;;    (auto-mode))
+;;   (group
+;;    ;; Subgroup collecting buffers in a projectile project.
+;;    (auto-projectile))
+;;   (group
+;;    ;; Subgroup collecting buffers in a version-control project,
+;;    ;; grouping them by directory.
+;;    (auto-project))
+;;   ;; Group remaining buffers by directory, then major mode.
+;;   (auto-directory)
+;;   (auto-mode))
 
-  (defun ap/tab-bar-tab-name-function ()
-    "Return project name or tab bar name."
-    (cl-labels ((buffer-project (buffer)
-                  (if-let ((file-name (buffer-file-name buffer)))
-                      (bufler-project-current nil (file-name-directory file-name))
-                    (bufler-project-current nil (buffer-local-value 'default-directory buffer))))
-                (window-prev-buffers-last-project (windows)
-                  (cl-loop for (buffer _ _) in windows
-                           when (buffer-project buffer)
-                           return it)))
-      (if-let ((project (or (buffer-project (window-buffer (minibuffer-selected-window)))
-                            (window-prev-buffers-last-project (window-prev-buffers (minibuffer-selected-window))))))
-          (project-name project)
-        (tab-bar-tab-name-current-with-count))))
-  (setopt tab-bar-tab-name-function #'ap/tab-bar-tab-name-function)
+;;   (defun ap/tab-bar-tab-name-function ()
+;;     "Return project name or tab bar name."
+;;     (cl-labels ((buffer-project (buffer)
+;;                   (if-let ((file-name (buffer-file-name buffer)))
+;;                       (bufler-project-current nil (file-name-directory file-name))
+;;                     (bufler-project-current nil (buffer-local-value 'default-directory buffer))))
+;;                 (window-prev-buffers-last-project (windows)
+;;                   (cl-loop for (buffer _ _) in windows
+;;                            when (buffer-project buffer)
+;;                            return it)))
+;;       (if-let ((project (or (buffer-project (window-buffer (minibuffer-selected-window)))
+;;                             (window-prev-buffers-last-project (window-prev-buffers (minibuffer-selected-window))))))
+;;           (project-name project)
+;;         (tab-bar-tab-name-current-with-count))))
+;;   (setopt tab-bar-tab-name-function #'ap/tab-bar-tab-name-function)
 
-(use-package burly
-  :ensure t)
+;; (use-package burly
+;;   :ensure t)
 
-;; Thanks alphapapa!
-(cl-defun ap/display-buffer-in-side-window (&optional (buffer (current-buffer))
-                                                      &key (side 'right) (slot 0))
-  "Display BUFFER in dedicated side window.
-With universal prefix, use left SIDE instead of right.  With two
-universal prefixes, prompt for side and slot (which allows
-setting up an IDE-like layout)."
-  (interactive (list (current-buffer)
-                     :side (pcase current-prefix-arg
-                             ('nil 'right)
-                             ('(0) left)
-                             (_ (intern (completing-read "Side: " '(left right top bottom) nil t))))
-                     :slot (pcase current-prefix-arg
-                             ('nil 0)
-                             ('(0) 0)
-                             (_ (read-number "Slot: ")))))
-  (let ((display-buffer-mark-dedicated t))
-    (display-buffer buffer
-                    `(display-buffer-in-side-window
-                      (side . ,side)
-                      (slot . ,slot)
-                      (window-parameters
-                       (no-delete-other-windows . t))))))
+;; ;; Thanks alphapapa!
+;; (cl-defun ap/display-buffer-in-side-window (&optional (buffer (current-buffer))
+;;                                                       &key (side 'right) (slot 0))
+;;   "Display BUFFER in dedicated side window.
+;; With universal prefix, use left SIDE instead of right.  With two
+;; universal prefixes, prompt for side and slot (which allows
+;; setting up an IDE-like layout)."
+;;   (interactive (list (current-buffer)
+;;                      :side (pcase current-prefix-arg
+;;                              ('nil 'right)
+;;                              ('(0) left)
+;;                              (_ (intern (completing-read "Side: " '(left right top bottom) nil t))))
+;;                      :slot (pcase current-prefix-arg
+;;                              ('nil 0)
+;;                              ('(0) 0)
+;;                              (_ (read-number "Slot: ")))))
+;;   (let ((display-buffer-mark-dedicated t))
+;;     (display-buffer buffer
+;;                     `(display-buffer-in-side-window
+;;                       (side . ,side)
+;;                       (slot . ,slot)
+;;                       (window-parameters
+;;                        (no-delete-other-windows . t))))))
 
 (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
       doom-themes-enable-italic t); if nil, italics is universally disabled
@@ -400,13 +400,34 @@ vterm-max-scrollback 5000))
       (pixel-scroll-precision-interpolate distance-in-pixels))))
 
 
-(use-package xwwp-full
-  :load-path "~/.emacs.d/xwwp"
-  :custom
-  (xwwp-follow-link-completion-system 'helm)
-  :bind (:map xwidget-webkit-mode-map
-              ("v" . xwwp-follow-link)
-              ("t" . xwwp-ace-toggle)))
+;; (use-package xwwp-full
+;;   :load-path "~/.emacs.d/xwwp"
+;;   :custom
+;;   (xwwp-follow-link-completion-system 'helm)
+;;   :bind (:map xwidget-webkit-mode-map
+;;               ("v" . xwwp-follow-link)
+;;               ("t" . xwwp-ace-toggle)))
+
+
+(use-package activity
+  :load-path "~/.emacs.d/activity.el"
+  :config
+  (activity-mode))
+
+(use-package activity-tabs
+  :load-path "~/.emacs.d/activity.el"
+  :config
+  (activity-tabs-mode))
+
+;; (add-to-list 'load-path "~/.emacs.d/activity.el/")
+;; (require 'activity.el
+;;   :config
+;;   ;; Automatically save activities' states when Emacs is idle and upon
+;;   ;; exit.
+;;   (activity-mode)
+;;   ;; Open activities in `tab-bar' tabs (otherwise frames are used, but
+;;   ;; the author doesn't test that as much).
+;;   (activity-tabs-mode))
 
 (provide 'gt-ui-config)
 ;;; gt-ui-config.el ends here

@@ -137,7 +137,8 @@
         "* %^{Name}\n %:from\n SCHEDULED: %^t\n RETURN:%^{Return Date}t\n DESTINATION:%^{DESTINATION}\n LOCATION:%^{Current Location}\n :END:")
         ("Tm" "TEAM MOVEMENT" entry
         (file+headline "~/Dropbox/org/TFS/TFS.org" "Team Movement")
-        "* MOVEMENT\n TEAM:%^{Team Number}\n FROM:%^{From location}\n TO:%^{To location}%\n SCHEDULED: %^t\n RETURN:%^{Return Date}t\n :END:")
+        "\n\n* TEAM: %^{Team Number}\n MEMBERS: %^{Team Members}\n FROM: %^{From location}\n TO: %^{To location}\n SCHEDULED: %^t\n RETURN:%^{Return Date}t\n **Notes:** %?\n :END:\n"
+        :empty-lines 1)
         ;; New Templates
         ("Tu" "Project Update" entry
          (file+headline "~/Dropbox/org/TFS/TFS.org" "Updates")
@@ -249,7 +250,8 @@
           - **Materials/Resources:** %?\n
           - **Feedback:** %^{Positive|Constructive|None}\n
           - **Follow-up Actions:** %?\n")
-))
+        ))
+
 ;; (use-package doct
 ;;   :ensure t)
 
