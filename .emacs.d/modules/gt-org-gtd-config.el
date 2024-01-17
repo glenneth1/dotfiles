@@ -134,10 +134,15 @@
         "* EVENT %:from\n SCHEDULED: %^t\n :PROPERTIES:\n :TOPIC: %:subject %?\n :END:")
         ("Tr" "R&R" entry
         (file+headline "~/Dropbox/org/TFS/R&R.org" "R&R")
-        "* %^{Name}\n %:from\n SCHEDULED: %^t\n RETURN:%^{Return Date}t\n DESTINATION:%^{DESTINATION}\n LOCATION:%^{Current Location}\n :END:")
+        "\n\n* %^{Name}\n %:from\n RECEIVED: %^{Date Received}t\n START DATE: %^{Start Date}t\n END DATE: %^{End Date}t\n DESTINATION: %^{Destination}\n RETURNING FROM: %^{Returning From}\n LOCATION:%^{Current Location}\n STATUS: %^{Request Status}\n TICKETS REQUESTED: %^{Tickets Requested}t\n TICKETS RECEIVED: %^{Tickets Received}t\n TICKETS ISSUED: %^{Tickets Issued}t\n :END:"
+        :empty-lines 1)
         ("Tm" "TEAM MOVEMENT" entry
-        (file+headline "~/Dropbox/org/TFS/TFS.org" "Team Movement")
+        (file+headline "~/Dropbox/org/TFS/MOVEMENT.org" "Team Movement")
         "\n\n* TEAM: %^{Team Number}\n MEMBERS: %^{Team Members}\n FROM: %^{From location}\n TO: %^{To location}\n SCHEDULED: %^t\n RETURN:%^{Return Date}t\n **Notes:** %?\n :END:\n"
+        :empty-lines 1)
+        ("TM" "INDIVIDUAL MOVEMENT" entry
+        (file+headline "~/Dropbox/org/TFS/MOVEMENT.org" "Individual Movement")
+        "\n\n* INDIVIDUAL: %^{Who}\n REASON: %^{Reason}\n FROM: %^{From location}\n TO: %^{To location}\n SCHEDULED: %^t\n RETURN:%^{Return Date}t\n **Notes:** %?\n :END:\n"
         :empty-lines 1)
         ;; New Templates
         ("Tu" "Project Update" entry
@@ -149,16 +154,17 @@
           - **Upcoming Milestones:** %^{Milestones}\n
           - **Next Steps/Action Items:** %^{Next Steps}\n")
 
-        ("Ti" "Action Item" entry (file+olp "~/Dropbox/org/TFS/actions.org" "Action Items")
-         "* TODO %^{Action Item} - %^t\n
+        ("Ti" "Action Item" entry (file+headline "~/Dropbox/org/TFS/actions.org" "Action Items")
+         "\n\n* TODO %^{Action Item} - %^t\n
           - **Assigned To:** %^{Assignee}\n
           - **Priority:** %^{High|Medium|Low}\n
           - **Due Date:** %^t\n
           - **Description:** %?\n
           - **Status:** TODO\n
-          - **Notes:** %?\n")
+          - **Notes:** %?\n"
+         :empty-lines 1)
 
-        ("Ts" "Issue/Challenge" entry (file+olp "~/Dropbox/org/TFS/issues.org" "Issues")
+        ("Ts" "Issue/Challenge" entry (file+headline "~/Dropbox/org/TFS/issues.org" "Issues")
          "* %^{Issue/Challenge Title} - %^t\n
           - **Details/Context:** %?\n
           - **Impact:** %?\n
@@ -168,7 +174,7 @@
           - **Next Steps/Action Items:** %?\n
           - **Notes:** %?\n")
 
-        ("Td" "Decision" entry (file+olp "~/Dropbox/org/TFS/docs.org" "Decisions")
+        ("Td" "Decision" entry (file+headline "~/Dropbox/org/TFS/docs.org" "Decisions")
          "* TODO %^{Decision} - %^t\n
           - **Decision Context:** %?\n
           - **Options Considered:** %^{Options}\n
@@ -177,7 +183,7 @@
           - **Next Steps/Action Items:** %^{Action Items}\n
           - **Status:** TODO\n")
 
-        ("Tc" "Client Communication" entry (file+olp "~/Dropbox/org/TFS/actions.org" "Client Communication")
+        ("Tc" "Client Communication" entry (file+headline "~/Dropbox/org/TFS/actions.org" "Client Communication")
          "* TODO %^{Client/Stakeholder} - %^t\n
           - **Meeting Type:** %^{Meeting Type}\n
           - **Attendees:** %?\n
@@ -190,7 +196,7 @@
           - **Notes:** %?\n
           - **Status:** TODO\n") 
 
-        ("Tb" "Budget/Expenses" entry (file+olp "~/Dropbox/org/TFS/budget.org" "Budget/Expenses")
+        ("Tb" "Budget/Expenses" entry (file+headline "~/Dropbox/org/TFS/budget.org" "Budget/Expenses")
          "* TODO %^{Expense/Update} - %^t\n
           - **Amount:** %^{Amount}\n
           - **Expense Category:** %^{Category}\n
@@ -201,7 +207,7 @@
           - **Status:** TODO\n")
 
 
-        ("Tx" "Documentation Task" entry (file+olp "~/Dropbox/org/TFS/docs.org" "Documentation")
+        ("Tx" "Documentation Task" entry (file+headline "~/Dropbox/org/TFS/docs.org" "Documentation")
          "* TODO %^{Documentation Task} - %^t\n
           - **Assigned To:** %^{Assignee}\n
           - **Priority:** %^{High|Medium|Low}\n
@@ -210,7 +216,7 @@
           - **Status:** TODO\n
           - **Notes:** %?\n")
 
-        ("Tk" "Knowledge Sharing" entry (file+olp "~/Dropbox/org/TFS/actions.org" "Knowledge Sharing")
+        ("Tk" "Knowledge Sharing" entry (file+headline "~/Dropbox/org/TFS/actions.org" "Knowledge Sharing")
          "* %^{Topic Title} - %^t\n
           - **Presenter/Author:** %^{Presenter/Author}\n
           - **Audience:** %^{Audience}\n
@@ -223,7 +229,7 @@
           - **Follow-up Actions:** %?\n
           - **Feedback:** %^{Positive|Constructive|None}\n")
 
-        ("Tf" "Feedback" entry (file+olp "~/Dropbox/org/TFS/feedback.org" "Feedback")
+        ("Tf" "Feedback" entry (file+headline "~/Dropbox/org/TFS/feedback.org" "Feedback")
          "* %^{Feedback Title} - %^t\n
           - **Feedback From:** %^{Sender}\n
           - **Sender's Contact:** %^{Contact Details}\n
@@ -238,7 +244,7 @@
           - **Follow-up Action Items:** %?\n
           - **Notes:** %?\n")
 
-        ("Tt" "Training" entry (file+olp "~/Dropbox/org/TFS/TFS.org" "Training")
+        ("Tt" "Training" entry (file+headline "~/Dropbox/org/TFS/TFS.org" "Training")
          "* %^{Training Title} - %^t\n
           - **Trainer/Instructor:** %^{Trainer/Instructor}\n
           - **Participants:** %^{Participants}\n
@@ -247,6 +253,16 @@
           - **Agenda:** %?\n
           - **Key Learnings:** %?\n
           - **Exercises/Hands-on:** %?\n
+          - **Materials/Resources:** %?\n
+          - **Feedback:** %^{Positive|Constructive|None}\n
+          - **Follow-up Actions:** %?\n")
+        
+        ("TT" "Teams" entry (file+headline "~/Dropbox/org/TFS/TEAMS.org" "TEAMS")
+         "* %^{Team Number} - %^t\n
+          - **Location:** %^{Location}\n
+          - **Master:** %^{Master}\n
+          - **Journeyman:** %^{Journeyman}\n
+          - **Performance:** %^{Performance}\n
           - **Materials/Resources:** %?\n
           - **Feedback:** %^{Positive|Constructive|None}\n
           - **Follow-up Actions:** %?\n")

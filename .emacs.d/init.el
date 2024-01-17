@@ -31,7 +31,7 @@
                                         ; `package-selected-packages'
                                         ; list
 (require 'crafted-ide-packages)
-;; (require 'crafted-evil-packages)
+(require 'crafted-evil-packages)
 (require 'crafted-org-packages)
 (require 'crafted-ui-packages)
 (require 'crafted-writing-packages)
@@ -52,7 +52,7 @@
 ;; they are here for example purposes.  Find the modules which work
 ;; for you and add them here.
 (require 'crafted-completion-config)
-;; (require 'crafted-evil-config)
+(require 'crafted-evil-config)
 (require 'crafted-ide-config)
 (require 'crafted-defaults-config)
 (require 'crafted-org-config)
