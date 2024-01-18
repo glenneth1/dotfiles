@@ -131,10 +131,10 @@
 ("T" "TFS")
         ("Te" "Events" entry
         (file+headline "~/Dropbox/org/TFS/TFS.org" "Events")
-        "* EVENT %:from\n SCHEDULED: %^t\n :PROPERTIES:\n :TOPIC: %:subject %?\n :END:")
+        "* EVENT %:from\n SCHEDULED: %^t\n :PROPERTIES:\n :TOPIC: %:subject %?\n :END:" :empty-lines 1)
         ("Tr" "R&R" entry
         (file+headline "~/Dropbox/org/TFS/R&R.org" "R&R")
-        "\n\n* %^{Name}\n %:from\n RECEIVED: %^{Date Received}t\n START DATE: %^{Start Date}t\n END DATE: %^{End Date}t\n DESTINATION: %^{Destination}\n RETURNING FROM: %^{Returning From}\n LOCATION:%^{Current Location}\n STATUS: %^{Request Status}\n TICKETS REQUESTED: %^{Tickets Requested}t\n TICKETS RECEIVED: %^{Tickets Received}t\n TICKETS ISSUED: %^{Tickets Issued}t\n :END:"
+        "\n\n* %^{Name}\n %:from\n RECEIVED: %^{Date Received}t\n START DATE: %^{Start Date}t\n END DATE: %^{End Date}t\n DESTINATION: %^{Destination}\n RETURNING FROM: %^{Returning From}\n LOCATION: %^{Current Location}\n STATUS: %^{Request Status}\n TICKETS REQUESTED: %^{Tickets Requested}t\n TICKETS RECEIVED: %^{Tickets Received}t\n TICKETS ISSUED: %^{Tickets Issued}t\n :END:"
         :empty-lines 1)
         ("Tm" "TEAM MOVEMENT" entry
         (file+headline "~/Dropbox/org/TFS/MOVEMENT.org" "Team Movement")
@@ -152,7 +152,8 @@
           - **Key Accomplishments:** %?\n
           - **Challenges and Issues:** %^{Challenges}\n
           - **Upcoming Milestones:** %^{Milestones}\n
-          - **Next Steps/Action Items:** %^{Next Steps}\n")
+          - **Next Steps/Action Items:** %^{Next Steps}\n"
+         :empty-lines 1)
 
         ("Ti" "Action Item" entry (file+headline "~/Dropbox/org/TFS/actions.org" "Action Items")
          "\n\n* TODO %^{Action Item} - %^t\n
@@ -161,27 +162,29 @@
           - **Due Date:** %^t\n
           - **Description:** %?\n
           - **Status:** TODO\n
-          - **Notes:** %?\n"
+          - **Notes:** \n"
          :empty-lines 1)
 
         ("Ts" "Issue/Challenge" entry (file+headline "~/Dropbox/org/TFS/issues.org" "Issues")
-         "* %^{Issue/Challenge Title} - %^t\n
+         "\n\n* %^{Issue/Challenge Title} - %^t\n
           - **Details/Context:** %?\n
           - **Impact:** %?\n
           - **Priority:** %^{High|Medium|Low}\n
           - **Assigned To:** %^{Assignee}\n
           - **Status:** %^{Open|In Progress|Resolved}\n
           - **Next Steps/Action Items:** %?\n
-          - **Notes:** %?\n")
+          - **Notes:** %?\n"
+          :empty-lines 1)
 
         ("Td" "Decision" entry (file+headline "~/Dropbox/org/TFS/docs.org" "Decisions")
-         "* TODO %^{Decision} - %^t\n
+         "\n\n* TODO %^{Decision} - %^t\n
           - **Decision Context:** %?\n
           - **Options Considered:** %^{Options}\n
           - **Decision Rationale:** %?\n
           - **Implications and Risks:** %?\n
           - **Next Steps/Action Items:** %^{Action Items}\n
-          - **Status:** TODO\n")
+          - **Status:** TODO\n"
+         :empty-lines 1)
 
         ("Tc" "Client Communication" entry (file+headline "~/Dropbox/org/TFS/actions.org" "Client Communication")
          "* TODO %^{Client/Stakeholder} - %^t\n
@@ -194,7 +197,8 @@
           - **Follow-up Needed:** %^{Follow-up Needed|Yes|No}\n
           - **Next Meeting Date:** %^t\n
           - **Notes:** %?\n
-          - **Status:** TODO\n") 
+          - **Status:** TODO\n"
+         :empty-lines 1) 
 
         ("Tb" "Budget/Expenses" entry (file+headline "~/Dropbox/org/TFS/budget.org" "Budget/Expenses")
          "* TODO %^{Expense/Update} - %^t\n
@@ -204,7 +208,8 @@
           - **Approval Status:** %^{Approval Status}\n
           - **Receipts Attached:** %^{Yes|No}\n
           - **Next Steps/Action Items:** %^{Action Items}\n
-          - **Status:** TODO\n")
+          - **Status:** TODO\n"
+         :empty-lines 1)
 
 
         ("Tx" "Documentation Task" entry (file+headline "~/Dropbox/org/TFS/docs.org" "Documentation")
@@ -214,7 +219,8 @@
           - **Due Date:** %^t\n
           - **Description:** %?\n
           - **Status:** TODO\n
-          - **Notes:** %?\n")
+          - **Notes:** %?\n"
+         :empty-lines 1)
 
         ("Tk" "Knowledge Sharing" entry (file+headline "~/Dropbox/org/TFS/actions.org" "Knowledge Sharing")
          "* %^{Topic Title} - %^t\n
@@ -227,7 +233,8 @@
           - **Resources/References:** %?\n
           - **Questions/Discussion:** %?\n
           - **Follow-up Actions:** %?\n
-          - **Feedback:** %^{Positive|Constructive|None}\n")
+          - **Feedback:** %^{Positive|Constructive|None}\n"
+         :empty-lines 1)
 
         ("Tf" "Feedback" entry (file+headline "~/Dropbox/org/TFS/feedback.org" "Feedback")
          "* %^{Feedback Title} - %^t\n
@@ -242,7 +249,8 @@
           - **Status:** %^{Open|Acknowledged|Resolved}\n
           - **Follow-up Required:** %^{Yes|No}\n
           - **Follow-up Action Items:** %?\n
-          - **Notes:** %?\n")
+          - **Notes:** %?\n"
+         :empty-lines 1)
 
         ("Tt" "Training" entry (file+headline "~/Dropbox/org/TFS/TFS.org" "Training")
          "* %^{Training Title} - %^t\n
@@ -255,7 +263,8 @@
           - **Exercises/Hands-on:** %?\n
           - **Materials/Resources:** %?\n
           - **Feedback:** %^{Positive|Constructive|None}\n
-          - **Follow-up Actions:** %?\n")
+          - **Follow-up Actions:** %?\n"
+         :empty-lines 1)
         
         ("TT" "Teams" entry (file+headline "~/Dropbox/org/TFS/TEAMS.org" "TEAMS")
          "* %^{Team Number} - %^t\n
@@ -265,7 +274,8 @@
           - **Performance:** %^{Performance}\n
           - **Materials/Resources:** %?\n
           - **Feedback:** %^{Positive|Constructive|None}\n
-          - **Follow-up Actions:** %?\n")
+          - **Follow-up Actions:** %?\n"
+         :empty-lines 1)
         ))
 
 ;; (use-package doct
