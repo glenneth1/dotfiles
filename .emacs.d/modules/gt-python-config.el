@@ -45,5 +45,13 @@
 
 (setq native-comp-async-report-warnings-errors 'silent)
 
+(defun my-close-all-magit-buffers ()
+  "Close all Magit buffers."
+  (interactive)
+  (mapc 'kill-buffer (magit-mode-get-buffers)))
+
+;; Define a hook to run the function after a Magit task is completed
+(add-hook 'magit-post-refresh-hook 'my-close-all-magit-buffers)
+
 (provide 'gt-python-config)
 ;;; gt-python-config.el ends here
