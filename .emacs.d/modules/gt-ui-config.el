@@ -243,6 +243,12 @@ vterm-max-scrollback 5000))
 (keymap-global-set "C-1" 'tab-previous)
 (keymap-global-set "C-2" 'tab-next)
 (keymap-global-set "C-x g" 'magit)
+(keymap-global-set "C-x C-a a" 'activities-resume)
+(keymap-global-set "C-x C-a C-a" 'activities-resume)
+(keymap-global-set "C-x C-a RET" 'activities-switch)
+(keymap-global-set "C-x C-a g" 'activities-revert)
+(keymap-global-set "C-x C-a n" 'activities-new)
+(keymap-global-set "C-x C-a s" 'activities-suspend)
 
 (use-package org-modern
   ;;(with-eval-after-load 'org (global-org-modern-mode)))
@@ -409,15 +415,34 @@ vterm-max-scrollback 5000))
 ;;               ("t" . xwwp-ace-toggle)))
 
 
-(use-package activity
-  :load-path "~/.emacs.d/activity.el"
+(use-package activities
+  :load-path "~/.emacs.d/activities.el"
   :config
-  (activity-mode))
+  (activities-mode))
 
-(use-package activity-tabs
-  :load-path "~/.emacs.d/activity.el"
+(use-package activities-tabs
+  :load-path "~/.emacs.d/activies.el"
   :config
-  (activity-tabs-mode))
+  (activities-tabs-mode))
+
+ ;; :bind
+ ;;  (("C-x C-a a" . activities-resume)
+ ;;   ;; For convenience, we also bind `activities-resume' to "C-a", so the
+ ;;   ;; user need not lift the Control key.  This makes it easier to
+ ;;   ;; quickly switch between activities.
+ ;;   ("C-x C-a C-a" . activities-resume)
+ ;;   ("C-x C-a RET" . activities-switch)
+ ;;   ("C-x C-a g" . activities-revert)
+ ;;   ("C-x C-a n" . activities-new)
+ ;;   ("C-x C-a s" . activities-suspend))
+
+  :config
+  ;; Automatically save activities' states when Emacs is idle and upon
+  ;; exit.
+  (activities-mode)
+  ;; Open activities in `tab-bar' tabs (otherwise frames are used, but
+  ;; the author doesn't test that as much).
+  (activities-tabs-mode)
 
 ;; (add-to-list 'load-path "~/.emacs.d/activity.el/")
 ;; (require 'activity.el

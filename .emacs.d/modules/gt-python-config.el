@@ -43,5 +43,7 @@
   (setq highlight-indent-guides-method 'character))
 
 
+(setq native-comp-async-report-warnings-errors 'silent)
+
 (provide 'gt-python-config)
 ;;; gt-python-config.el ends here
