@@ -184,16 +184,16 @@ ctrl + alt + f
      firefox
 
 #Nitrogen
-ctrl + alt + i
-     nitrogen
+#ctrl + alt + i
+#     nitrogen
 
 #archlinux-logout
-ctrl + alt + k
-     archlinux-logout
+#ctrl + alt + k
+#     archlinux-logout
 
 #archlinux-logout
-ctrl + alt + l
-    archlinux-logout
+#ctrl + alt + l
+#    archlinux-logout
 
 #Pamac-manager
 ctrl + alt + p
