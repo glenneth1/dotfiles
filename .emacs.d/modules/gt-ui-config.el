@@ -144,7 +144,7 @@
 
 (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
       doom-themes-enable-italic t); if nil, italics is universally disabled
-(load-theme 'doom-one)
+(load-theme 'doom-palenight)
 
 (setq user-full-name "Glenn Thompson"
       user-mail-address "Glenn@kirstol.org")
@@ -249,6 +249,7 @@ vterm-max-scrollback 5000))
 (keymap-global-set "C-x C-a g" 'activities-revert)
 (keymap-global-set "C-x C-a n" 'activities-new)
 (keymap-global-set "C-x C-a s" 'activities-suspend)
+(keymap-global-set "C-x C-a C-k" 'activities-kill)
 
 (use-package org-modern
   ;;(with-eval-after-load 'org (global-org-modern-mode)))
@@ -416,14 +417,10 @@ vterm-max-scrollback 5000))
 
 
 (use-package activities
-  :load-path "~/.emacs.d/activities.el"
-  :config
-  (activities-mode))
+  :load-path "~/.emacs.d/activities.el")
 
 (use-package activities-tabs
-  :load-path "~/.emacs.d/activies.el"
-  :config
-  (activities-tabs-mode))
+  :load-path "~/.emacs.d/activies.el")
 
  ;; :bind
  ;;  (("C-x C-a a" . activities-resume)
