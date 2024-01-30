@@ -5,7 +5,6 @@
 						"C-M-s" 'switch-buffer
 						"C-M-t" 'switch-buffer-previous
 						"C-M-r" 'switch-buffer-next
-                        "C-M-o" 'org-capture
 						"C-d" 'follow-hint
 						"C-M-d" 'follow-hint-new-buffer
 						"C-c p" 'copy-password
@@ -103,9 +102,9 @@ for example '(proxy \"socks5://localhost:9050\") for proxying."
 (defvar *my-keymap* (make-keymap "my-map")
   "Keymap for `my-mode'.")
 
-;; (define-bookmarklet-command org-capture
-;;     "Org Protocol capture command"
-;;     javascript:location.href='org-protocol://capture?'+new URLSearchParams({url: location.href,title: document.title,body: window.getSelection()}))
+(define-bookmarklet-command org-capture
+    "Org Protocol capture command"
+    javascript:location.href='org-protocol://capture?'+new URLSearchParams({url: location.href,title: document.title,body: window.getSelection()}))
 
 ;; (define-command org-capture (&optional (buffer (current-buffer)))
 ;;   "Org-capture current page."
@@ -118,47 +117,5 @@ for example '(proxy \"socks5://localhost:9050\") for proxying."
 ;;                :link ,(url buffer)
 ;;                :description ,(title buffer))))
 ;;    `(org-capture)))
+(define-key *my-keymap* "C-M-o" 'org-capture)
 
-(define-command-global org-capture ()
-  (let* ((url (quri:url-encode (buffer-url)))
-         (title (quri:url-encode (buffer-title)))
-         (body (quri:url-encode (%copy)))
-         (org-protocol-uri
-          (format nil
-           "'org-protocol://capture?template=w&url=~a&title=~a&body=~a'"
-           url title body)))
-    (format *error-output* "Sending to Emacs:~%~a~%" org-protocol-uri)
-    (uiop:run-program
-     (list "timeout" "--signal=9" "5m" "emacsclient"
-           org-protocol-uri))))
-
-;; For most users, (list "emacsclient" org-protocol-uri) may be adequate.
-
-;; Helper functions
-
-(defun buffer-url ()
-  "Returns the URL of the current buffer."
-  (quri:render-uri (url (current-buffer))))
-
-(defun buffer-title ()
-  "Returns the title of the current buffer."
-  (title (current-buffer)))
-
-(nyxt::load-lisp "~/.config/nyxt/theme.lisp")
-
-(nyxt::load-lisp "~/.config/nyxt/percentage.lisp")
-
-(define-command toggle-read/unread ()
-  ;; TODO: Add an arrows package and use that
-  (let ((html (document-model (current-buffer))))
-    (alexandria:when-let (button (find-if (lambda (n) (equal "Read / Unread" (plump:attribute n "aria-label")))
-                                          (plump:get-elements-by-tag-name html "button")))
-      (nyxt/dom:click-element button))))
-
-(define-mode outlook-mode ()
-  ((keyscheme-map (define-keyscheme-map "outlook-mode" ()
-                    nyxt/keyscheme:vi-normal (list "C-c C-r" 'toggle-read/unread)
-                    nyxt/keyscheme:vi-insert (list "C-c C-r" 'toggle-read/unread)))))
-
-(define-auto-rule '(match-host "outlook.office.com")
-  :included '(outlook-mode))
