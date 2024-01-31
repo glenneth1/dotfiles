@@ -107,17 +107,17 @@ for example '(proxy \"socks5://localhost:9050\") for proxying."
 ;;     "Org Protocol capture command"
 ;;     javascript:location.href='org-protocol://capture?'+new URLSearchParams({url: location.href,title: document.title,body: window.getSelection()}))
 
-;; (define-command org-capture (&optional (buffer (current-buffer)))
-;;   "Org-capture current page."
-;;   (eval-in-emacs
-;;    `(org-link-set-parameters
-;;      "next"
-;;      :store (lambda ()
-;;               (org-store-link-props
-;;                :type "next"
-;;                :link ,(url buffer)
-;;                :description ,(title buffer))))
-;;    `(org-capture)))
+(define-command org-capture (&optional (buffer (current-buffer)))
+  "Org-capture current page."
+  (eval-in-emacs
+   `(org-link-set-parameters
+     "next"
+     :store (lambda ()
+              (org-store-link-props
+               :type "next"
+               :link ,(url buffer)
+               :description ,(title buffer))))
+   `(org-capture)))
 
 (define-command-global org-capture ()
   (let* ((url (quri:url-encode (buffer-url)))
@@ -129,10 +129,17 @@ for example '(proxy \"socks5://localhost:9050\") for proxying."
            url title body)))
     (format *error-output* "Sending to Emacs:~%~a~%" org-protocol-uri)
     (uiop:run-program
-     (list "timeout" "--signal=9" "5m" "emacsclient"
-           org-protocol-uri))))
+     (list "timeout" "--signal=9" "5m" "emacsclient" org-protocol-uri))))
+
+     ;; (list "timeout" "--signal=9" "5m" "emacsclient"
+     ;;       org-protocol-uri))))
 
 ;; For most users, (list "emacsclient" org-protocol-uri) may be adequate.
+
+
+;; (define-bookmarklet-command org-capture
+;;   "Org capture templates."
+;;   "(function()'org-protocol://capture?'+new URLSearchParams({url: location.href,title: document.title,body: window.getSelection()}))")
 
 ;; Helper functions
 
