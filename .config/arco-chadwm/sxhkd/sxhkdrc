@@ -103,6 +103,10 @@ super + v
 #super + m
 #    pragha
 
+#Nyxt web browser
+super + n
+      nyxt
+
 #alacritty
 super + Return
     alacritty
