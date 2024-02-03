@@ -96,4 +96,4 @@ With a prefix ARG, remove start location."
   (require 'ox-hugo))
 
 (provide 'gt-writing-config)
-;;; crafted-writing-packages.el ends here
+;;; gt-writing-packages.el ends here

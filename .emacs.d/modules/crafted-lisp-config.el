@@ -86,6 +86,8 @@
 ;; command for that implementation.
 (customize-set-variable 'scheme-program-name "guile")
 
+(use-package geiser-guile
+  :ensure t)
 
 (provide 'crafted-lisp-config)
 ;;; crafted-lisp-config.el ends here

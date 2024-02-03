@@ -59,4 +59,4 @@
 (with-eval-after-load 'org (global-org-modern-mode))
 
 (provide 'gt-superagenda-config)
-;;; crafted-org-config.el ends here
+;;; gt-superagenda-config.el ends here

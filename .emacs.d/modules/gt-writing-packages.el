@@ -22,4 +22,4 @@
 (add-to-list 'package-selected-packages 'djvu)
 
 (provide 'gt-writing-packages)
-;;; crafted-writing-packages.el ends here
+;;; gt-writing-packages.el ends here

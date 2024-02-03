@@ -1,4 +1,4 @@
-;;; gt-superagenda-config.el  -*- lexical-binding: t; -*-
+;;; gt-org-gtd-config.el  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023
 ;; SPDX-License-Identifier: MIT

@@ -1,4 +1,4 @@
-;;; crafted-org-config.el  -*- lexical-binding: t; -*-
+;;; gt-mail-config.el  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023
 ;; SPDX-License-Identifier: MIT
