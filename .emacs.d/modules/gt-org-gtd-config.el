@@ -24,12 +24,8 @@
  ;;    :prefix "SPC" ;; set leader
  ;;    :global-prefix "M-SPC") ;; access leader in insert mode
 
-;; (setq org-gtd-directory "~/Dropbox/org/org-gtd")
-
 (use-package org-gtd
   :after org
-;;   :quelpa (org-gtd :fetcher github :repo "trevoke/org-gtd.el"
-;;                    :commit "3.0.0" :upgrade t)
   :demand t
   :custom
   (setq org-directory "~/Dropbox/org/")
@@ -123,11 +119,12 @@
         ("rm" "Manual Cookbook" entry
    (file "~/Dropbox/org/Recipes/cookbook.org")
          "* %^{Recipe title: }\n  :PROPERTIES:\n  :source-url:\n  :servings:\n  :prep-time:\n  :cook-time:\n  :ready-in:\n  :END:\n** Ingredients\n   %?\n** Directions\n\n")
-  ("e" "Email Workflow")
-    ("ef" "Follow Up" entry (file+olp "~/Dropbox/org/Mail.org" "Follow Up")
-          "\n * TODO Follow up with %:fromname on %a\nSCHEDULED:%t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%i\n" :immediate-finish t)
-    ("er" "Read Later" entry (file+olp "~/Dropbox/org/Mail.org" "Read Later")
-     "\n * TODO Read %:subject\nSCHEDULED:%t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%a\n\n%i\n" :immediate-finish t)
+  ("E" "Email Workflow")
+  ("Ef" "Follow Up" entry
+   (file+olp "~/Dropbox/org/Mail.org" "Follow Up")
+          "* TODO Follow up with %:fromname on %a\nSCHEDULED:%t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%i\n" :immediate-finish t :empty-lines 11)
+    ("Er" "Read Later" entry (file+olp "~/Dropbox/org/Mail.org" "Read Later")
+     "* TODO Read %:subject\nSCHEDULED:%t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%a\n\n%i\n" :immediate-finish t :empty-lines 1)
 ("T" "TFS")
         ("Te" "Events" entry
         (file+headline "~/Dropbox/org/TFS/TFS.org" "Events")
@@ -281,125 +278,6 @@
 ;; (use-package doct
 ;;   :ensure t)
 
-;; (setq org-capture-templates
-;;       (doct
-;;        (("t" "Tasks / Projects")
-;;         ("tt" "Task" entry (file+olp "~/Dropbox/org/Tasks.org" "Inbox")
-;;          "* TODO %?\n%U\n%a\n%i\n- **Priority:** %^{High|Medium|Low}\n ; Add priority\n- **Due Date:** %^t\n ; Add due date\n- **Project:** %^{Project}\n ; Add project association\n- **Tags:** %^{Tags}\n ; Add tags for categorization\n- **Assigned To:** %^{Assignee}\n" ; Add assignment
-;;          :empty-lines 1)
-;;         ("c" "Contact information")
-;;         ("ca" "Acquaintances and friends" entry
-;;          (file+headline "~/Dropbox/org/contacts.org" "Acquaintannces and friends")
-;;          "\n * %^{Name SURNAME}\n :PROPERTIES:\n :PHONE: %^{Country Number}\n :EMAIL: %^{Email address}\n :NOTES: %?\n :END:")
-;;         ("cf" "Family" entry
-;;          (file+headline "~/Dropbox/org/contacts.org" "Family members")
-;;          "\n * %^{Name SURNAME}\n :PROPERTIES:\n :PHONE: %^{Country Number}\n :EMAIL: %^{Email address}\n :NOTES: %?\n :END:")
-;;         ("cw" "Work related" entry
-;;          (file+headline "~/Dropbox/org/contacts.org" "Colleagues, functionaries, intermediaries")
-;;          "\n * %^{Name SURNAME}\n :PROPERTIES:\n :PHONE: %^{Country Number}\n :LOCATION: %^{Location}\n :EMAIL: %^{Email address}\n :FUNCTION: %^{Function|Assistant|Inntermediary|External|VIP}\n :NOTES: %?\n :END:")
-;;         ("g" "GTD item"
-;;          entry
-;;          (file (lambda () (org-gtd--path org-gtd-inbox-file-basename)))
-;;          "* %?\n%U\n\n  %i"
-;;          :kill-buffer t)
-;;         ("L" "GTD item with link to where you are in emacs now"
-;;          entry
-;;          (file (lambda () (org-gtd--path org-gtd-inbox-file-basename)))
-;;          "* %?\n%U\n\n  %i\n  %a"
-;;          :kill-buffer t)
-;;         ("j" "Journal Entries")
-;;         ("jj" "Journal" entry
-;;          (file+olp+datetree "~/Dropbox/org/Journal.org")
-;;          "\n * %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
-;;          :clock-in :clock-resume
-;;          :empty-lines 1)
-;;         ("jm" "Meeting" entry
-;;          (file+olp+datetree "~/Dropbox/org/Journal.org")
-;;          "\n * %<%I:%M %p> - %a :meetings:\n\n%?\n\n"
-;;          :clock-in :clock-resume
-;;          :empty-lines 1)
-;;         ("m" "Meetings")
-;;         ("ma" "Appointments" entry
-;;          (file+headline "~/Dropbox/org/meetings.org" "Appointments and work-related meetings")
-;;          "* MEETING %:from\nSCHEDULED: %^t\n :PROPERTIES:\n :TOPIC: %:subject %?\n :END:")
-;;         ("me" "Events" entry
-;;          (file+headline "~/Dropbox/org/meetings.org" "Events and conferences")
-;;          "* MEETING %:from\nSCHEDULED: %^t\n :PROPERTIES:\n :TOPIC: %:subject %?\n :END:")
-;;         ("mr" "Rendez-Vous" entry
-;;          (file+headline "~/Dropbox/org/meetings.org" "Real life meetings")
-;;          "* MEETING %^{With whom}%?\n SCHEDULED: %^t")
-;;         ("I" "ideas")
-;;         ("Ia" "Activity" entry
-;;          (file+headline "~/Dropbox/org/ideas.org" "Activities")
-;;          "* IDEA ACTIVITY %:from\nSCHEDULED: %^t\n :PROPERTIES:\n :TOPIC: %:subject %?\n :END:")
-;;         ("Ie" "Email" entry
-;;          (file+headline "~/Dropbox/org/meetings.org" "Emails")
-;;          "* IDEA EMAIL %:from\nSCHEDULED: %^t\n :PROPERTIES:\n :TOPIC: %:subject %?\n :END:")
-;;         ("Im" "MOVEMENT" entry
-;;          (file+headline "~/Dropbox/org/meetings.org" "Team Movement")
-;;          "* MOVEMENT %^{With whom}%?\n SCHEDULED: %^t")
-;;         ("w" "Default template"
-;;          entry
-;;          (file+headline "~/Dropbox/org/capture.org" "Notes")
-;;          "* %^{Title}\n\n  Source: %u, %c\n\n  %i"
-;;          :empty-lines 1)
-;;         ("s" "Web site" entry (file+headline ,(concat org-directory "Captures.org") "Inbox")
-;;          (file "")
-;;          "\n* %a :website:\n\n%U %?\n\n%:initial")
-;;         ("p" "Protocol" entry (file+headline ,(concat org-directory "Captures.org") "Captured Notes")
-;;          "\n\n* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?")
-;;         ("l" "Protocol Link" entry (file+headline ,(concat org-directory "Captures.org") "Captured Notes")
-;;          "\n\n* %? [[%:link][%:description]] \nCaptured On: %U")
-;;         ("r" "Cookbook")
-;;         ("rc" "Recipes" entry
-;;          (file "~/Dropbox/org/Recipes/cookbook.org")
-;;          "%(org-chef-get-recipe-from-url)"
-;;          :empty-lines 1)
-;;         ("rm" "Manual Cookbook" entry
-;;          (file "~/Dropbox/org/Recipes/cookbook.org")
-;;          "* %^{Recipe title: }\n  :PROPERTIES:\n  :source-url:\n  :servings:\n  :prep-time:\n  :cook-time:\n  :ready-in:\n  :END:\n** Ingredients\n   %?\n** Directions\n\n")
-;;         ("e" "Email Workflow")
-;;         ("ee" "Email"
-;;          entry (expand-file-name "email.org" org-directory)
-;;          "* %?" :empty-lines 1)
-;;         ("ef" "Follow Up" entry (file+olp "~/Dropbox/org/Mail.org" "Follow Up")
-;;          "\n * TODO Follow up with %:fromname on %a\nSCHEDULED:%t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%i\n" :immediate-finish t)
-;;         ("er" "Read Later" entry (file+olp "~/Dropbox/org/Mail.org" "Read Later")
-;;          "\n * TODO Read %:subject\nSCHEDULED:%t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%a\n\n%i\n" :immediate-finish t)
-;;         ("T" "TFS")
-;;         ("Te" "Events" entry
-;;          (file+headline "~/Dropbox/org/TFS/TFS.org" "Events")
-;;          "* EVENT %:from\n SCHEDULED: %^t\n :PROPERTIES:\n :TOPIC: %:subject %?\n :END:")
-;;         ("Tr" "R&R" entry
-;;          (file+headline "~/Dropbox/org/TFS/R&R.org" "R&R")
-;;          "* %^{Name}\n %:from\n SCHEDULED: %^t\n RETURN:%^{Return Date}t\n DESTINATION:%^{DESTINATION}\n LOCATION:%^{Current Location}\n :END:")
-;;         ("Tm" "TEAM MOVEMENT" entry
-;;          (file+headline "~/Dropbox/org/TFS/TFS.org" "Team Movement")
-;;          "* TEAM: %^{Team Number}\n MEMBERS:%^{Members Names}\n FROM:%^{From location}\n TO:%^{To location}%\n SCHEDULED: %^t\n RETURN:%^{Return Date}t\n **Notes:** %?\n:END:\n")
-;;         ;; New Templates
-;;         ("Tu" "Project Update" entry
-;;          (file+headline "~/Dropbox/org/TFS/TFS.org" "Updates")
-;;          "* %^{Update Title} - %^t\n- **Overall Project Status:** %^{Status}\n- **Key Accomplishments:** %?\n- **Challenges and Issues:** %^{Challenges}\n- **Upcoming Milestones:** %^{Milestones}\n- **Next Steps/Action Items:** %^{Next Steps}\n")
-;;         ("Ti" "Action Item" entry (file+olp "~/Dropbox/org/TFS/actions.org" "Action Items")
-;;          "* TODO %^{Action Item} - %^t\n- **Assigned To:** %^{Assignee}\n- **Priority:** %^{High|Medium|Low}\n- **Due Date:** %^t\n- **Description:** %?\n- **Status:** TODO\n- **Notes:** %?\n")
-;;         ("Ts" "Issue/Challenge" entry (file+olp "~/Dropbox/org/TFS/issues.org" "Issues")
-;;          "* %^{Issue/Challenge Title} - %^t\n- **Details/Context:** %?\n- **Impact:** %?\n- **Priority:** %^{High|Medium|Low}\n- **Assigned To:** %^{Assignee}\n- **Status:** %^{Open|In Progress|Resolved}\n- **Next Steps/Action Items:** %?\n- **Notes:** %?\n")
-;;         ("Td" "Decision" entry (file+olp "~/Dropbox/org/TFS/docs.org" "Decisions")
-;;          "* TODO %^{Decision} - %^t\n- **Decision Context:** %?\n- **Options Considered:** %^{Options}\n- **Decision Rationale:** %?\n- **Implications and Risks:** %?\n- **Next Steps/Action Items:** %^{Action Items}\n- **Status:** TODO\n")
-;;         ("Tc" "Client Communication" entry (file+olp "~/Dropbox/org/TFS/actions.org" "Client Communication")
-;;          "* TODO %^{Client/Stakeholder} - %^t\n- **Meeting Type:** %^{Meeting Type}\n- **Attendees:** %?\n- **Agenda:** %^{Agenda}\n- **Discussion Points:** %?\n- **Meeting Outcomes/Agreements:** %?\n- **Action Items:** %^{Action Items}\n- **Follow-up Needed:** %^{Yes|No}\n- **Next Meeting Date:** %^t\n- **Notes:** %?\n- **Status:** TODO\n")
-;;         ("Tb" "Budget/Expenses" entry (file+olp "~/Dropbox/org/TFS/budget.org" "Budget/Expenses")
-;;          "* TODO %^{Expense/Update} - %^t\n- **Amount:** %^{Amount}\n- **Expense Category:** %^{Category}\n- **Justification:** %?\n- **Approval Status:** %^{Approval Status}\n- **Receipts Attached:** %^{Yes|No}\n- **Next Steps/Action Items:** %^{Action Items}\n- **Status:** TODO\n")
-;;         ("Tx" "Documentation Task" entry (file+olp "~/Dropbox/org/TFS/docs.org" "Documentation")
-;;          "* TODO %^{Documentation Task} - %^t\n- **Assigned To:** %^{Assignee}\n- **Priority:** %^{High|Medium|Low}\n- **Due Date:** %^t\n- **Description:** %?\n- **Status:** TODO\n- **Notes:** %?\n")
-;;         ("Tk" "Knowledge Sharing" entry (file+olp "~/Dropbox/org/TFS/actions.org" "Knowledge Sharing")
-;;          "* %^{Topic Title} - %^t\n- **Presenter/Author:** %^{Presenter/Author}\n- **Audience:** %^{Audience}\n- **Format:** %^{Presentation|Documentation|Discussion}\n- **Source/Context:** %^{Source/Context}\n- **Key Points:** %?\n- **Takeaways:** %?\n- **Resources/References:** %?\n- **Questions/Discussion:** %?\n- **Follow-up Actions:** %?\n- **Feedback:** %^{Positive|Constructive|None}\n")
-;;         ("Tf" "Feedback" entry (file+olp "~/Dropbox/org/TFS/feedback.org" "Feedback")
-;;          "* %^{Feedback Title} - %^t\n- **Feedback From:** %^{Sender}\n- **Sender's Contact:** %^{Contact Details}\n- **Feedback Type:** %^{Positive|Constructive|Negative}\n- **Project/Task/Person:** %?\n- **Specifics/Details:** %?\n- **Rating (1-5):** %^{Rating}\n- **Impact/Implications:** %?\n- **Suggestions/Actions:** %?\n- **Status:** %^{Open|Acknowledged|Resolved}\n- **Follow-up Required:** %^{Yes|No}\n- **Follow-up Action Items:** %?\n- **Notes:** %?\n")
-;;         ("Tt" "Training" entry (file+olp "~/Dropbox/org/TFS/TFS.org" "Training")
-;;          "* %^{Training Title} - %^t\n- **Trainer/Instructor:** %^{Trainer/Instructor}\n- **Participants:** %^{Participants}\n- **Location:** %^{Location}\n- **Duration:** %^{Duration}\n- **Agenda:** %?\n- **Key Learnings:** %?\n- **Exercises/Hands-on:** %?\n- **Materials/Resources:**%?\n- **Feedback:** %^{Positive|Constructive|None}\n- **Follow-up Actions:** %?\n")
-;; )))
-
 (defun efs/capture-mail-follow-up (msg)
   (interactive)
   (call-interactively 'org-store-link)
@@ -478,13 +356,5 @@
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
 
 (provide 'gt-org-gtd-config)
+
 ;;; gt-org-gtd-config.el ends here
-
-
-;; (defun set-global-line-spacing (value)
-;;   "Set the line spacing globally in all buffers."
-;;   (interactive "nEnter line spacing value: ")
-;;   (setq-default line-spacing value)
-;;   (redraw-display)) ; Redraw the display to reflect the changes
-
-;; (global-set-key (kbd "C-c s") 'set-global-line-spacing) ; Bind the function to a key (optional)

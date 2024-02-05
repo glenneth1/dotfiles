@@ -58,13 +58,13 @@ super + F12
 # SUPER + ... KEYS
 #################################################################
 
-#Atom
+#Emacs client
 super + e
-    atom
+    emacsclient -c -a emacs
 
 #Browser
 super + w
-    vivaldi-stable
+    firefox
 
 #Conky-toggle
 super + c

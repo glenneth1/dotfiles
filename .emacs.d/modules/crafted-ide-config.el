@@ -137,5 +137,7 @@ installed."
       (ibuffer-do-sort-by-project-file-relative)))
   (add-hook 'ibuffer-hook #'crafted-ide-enhance-ibuffer-with-ibuffer-project))
 
+ (require 'org-tempo)
+
 (provide 'crafted-ide-config)
 ;;; crafted-ide-config.el ends here

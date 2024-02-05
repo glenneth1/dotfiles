@@ -84,7 +84,25 @@
                 (mu4e-drafts-folder  . "/Purpl/Drafts")
                 (mu4e-sent-folder  . "/Purpl/Sent")
                 (mu4e-refile-folder  . "/Purpl/Archive")
-                (mu4e-trash-folder  . "/Purpl/Trash")))))
+                (mu4e-trash-folder  . "/Purpl/Trash")))
+
+;; Work mirror account
+       (make-mu4e-context
+        :name "Versar"
+        :match-func
+          (lambda (msg)
+            (when msg
+              (string-prefix-p "/Versar" (mu4e-message-field msg :maildir))))
+        :vars '((user-mail-address . "versar@kirstol.org")
+                (user-full-name    . "Glenn Versar")
+    (smtpmail-smtp-server  . "eu05.server.plus")
+                (smtpmail-smtp-service . 465)
+                (smtpmail-stream-type  . ssl)
+                (mu4e-compose-signature . "Glenn via Versar Mirror")
+                (mu4e-drafts-folder  . "/Versar/Drafts")
+                (mu4e-sent-folder  . "/Versar/Sent")
+                (mu4e-refile-folder  . "/Versar/Archive")
+                (mu4e-trash-folder  . "/Versar/Trash")))))
 
   (setq mu4e-maildir-shortcuts
         '(("/Gmail/Inbox"             . ?i)

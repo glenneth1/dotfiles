@@ -149,7 +149,7 @@
 (setq user-full-name "Glenn Thompson"
       user-mail-address "Glenn@kirstol.org")
 
-(setq org-directory "~/Dropbox/org/")
+;; (setq org-directory "~/Dropbox/org/")
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
