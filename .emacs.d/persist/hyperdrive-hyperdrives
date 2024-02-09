@@ -1,0 +1,2 @@
+
+#s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data (#1="aaj45d88g4eenu76rpmwzjiabsof1w8u6fufq6oogyhjk1ubygxy" #s(hyperdrive #1# nil nil nil nil ((name . "USHIN")) 330 nil) #2="mxa6cqnbzccbbjtp9tgbuj3gozm4pzmw54xmtiphayxs9fcray4y" #s(hyperdrive #2# nil nil nil nil ((name . "SystemCraftersLiveTest")) 99 nil) #3="8zi95oxyxsutfr7w3z98fse655g3gbzi8mz7cwzqzct6mad1ncry" #s(hyperdrive #3# #4="glenneth" t #4# nil nil 2 nil)))
