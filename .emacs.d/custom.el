@@ -25,7 +25,7 @@
  '(ibuffer-movement-cycle nil)
  '(ibuffer-old-time 24)
  '(kill-do-not-save-duplicates t)
- '(load-prefer-newer t t)
+ '(load-prefer-newer t)
  '(marginalia-annotators
    '(marginalia-annotators-heavy marginalia-annotators-light nil) t)
  '(org-agenda-files
@@ -39,7 +39,29 @@
  '(org-return-follows-link t)
  '(package-archive-priorities
    '(("gnu" . 99) ("nongnu" . 80) ("stable" . 70) ("melpa" . 0)))
- '(package-selected-packages nil)
+ '(package-selected-packages
+   '(0x0 activities aggressive-indent all-the-icons-nerd-fonts apheleia
+         auctex-latexmk blamer bufler burly cape catppuccin-theme cdlatex
+         chatgpt-shell circe company corfu-terminal dashboard denote diff-hl
+         dired-preview dirvish djvu doct doom-modeline doom-themes easy-hugo eat
+         editorconfig edwina elfeed-webkit elisp-demos embark-consult ement emms
+         emojify epkg-marginalia erc-colorize erc-hl-nicks erc-yt ercn
+         evil-collection evil-mu4e evil-nerd-commenter ffmpeg-player fireplace
+         fix-word geiser-guile git-gutter hammy helpful highlight-indent-guides
+         hyperbole hyperdrive ibuffer-project ivy-mpdel ix latex-preview-pane
+         magit markdown-mode mastodon mu4e-alert nerd-icons-dired
+         nerd-icons-ivy-rich nov ob-sagemath orderless org-appear org-bullets
+         org-contacts org-fancy-priorities org-gtd org-mime org-modern
+         org-noter-pdftools org-projectile org-protocol-jekyll org-ql
+         org-superstar org-web-tools ox-hugo ox-pandoc pandoc pandoc-mode
+         podcaster prettier prism quelpa-use-package rainbow-delimiters
+         seriestracker svg-tag-mode swiper tabspaces telega toc-org
+         tree-sitter-langs treesit-auto valign vertico-posframe vterm
+         which-key-posframe xenops yasnippet-snippets yequake))
+ '(rcirc-authinfo
+   '(("100.98.92.133" nickserv "glenneth" "glenneth:b3l0wz3r0")))
+ '(rcirc-server-alist
+   '(("100.98.92.133" :port 5555 :channels ("" "") :encryption tls)))
  '(scroll-conservatively 101)
  '(scroll-margin 0)
  '(scroll-preserve-screen-position t)
@@ -47,7 +69,7 @@
  '(switch-to-buffer-obey-display-actions t)
  '(tab-always-indent 'complete)
  '(vertico-cycle t)
- '(xref-show-definitions-function 'xref-show-definitions-completing-read t))
+ '(xref-show-definitions-function 'xref-show-definitions-completing-read))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
