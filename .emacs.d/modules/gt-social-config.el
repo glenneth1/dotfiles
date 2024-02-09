@@ -54,6 +54,30 @@
 
 (setq erc-hide-list '("JOIN" "PART" "QUIT"))
 
+;; (require 'rcirc)
+;; (require 'auth-source)
+;; (require 'password-cache)
+
+;; (defun my-rcirc-connect ()
+;;   "Connect to IRC using rcirc with authentication and channel auto-join."
+;;   (interactive)
+;;   (let* ((auth-info (car (auth-source-search :max 1
+;;                                               :host "100.98.92.133"
+;;                                               :port "5555"
+;;                                               :require '(:user :secret))))
+;;          (username (plist-get auth-info :user))
+;;          (password (funcall (plist-get auth-info :secret)))
+;;          (irc-port "5555") ; Replace "your-irc-port" with your actual port number
+;;          (server-info (list "100.98.92.133"
+;;                             :port irc-port
+;;                             :nick username
+;;                             :user username
+;;                             :password (list "100.98.92.133" 5555 username password)
+;;                             :channels '("#systencrafters" "#systemcrafters-live" "#nyxt"))))
+;;     (apply 'rcirc-connect server-info)))
+
+;; (my-rcirc-connect)
+
 ;; set browser to emacs browser
 ;; (setq browse-url-browser-function 'eww-browse-url)
 
