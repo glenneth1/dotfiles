@@ -156,7 +156,7 @@
 (scroll-bar-mode -1)
 (tab-bar-mode 1)
 
-(server-start)
+;; (server-start)
 
  (defun d/eshell-toggle ()
     "Minimal hack to toggle eshell."
