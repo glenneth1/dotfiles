@@ -1,29 +1,29 @@
 (define-configuration input-buffer
-		((override-map
-			(let ((map (make-keymap "override-map")))
-				(define-key map
-						"C-M-s" 'switch-buffer
-						"C-M-t" 'switch-buffer-previous
-						"C-M-r" 'switch-buffer-next
-                        "C-M-o" 'org-capture
-						"C-d" 'follow-hint
-						"C-M-d" 'follow-hint-new-buffer
-						"C-c p" 'copy-password
-						"C-c y" 'autofill
-						"C-i" :input-edit-mode
-						"M-:" 'eval-expression
-						"C-s" :search-buffer
-						"C-3" 'hsplit
-						"C-1" 'close-all-panels
-						"C-w" 'delete-current-buffer
-						"M-d" 'scroll-up
-						"M-s" 'scroll-down
-						"M-t" 'history-backwards
-						"M-r" 'history-forwards-maybe-query
-						"C-c" 'copy
-						"C-v" 'paste
-						"M-f" 'focus-first-input-field
-						)))))
+	((override-map
+	  (let ((map (make-keymap "override-map")))
+		(define-key map
+			"C-M-s" 'switch-buffer
+			"C-M-t" 'switch-buffer-previous
+			"C-M-r" 'switch-buffer-next
+            "C-M-o" 'org-capture
+			"C-d" 'follow-hint
+			"C-M-d" 'follow-hint-new-buffer
+			"C-c p" 'copy-password
+			"C-c y" 'autofill
+			"C-i" :input-edit-mode
+			"M-:" 'eval-expression
+			"C-s" :search-buffer
+			"C-3" 'hsplit
+			"C-1" 'close-all-panels
+			"C-w" 'delete-current-buffer
+			"M-d" 'scroll-up
+			"M-s" 'scroll-down
+			"M-t" 'history-backwards
+			"M-r" 'history-forwards-maybe-query
+			"C-c" 'copy
+			"C-v" 'paste
+			"M-f" 'focus-first-input-field
+			)))))
 
 
 
@@ -71,29 +71,29 @@ for example '(proxy \"socks5://localhost:9050\") for proxying."
 
 (defvar my-search-engines
   (list
-	 (make-instance 'search-engine
-									:name "My-Wiki"
-									:shortcut "w"
-									:search-url "https://en.wikipedia.org/w/index.php?search=~a"
-									:fallback-url (quri:uri "https://en.wikipedia.org/")
-									:completion-function
-									(make-wikipedia-completion)
-									)
-	 (make-instance 'search-engine
-									:name "My-Google"
-									:shortcut "g"
-									:search-url "https://google.com/search?q=~a"
-									:fallback-url (quri:uri "https://google.com")
-									:completion-function
-									(make-google-completion)
-									)
-	 )
+   (make-instance 'search-engine
+				  :name "My-Wiki"
+				  :shortcut "w"
+				  :search-url "https://en.wikipedia.org/w/index.php?search=~a"
+				  :fallback-url (quri:uri "https://en.wikipedia.org/")
+				  :completion-function
+				  (make-wikipedia-completion)
+				  )
+   (make-instance 'search-engine
+				  :name "My-Google"
+				  :shortcut "g"
+				  :search-url "https://google.com/search?q=~a"
+				  :fallback-url (quri:uri "https://google.com")
+				  :completion-function
+				  (make-google-completion)
+				  )
+   )
   "List of search engines.")
 
 
 
 (define-configuration :context-buffer
-  "Go through the search engines above and make-search-engine out of them."
+    "Go through the search engines above and make-search-engine out of them."
   ((search-engines
     (append
      ;; (mapcar (lambda (engine) (apply 'make-search-engine engine))
@@ -103,43 +103,16 @@ for example '(proxy \"socks5://localhost:9050\") for proxying."
 (defvar *my-keymap* (make-keymap "my-map")
   "Keymap for `my-mode'.")
 
-;; (define-bookmarklet-command org-capture
-;;     "Org Protocol capture command"
-;;     javascript:location.href='org-protocol://capture?'+new URLSearchParams({url: location.href,title: document.title,body: window.getSelection()}))
-
-(define-command org-capture (&optional (buffer (current-buffer)))
-  "Org-capture current page."
-  (eval-in-emacs
-   `(org-link-set-parameters
-     "next"
-     :store (lambda ()
-              (org-store-link-props
-               :type "next"
-               :link ,(url buffer)
-               :description ,(title buffer))))
-   `(org-capture)))
-
-(define-command-global org-capture ()
-  (let* ((url (quri:url-encode (buffer-url)))
-         (title (quri:url-encode (buffer-title)))
-         (body (quri:url-encode (%copy)))
-         (org-protocol-uri
-          (format nil
-           "'org-protocol://capture?template=w&url=~a&title=~a&body=~a'"
-           url title body)))
-    (format *error-output* "Sending to Emacs:~%~a~%" org-protocol-uri)
-    (uiop:run-program
-     (list "timeout" "--signal=9" "5m" "emacsclient" org-protocol-uri))))
-
-     ;; (list "timeout" "--signal=9" "5m" "emacsclient"
-     ;;       org-protocol-uri))))
-
-;; For most users, (list "emacsclient" org-protocol-uri) may be adequate.
-
-
-;; (define-bookmarklet-command org-capture
-;;   "Org capture templates."
-;;   "(function()'org-protocol://capture?'+new URLSearchParams({url: location.href,title: document.title,body: window.getSelection()}))")
+(nyxt/mode/bookmarklets:define-bookmarklet-command-global org-capture
+    "Org capture templates."
+  "(function() {
+     var url = location.href;
+     var title = document.title;
+     var body = window.getSelection().toString();
+     var captureURL = 'org-protocol://capture?' + new URLSearchParams({url: url, title: title, body: body}).toString();
+     alert(captureURL); // Debugging: Display the capture URL
+     window.location.href = captureURL;
+   })()")
 
 ;; Helper functions
 
@@ -168,4 +141,36 @@ for example '(proxy \"socks5://localhost:9050\") for proxying."
                     nyxt/keyscheme:vi-insert (list "C-c C-r" 'toggle-read/unread)))))
 
 (define-auto-rule '(match-host "outlook.office.com")
-  :included '(outlook-mode))
+    :included '(outlook-mode))
+
+(nyxt/mode/bookmarklets:define-bookmarklet-command-global ;;; this bookmarklet adjusts youtube speed settings
+    hack-youtube-speed 
+    "The internet is mine for the taking!! MUAHAHAHA... change play speed of videos"
+  "(function() { const rate = prompt('Set the new playback rate', 2.5);
+ if (rate != null) { const video = document.getElementsByTagName('video')[0];
+ video.playbackRate = parseFloat(rate); } })();
+ ")
+
+
+(in-package :nyxt)
+
+;; doesn't work the right way yet
+(defun downloads-handler (url)
+  (cond ((str:ends-with? ".pdf" (quri:render-uri url))
+         (define-configuration buffer
+             ((download-path (make-instance 'download-data-path
+                                            :dirname "~/Documents/pdf/dl/")))))
+        (t
+         (define-configuration buffer
+             ((download-path (make-instance 'download-data-path
+                                            :dirname "~/Downloads"))))))
+  url)
+
+
+(define-configuration browser
+    ((before-download-hook
+      (hooks:add-hook %slot-default (make-handler-download #'downloads-handler)))))
+
+;; (define-configuration nyxt::certificates
+;;     (nyxt-certificate:certificate-exception "https://100.98.92.133:9090")
+;;   (nyxt-certificate:certificate-exception "https://localhost:32400"))
