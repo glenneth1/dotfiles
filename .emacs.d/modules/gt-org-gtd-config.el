@@ -17,12 +17,14 @@
 (global-set-key (kbd"C-s") 'swiper)
 ;; (global-set-key (kbd"C-c C-c") 'org-gtd-organize)
 
- ;; set up 'SPC' as the global leader key
- ;;  (general-create-definer dt/leader-keys
- ;;    :states '(normal insert visual emacs)
- ;;    :keymaps 'override
- ;;    :prefix "SPC" ;; set leader
- ;;    :global-prefix "M-SPC") ;; access leader in insert mode
+;; set up 'SPC' as the global leader key
+;;  (general-create-definer dt/leader-keys
+;;    :states '(normal insert visual emacs)
+;;    :keymaps 'override
+;;    :prefix "SPC" ;; set leader
+;;    :global-prefix "M-SPC") ;; access leader in insert mode
+
+(require 'org-protocol)
 
 (use-package org-gtd
   :after org
@@ -44,103 +46,103 @@
 (global-set-key (kbd "C-c l") #'org-store-link)
 (global-set-key (kbd"C-c o c") 'org-capture)
 (setq org-capture-templates
-    `(("t" "Tasks / Projects")
-      ("tt" "Task" entry (file+olp "~/Dropbox/org/Tasks.org" "Inbox")
-           "\n * TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
-      ("c" "Contact information")
-      ("ca" "Acquaintances and friends" entry
-       (file+headline "~/Dropbox/org/contacts.org" "Acquaintannces and friends")
-      "\n * %^{Name SURNAME}\n :PROPERTIES:\n :PHONE: %^{Country Number}\n :EMAIL: %^{Email address}\n :NOTES: %?\n :END:")
-      ("cf" "Family" entry
-       (file+headline "~/Dropbox/org/contacts.org" "Family members")
-      "\n * %^{Name SURNAME}\n :PROPERTIES:\n :PHONE: %^{Country Number}\n :EMAIL: %^{Email address}\n :NOTES: %?\n :END:")
-      ("cw" "Work related" entry
-       (file+headline "~/Dropbox/org/contacts.org" "Colleagues, functionaries, intermediaries")
-      "\n * %^{Name SURNAME}\n :PROPERTIES:\n :PHONE: %^{Country Number}\n :LOCATION: %^{Location}\n :EMAIL: %^{Email address}\n :FUNCTION: %^{Function|Assistant|Inntermediary|External|VIP}\n :NOTES: %?\n :END:")
+      `(("t" "Tasks / Projects")
+        ("tt" "Task" entry (file+olp "~/Dropbox/org/Tasks.org" "Inbox")
+         "\n * TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
+        ("c" "Contact information")
+        ("ca" "Acquaintances and friends" entry
+         (file+headline "~/Dropbox/org/contacts.org" "Acquaintannces and friends")
+         "\n * %^{Name SURNAME}\n :PROPERTIES:\n :PHONE: %^{Country Number}\n :EMAIL: %^{Email address}\n :NOTES: %?\n :END:")
+        ("cf" "Family" entry
+         (file+headline "~/Dropbox/org/contacts.org" "Family members")
+         "\n * %^{Name SURNAME}\n :PROPERTIES:\n :PHONE: %^{Country Number}\n :EMAIL: %^{Email address}\n :NOTES: %?\n :END:")
+        ("cw" "Work related" entry
+         (file+headline "~/Dropbox/org/contacts.org" "Colleagues, functionaries, intermediaries")
+         "\n * %^{Name SURNAME}\n :PROPERTIES:\n :PHONE: %^{Country Number}\n :LOCATION: %^{Location}\n :EMAIL: %^{Email address}\n :FUNCTION: %^{Function|Assistant|Inntermediary|External|VIP}\n :NOTES: %?\n :END:")
         ("g" "GTD item"
-                 entry
-                 (file (lambda () (org-gtd--path org-gtd-inbox-file-basename)))
-                 "* %?\n%U\n\n  %i"
-                 :kill-buffer t)
+         entry
+         (file (lambda () (org-gtd--path org-gtd-inbox-file-basename)))
+         "* %?\n%U\n\n  %i"
+         :kill-buffer t)
         ("L" "GTD item with link to where you are in emacs now"
-                 entry
-                 (file (lambda () (org-gtd--path org-gtd-inbox-file-basename)))
-                 "* %?\n%U\n\n  %i\n  %a"
-                 :kill-buffer t)
+         entry
+         (file (lambda () (org-gtd--path org-gtd-inbox-file-basename)))
+         "* %?\n%U\n\n  %i\n  %a"
+         :kill-buffer t)
         ("j" "Journal Entries")
         ("jj" "Journal" entry
-           (file+olp+datetree "~/Dropbox/org/Journal.org")
-           "\n * %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
-           ;; ,(dw/read-file-as-string "~/Dropbox/org/Notes/Templates/Daily.org")
-           :clock-in :clock-resume
-           :empty-lines 1)
-      ("jm" "Meeting" entry
-           (file+olp+datetree "~/Dropbox/org/Journal.org")
-           "\n * %<%I:%M %p> - %a :meetings:\n\n%?\n\n"
-           :clock-in :clock-resume
-           :empty-lines 1)
-    ("m" "Meetings")
+         (file+olp+datetree "~/Dropbox/org/Journal.org")
+         "\n * %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
+         ;; ,(dw/read-file-as-string "~/Dropbox/org/Notes/Templates/Daily.org")
+         :clock-in :clock-resume
+         :empty-lines 1)
+        ("jm" "Meeting" entry
+         (file+olp+datetree "~/Dropbox/org/Journal.org")
+         "\n * %<%I:%M %p> - %a :meetings:\n\n%?\n\n"
+         :clock-in :clock-resume
+         :empty-lines 1)
+        ("m" "Meetings")
         ("ma" "Appointments" entry
-        (file+headline "~/Dropbox/org/meetings.org" "Appointments and work related meetings")
-        "* MEETING %:from\nSCHEDULED: %^t\n :PROPERTIES:\n :TOPIC: %:subject %?\n :END:")
+         (file+headline "~/Dropbox/org/meetings.org" "Appointments and work related meetings")
+         "* MEETING %:from\nSCHEDULED: %^t\n :PROPERTIES:\n :TOPIC: %:subject %?\n :END:")
         ("me" "Events" entry
-        (file+headline "~/Dropbox/org/meetings.org" "Events and conferences")
-        "* MEETING %:from\nSCHEDULED: %^t\n :PROPERTIES:\n :TOPIC: %:subject %?\n :END:")
+         (file+headline "~/Dropbox/org/meetings.org" "Events and conferences")
+         "* MEETING %:from\nSCHEDULED: %^t\n :PROPERTIES:\n :TOPIC: %:subject %?\n :END:")
         ("mr" "Rendez-Vous" entry
-        (file+headline "~/Dropbox/org/meetings.org" "Real life meetings")
-        "* MEETING %^{With whom}%?\n SCHEDULED: %^t")
- ("I" "ideas")
+         (file+headline "~/Dropbox/org/meetings.org" "Real life meetings")
+         "* MEETING %^{With whom}%?\n SCHEDULED: %^t")
+        ("I" "ideas")
         ("Ia" "Activity" entry
-        (file+headline "~/Dropbox/org/ideas.org" "Acitvities")
-        "* IDEA ACTIVITY %:from\nSCHEDULED: %^t\n :PROPERTIES:\n :TOPIC: %:subject %?\n :END:")
+         (file+headline "~/Dropbox/org/ideas.org" "Acitvities")
+         "* IDEA ACTIVITY %:from\nSCHEDULED: %^t\n :PROPERTIES:\n :TOPIC: %:subject %?\n :END:")
         ("Ie" "Email" entry
-        (file+headline "~/Dropbox/org/meetings.org" "Emails")
-        "* IDEA EMAIL %:from\nSCHEDULED: %^t\n :PROPERTIES:\n :TOPIC: %:subject %?\n :END:")
+         (file+headline "~/Dropbox/org/meetings.org" "Emails")
+         "* IDEA EMAIL %:from\nSCHEDULED: %^t\n :PROPERTIES:\n :TOPIC: %:subject %?\n :END:")
         ("Im" "MOVEMENT" entry
-        (file+headline "~/Dropbox/org/meetings.org" "Team Movement")
-        "* MOVEMENT %^{With whom}%?\n SCHEDULED: %^t")
-("w" "Default template"
+         (file+headline "~/Dropbox/org/meetings.org" "Team Movement")
+         "* MOVEMENT %^{With whom}%?\n SCHEDULED: %^t")
+        ("w" "Default template"
          entry
          (file+headline "~/Dropbox/org/capture.org" "Notes")
          "* %^{Title}\n\n  Source: %u, %c\n\n  %i"
          :empty-lines 1)
-("s" "Web site" entry (file+headline ,(concat org-directory "Captures.org") "Inbox")
-  (file "")
-  "\n* %a :website:\n\n%U %?\n\n%:initial")
-("p" "Protocol" entry (file+headline ,(concat org-directory "Captures.org") "Captured Notes")
-        "\n\n* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?")
-("l" "Protocol Link" entry (file+headline ,(concat org-directory "Captures.org") "Captured Notes")
-        "\n\n* %? [[%:link][%:description]] \nCaptured On: %U")
-("r" "Cookbook")
-         ("rc" "Recipes" entry
-    (file "~/Dropbox/org/Recipes/cookbook.org")
+        ("s" "Web site" entry (file+headline "~/Dropbox/org/Captures.org" "Captured Notes" "Inbox")
+         (file "")
+         "\n* %a :website:\n\n%U %?\n\n%:initial" :empty-lines 1)
+        ("p" "Protocol" entry (file+headline "~/Dropbox/org/Captures.org" "Captured Notes")
+         "\n\n* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?" :empty-lines 1)
+        ("l" "Protocol Link" entry (file+headline "~/Dropbox/org/Captures.org" "Captured Notes")
+         "\n\n* %? [[%:link][%:description]] \nCaptured On: %U" :empty-lines 1)
+        ("r" "Cookbook")
+        ("rc" "Recipes" entry
+         (file "~/Dropbox/org/Recipes/cookbook.org")
          "%(org-chef-get-recipe-from-url)"
          :empty-lines 1)
         ("rm" "Manual Cookbook" entry
-   (file "~/Dropbox/org/Recipes/cookbook.org")
+         (file "~/Dropbox/org/Recipes/cookbook.org")
          "* %^{Recipe title: }\n  :PROPERTIES:\n  :source-url:\n  :servings:\n  :prep-time:\n  :cook-time:\n  :ready-in:\n  :END:\n** Ingredients\n   %?\n** Directions\n\n")
-  ("E" "Email Workflow")
-  ("Ef" "Follow Up" entry
-   (file+olp "~/Dropbox/org/Mail.org" "Follow Up")
-          "* TODO Follow up with %:fromname on %a\nSCHEDULED:%t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%i\n" :immediate-finish t :empty-lines 11)
-    ("Er" "Read Later" entry (file+olp "~/Dropbox/org/Mail.org" "Read Later")
-     "* TODO Read %:subject\nSCHEDULED:%t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%a\n\n%i\n" :immediate-finish t :empty-lines 1)
-("T" "TFS")
+        ("E" "Email Workflow")
+        ("Ef" "Follow Up" entry
+         (file+olp "~/Dropbox/org/Mail.org" "Follow Up")
+         "* TODO Follow up with %:fromname on %a\nSCHEDULED:%t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%i\n" :immediate-finish t :empty-lines 11)
+        ("Er" "Read Later" entry (file+olp "~/Dropbox/org/Mail.org" "Read Later")
+         "* TODO Read %:subject\nSCHEDULED:%t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%a\n\n%i\n" :immediate-finish t :empty-lines 1)
+        ("T" "TFS")
         ("Te" "Events" entry
-        (file+headline "~/Dropbox/org/TFS/TFS.org" "Events")
-        "* EVENT %:from\n SCHEDULED: %^t\n :PROPERTIES:\n :TOPIC: %:subject %?\n :END:" :empty-lines 1)
+         (file+headline "~/Dropbox/org/TFS/TFS.org" "Events")
+         "* EVENT %:from\n SCHEDULED: %^t\n :PROPERTIES:\n :TOPIC: %:subject %?\n :END:" :empty-lines 1)
         ("Tr" "R&R" entry
-        (file+headline "~/Dropbox/org/TFS/R&R.org" "R&R")
-        "\n\n* %^{Name}\n %:from\n RECEIVED: %^{Date Received}t\n START DATE: %^{Start Date}t\n END DATE: %^{End Date}t\n DESTINATION: %^{Destination}\n RETURNING FROM: %^{Returning From}\n LOCATION: %^{Current Location}\n STATUS: %^{Request Status}\n TICKETS REQUESTED: %^{Tickets Requested}t\n TICKETS RECEIVED: %^{Tickets Received}t\n TICKETS ISSUED: %^{Tickets Issued}t\n :END:"
-        :empty-lines 1)
+         (file+headline "~/Dropbox/org/TFS/R&R.org" "R&R")
+         "\n\n* %^{Name}\n %:from\n RECEIVED: %^{Date Received}t\n START DATE: %^{Start Date}t\n END DATE: %^{End Date}t\n DESTINATION: %^{Destination}\n RETURNING FROM: %^{Returning From}\n LOCATION: %^{Current Location}\n STATUS: %^{Request Status}\n TICKETS REQUESTED: %^{Tickets Requested}t\n TICKETS RECEIVED: %^{Tickets Received}t\n TICKETS ISSUED: %^{Tickets Issued}t\n :END:"
+         :empty-lines 1)
         ("Tm" "TEAM MOVEMENT" entry
-        (file+headline "~/Dropbox/org/TFS/MOVEMENT.org" "Team Movement")
-        "\n\n* TEAM: %^{Team Number}\n MEMBERS: %^{Team Members}\n FROM: %^{From location}\n TO: %^{To location}\n SCHEDULED: %^t\n RETURN:%^{Return Date}t\n **Notes:** %?\n :END:\n"
-        :empty-lines 1)
+         (file+headline "~/Dropbox/org/TFS/MOVEMENT.org" "Team Movement")
+         "\n\n* TEAM: %^{Team Number}\n MEMBERS: %^{Team Members}\n FROM: %^{From location}\n TO: %^{To location}\n SCHEDULED: %^t\n RETURN:%^{Return Date}t\n **Notes:** %?\n :END:\n"
+         :empty-lines 1)
         ("TM" "INDIVIDUAL MOVEMENT" entry
-        (file+headline "~/Dropbox/org/TFS/MOVEMENT.org" "Individual Movement")
-        "\n\n* INDIVIDUAL: %^{Who}\n REASON: %^{Reason}\n FROM: %^{From location}\n TO: %^{To location}\n SCHEDULED: %^t\n RETURN:%^{Return Date}t\n **Notes:** %?\n :END:\n"
-        :empty-lines 1)
+         (file+headline "~/Dropbox/org/TFS/MOVEMENT.org" "Individual Movement")
+         "\n\n* INDIVIDUAL: %^{Who}\n REASON: %^{Reason}\n FROM: %^{From location}\n TO: %^{To location}\n SCHEDULED: %^t\n RETURN:%^{Return Date}t\n **Notes:** %?\n :END:\n"
+         :empty-lines 1)
         ;; New Templates
         ("Tu" "Project Update" entry
          (file+headline "~/Dropbox/org/TFS/TFS.org" "Updates")
@@ -171,7 +173,7 @@
           - **Status:** %^{Open|In Progress|Resolved}\n
           - **Next Steps/Action Items:** %?\n
           - **Notes:** %?\n"
-          :empty-lines 1)
+         :empty-lines 1)
 
         ("Td" "Decision" entry (file+headline "~/Dropbox/org/TFS/docs.org" "Decisions")
          "\n\n* TODO %^{Decision} - %^t\n
@@ -290,13 +292,13 @@
 
 ;; Add custom actions for our capture templates
 (add-to-list 'mu4e-headers-actions
-  '("follow up" . efs/capture-mail-follow-up) t)
+             '("follow up" . efs/capture-mail-follow-up) t)
 (add-to-list 'mu4e-view-actions
-  '("follow up" . efs/capture-mail-follow-up) t)
+             '("follow up" . efs/capture-mail-follow-up) t)
 (add-to-list 'mu4e-headers-actions
-  '("read later" . efs/capture-mail-read-later) t)
+             '("read later" . efs/capture-mail-read-later) t)
 (add-to-list 'mu4e-view-actions
-  '("read later" . efs/capture-mail-read-later) t)
+             '("read later" . efs/capture-mail-read-later) t)
 
 
 (use-package org-fancy-priorities
@@ -312,8 +314,8 @@
         ( sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANC(k@)")))
 
 (use-package toc-org
-    :commands toc-org-enable
-    :init (add-hook 'org-mode-hook 'toc-org-enable))
+  :commands toc-org-enable
+  :init (add-hook 'org-mode-hook 'toc-org-enable))
 
 (add-hook 'org-mode-hook 'org-indent-mode)
 (use-package org-bullets)
@@ -324,8 +326,8 @@
   :hook (org-mode . org-superstar-mode)
   :config
   (setq org-superstar-special-todo-items t)
-            (org-superstar-mode 1)
- (setq org-superstar-headline-bullets-list '("⁖" "◉" "○" "✸" "✿")
+  (org-superstar-mode 1)
+  (setq org-superstar-headline-bullets-list '("⁖" "◉" "○" "✸" "✿")
         org-superstar-itembullet-alist '((?+ . ??) (?- . ??)))) ; changes +/- symbols in item lists
 
 (require 'org-habit)
@@ -336,24 +338,24 @@
 (use-package rainbow-delimiters
   :ensure t
   :config
-;;  (require 'rainbow-delimiters)
+  ;;  (require 'rainbow-delimiters)
   (rainbow-delimiters-mode 1))
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 ;; (with-eval-after-load 'org (global-org-modern-mode))
 
 (with-eval-after-load 'ox-latex
-(add-to-list 'org-latex-classes
-             '("org-plain-latex"
-               "\\documentclass{article}
+  (add-to-list 'org-latex-classes
+               '("org-plain-latex"
+                 "\\documentclass{article}
            [NO-DEFAULT-PACKAGES]
            [PACKAGES]
            [EXTRA]"
-               ("\\section{%s}" . "\\section*{%s}")
-               ("\\subsection{%s}" . "\\subsection*{%s}")
-               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-               ("\\paragraph{%s}" . "\\paragraph*{%s}")
-               ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+                 ("\\section{%s}" . "\\section*{%s}")
+                 ("\\subsection{%s}" . "\\subsection*{%s}")
+                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
 
 (provide 'gt-org-gtd-config)
 
