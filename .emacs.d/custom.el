@@ -25,7 +25,7 @@
  '(ibuffer-movement-cycle nil)
  '(ibuffer-old-time 24)
  '(kill-do-not-save-duplicates t)
- '(load-prefer-newer t)
+ '(load-prefer-newer t t)
  '(marginalia-annotators
    '(marginalia-annotators-heavy marginalia-annotators-light nil) t)
  '(org-agenda-files
@@ -69,7 +69,7 @@
  '(switch-to-buffer-obey-display-actions t)
  '(tab-always-indent 'complete)
  '(vertico-cycle t)
- '(xref-show-definitions-function 'xref-show-definitions-completing-read))
+ '(xref-show-definitions-function 'xref-show-definitions-completing-read t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
