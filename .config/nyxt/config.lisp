@@ -174,3 +174,37 @@ for example '(proxy \"socks5://localhost:9050\") for proxying."
 ;; (define-configuration nyxt::certificates
 ;;     (nyxt-certificate:certificate-exception "https://100.98.92.133:9090")
 ;;   (nyxt-certificate:certificate-exception "https://localhost:32400"))
+
+;; (defun change-youtube-volume (increase)
+;;   "Change the volume of the currently focused YouTube video in Nyxt browser.
+;;   INCREASE: If T, increase the volume, otherwise decrease."
+;;   (execute-javascript
+;;    (format nil
+;;            "var videos = document.querySelectorAll('video[src*=\"youtube.com\"]');
+;;             videos.forEach(function(video) {
+;;               var currentVolume = video.volume;
+;;               var newVolume = ~a ? Math.min(currentVolume + 0.1, 1) : Math.max(currentVolume - 0.1, 0);
+;;               video.volume = newVolume;
+;;             });"
+;;            increase)))
+
+;; (defun handle-volume-increase ()
+;;   "Handle the volume increase command."
+;;   (change-youtube-volume t))
+
+;; (defun handle-volume-decrease ()
+;;   "Handle the volume decrease command."
+;;   (change-youtube-volume nil))
+
+;; (define-command "volume-increase" ()
+;;   "Increase volume of the focused YouTube video."
+;;   (handle-volume-increase))
+
+;; (define-command "volume-decrease" ()
+;;   "Decrease volume of the focused YouTube video."
+;;   (handle-volume-decrease))
+
+;; (bind-key "C-c +" "volume-increase")
+;; (bind-key "C-c -" "volume-decrease")
+
+
