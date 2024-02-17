@@ -28,6 +28,16 @@
  '(load-prefer-newer t t)
  '(marginalia-annotators
    '(marginalia-annotators-heavy marginalia-annotators-light nil) t)
+ '(elfeed-feeds
+   '("https://en.royanews.tv/rss" "http://feeds.bbci.co.uk/news/rss.xml"
+     "https://sachachua.com/blog/feed"
+     "https://sachachua.com/blog/2003/08/rss-feed/"
+     "https://feeds.megaphone.fm/the-pitchfork-review"
+     "indieisnotagenre.com/feed" "https://www.reddit.com/r/linux/.rss"
+     "https://systemcrafters.net/rss/news.xml"
+     "https://irreal.org/blog/?feed=rss2"
+     "https://www.reddit.com/r/orgmode.rss"
+     "https://www.reddit.com/r/emacs.rss"))
  '(org-agenda-files
    '("~/Dropbox/org/TFS/R&R.org"
      "/home/glenn/Dropbox/org/org-gtd/org-gtd-tasks.org"
@@ -39,25 +49,7 @@
  '(org-return-follows-link t)
  '(package-archive-priorities
    '(("gnu" . 99) ("nongnu" . 80) ("stable" . 70) ("melpa" . 0)))
- '(package-selected-packages
-   '(0x0 activities aggressive-indent all-the-icons-nerd-fonts apheleia
-         auctex-latexmk blamer bufler burly cape catppuccin-theme cdlatex
-         chatgpt-shell circe company corfu-terminal dashboard denote diff-hl
-         dired-preview dirvish djvu doct doom-modeline doom-themes easy-hugo eat
-         editorconfig edwina elfeed-webkit elisp-demos embark-consult ement emms
-         emojify epkg-marginalia erc-colorize erc-hl-nicks erc-yt ercn
-         evil-collection evil-mu4e evil-nerd-commenter ffmpeg-player fireplace
-         fix-word geiser-guile git-gutter hammy helpful highlight-indent-guides
-         hyperbole hyperdrive ibuffer-project ivy-mpdel ix latex-preview-pane
-         magit markdown-mode mastodon mu4e-alert nerd-icons-dired
-         nerd-icons-ivy-rich nov ob-sagemath orderless org-appear org-bullets
-         org-contacts org-fancy-priorities org-gtd org-mime org-modern
-         org-noter-pdftools org-projectile org-protocol-jekyll org-ql
-         org-superstar org-web-tools ox-hugo ox-pandoc pandoc pandoc-mode
-         podcaster prettier prism quelpa-use-package rainbow-delimiters
-         seriestracker svg-tag-mode swiper tabspaces telega toc-org
-         tree-sitter-langs treesit-auto valign vertico-posframe vterm
-         which-key-posframe xenops yasnippet-snippets yequake))
+ '(package-selected-packages nil)
  '(rcirc-authinfo
    '(("100.98.92.133" nickserv "glenneth" "glenneth:b3l0wz3r0")))
  '(rcirc-server-alist
