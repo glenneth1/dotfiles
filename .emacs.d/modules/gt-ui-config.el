@@ -158,25 +158,25 @@
 
 ;; (server-start)
 
- (defun d/eshell-toggle ()
-    "Minimal hack to toggle eshell."
-    (interactive)
-    (cond
-     ((derived-mode-p 'eshell-mode) (if (one-window-p) (switch-to-prev-buffer) (delete-window)))
-     ((one-window-p) (progn (select-window (split-window-below)) (shrink-window 7) (eshell)))
-     (t (progn (other-window 1)
-		       (if (derived-mode-p 'eshell-mode) (delete-window)
-		         (progn (other-window -1) (select-window (split-window-below)) (shrink-window 7) (eshell)))))))
+(defun d/eshell-toggle ()
+  "Minimal hack to toggle eshell."
+  (interactive)
+  (cond
+   ((derived-mode-p 'eshell-mode) (if (one-window-p) (switch-to-prev-buffer) (delete-window)))
+   ((one-window-p) (progn (select-window (split-window-below)) (shrink-window 7) (eshell)))
+   (t (progn (other-window 1)
+		     (if (derived-mode-p 'eshell-mode) (delete-window)
+		       (progn (other-window -1) (select-window (split-window-below)) (shrink-window 7) (eshell)))))))
 
 (defun disable-mode-line ()
-(setq mode-line-format nil))
+  (setq mode-line-format nil))
 
 (use-package vterm
-:hook (vterm-mode . disable-line-numbers)
-:hook (vterm-mode . disable-mode-line)
-:config
-(setq shell-file-name "/bin/zsh"
-vterm-max-scrollback 5000))
+  :hook (vterm-mode . disable-line-numbers)
+  :hook (vterm-mode . disable-mode-line)
+  :config
+  (setq shell-file-name "/bin/zsh"
+        vterm-max-scrollback 5000))
 
 (set-face-attribute 'default nil
                     :font "JetBrains Mono"
@@ -267,61 +267,61 @@ vterm-max-scrollback 5000))
 (require 'vertico-posframe)
 (vertico-posframe-mode 1)
 
- (defun toggle-transparency ()
-   (interactive)
-   (let ((alpha (frame-parameter nil 'alpha)))
-     (set-frame-parameter
-      nil 'alpha
-      (if (eql (cond ((numberp alpha) alpha)
-                     ((numberp (cdr alpha)) (cdr alpha))
-                     ;; Also handle undocumented (<active> <inactive>) form.
-                     ((numberp (cadr alpha)) (cadr alpha)))
-               100)
-          '(85 . 50) '(100 . 100)))))
+(defun toggle-transparency ()
+  (interactive)
+  (let ((alpha (frame-parameter nil 'alpha)))
+    (set-frame-parameter
+     nil 'alpha
+     (if (eql (cond ((numberp alpha) alpha)
+                    ((numberp (cdr alpha)) (cdr alpha))
+                    ;; Also handle undocumented (<active> <inactive>) form.
+                    ((numberp (cadr alpha)) (cadr alpha)))
+              100)
+         '(85 . 50) '(100 . 100)))))
 (global-set-key (kbd "C-c t") 'toggle-transparency)
 
-  ;; Fonts
-  (set-face-attribute 'default nil :font "Monofur NF-16" :weight 'Book)
-  (set-face-attribute 'fixed-pitch nil :font "Monofur NF-16" :weight 'Book)
-  (set-face-attribute 'variable-pitch nil :font "JetBrains Mono-11" :weight 'Light)
+;; Fonts
+(set-face-attribute 'default nil :font "Monofur NF-16" :weight 'Book)
+(set-face-attribute 'fixed-pitch nil :font "Monofur NF-16" :weight 'Book)
+(set-face-attribute 'variable-pitch nil :font "JetBrains Mono-11" :weight 'Light)
 
-  (defun my-org-mode-setup ()
-    "Custom configuration for Org mode."
-    (variable-pitch-mode 1)
-    (mapc
-     (lambda (face) ;; Set font faces for headings, blocks, and bullets
-       (set-face-attribute face nil :font "JetBrains Mono-11" :weight 'Light))
-     (list 'org-level-1
-           'org-level-2
-           'org-level-3
-           'org-level-4
-           'org-level-5
-           'org-level-6
-           'org-level-7
-           'org-level-8
-           'org-quote
-           'org-verbatim
-           'org-list-dt
-           'org-checkbox)))
+(defun my-org-mode-setup ()
+  "Custom configuration for Org mode."
+  (variable-pitch-mode 1)
+  (mapc
+   (lambda (face) ;; Set font faces for headings, blocks, and bullets
+     (set-face-attribute face nil :font "JetBrains Mono-11" :weight 'Light))
+   (list 'org-level-1
+         'org-level-2
+         'org-level-3
+         'org-level-4
+         'org-level-5
+         'org-level-6
+         'org-level-7
+         'org-level-8
+         'org-quote
+         'org-verbatim
+         'org-list-dt
+         'org-checkbox)))
 
-  (add-hook 'org-mode-hook 'my-org-mode-setup) ;; Apply configuration to Org mode files
+(add-hook 'org-mode-hook 'my-org-mode-setup) ;; Apply configuration to Org mode files
 
-  (defun conf/org-font-setup ()
-    "Setup fixed-pitch font for Org."
-    (custom-set-faces
-     '(org-block ((t (:inherit fixed-pitch))))
-     '(org-table ((t (:inherit fixed-pitch))))
-     '(org-formula ((t (:inherit fixed-pitch))))
-     '(org-code ((t (:inherit fixed-pitch))))
-     '(org-verbatim ((t (:inherit fixed-pitch))))
-     '(org-special-keyword ((t (:inherit fixed-pitch))))
-     '(org-checkbox ((t (:inherit fixed-pitch))))
-     '(line-number ((t (:inherit fixed-pitch))))
-     '(line-number-current-line ((t (:inherit fixed-pitch))))
-     '(org-block-begin-line ((t (:inherit fixed-pitch))))
-     '(org-block-end-line ((t (:inherit org-block-begin-line))))))
+(defun conf/org-font-setup ()
+  "Setup fixed-pitch font for Org."
+  (custom-set-faces
+   '(org-block ((t (:inherit fixed-pitch))))
+   '(org-table ((t (:inherit fixed-pitch))))
+   '(org-formula ((t (:inherit fixed-pitch))))
+   '(org-code ((t (:inherit fixed-pitch))))
+   '(org-verbatim ((t (:inherit fixed-pitch))))
+   '(org-special-keyword ((t (:inherit fixed-pitch))))
+   '(org-checkbox ((t (:inherit fixed-pitch))))
+   '(line-number ((t (:inherit fixed-pitch))))
+   '(line-number-current-line ((t (:inherit fixed-pitch))))
+   '(org-block-begin-line ((t (:inherit fixed-pitch))))
+   '(org-block-end-line ((t (:inherit org-block-begin-line))))))
 
-  (add-to-list 'org-mode-hook #'conf/org-font-setup)
+(add-to-list 'org-mode-hook #'conf/org-font-setup)
 
 
 (use-package edwina
@@ -354,7 +354,7 @@ vterm-max-scrollback 5000))
                           (registers . 3)))
   :custom 
   (dashboard-modify-heading-icons '((recents . "file-text")
-				      (bookmarks . "book")))
+				                    (bookmarks . "book")))
   :config
   (dashboard-setup-startup-hook))
 
@@ -426,31 +426,34 @@ vterm-max-scrollback 5000))
 
 (use-package activities-tabs)
 
-  :config
-  ;; Automatically save activities' states when Emacs is idle and upon
-  ;; exit.
-  (activities-mode)
-  ;; Open activities in `tab-bar' tabs (otherwise frames are used, but
-  ;; the author doesn't test that as much).
-  (activities-tabs-mode)
+:config
+;; Automatically save activities' states when Emacs is idle and upon
+;; exit.
+(activities-mode)
+;; Open activities in `tab-bar' tabs (otherwise frames are used, but
+;; the author doesn't test that as much).
+(activities-tabs-mode)
 
 ;; Put backup files neatly away
 (let ((backup-dir "~/Dropbox/org/Backups/")
-     (auto-saves-dir "~/Dropbox/org/Backups/auto-saves/"))
- (dolist (dir (list backup-dir auto-saves-dir))
-   (when (not (file-directory-p dir))
-     (make-directory dir t)))
- (setq backup-directory-alist `(("." . ,backup-dir))
-       auto-save-file-name-transforms `((".*" ,auto-saves-dir t))
-       auto-save-list-file-prefix (concat auto-saves-dir ".saves-")
-       tramp-backup-directory-alist `((".*" . ,backup-dir))
-       tramp-auto-save-directory auto-saves-dir))
+      (auto-saves-dir "~/Dropbox/org/Backups/auto-saves/"))
+  (dolist (dir (list backup-dir auto-saves-dir))
+    (when (not (file-directory-p dir))
+      (make-directory dir t)))
+  (setq backup-directory-alist `(("." . ,backup-dir))
+        auto-save-file-name-transforms `((".*" ,auto-saves-dir t))
+        auto-save-list-file-prefix (concat auto-saves-dir ".saves-")
+        tramp-backup-directory-alist `((".*" . ,backup-dir))
+        tramp-auto-save-directory auto-saves-dir))
 
 (setq backup-by-copying t    ; Don't delink hardlinks
-     delete-old-versions t  ; Clean up the backups
-     version-control t      ; Use version numbers on backups,
-     kept-new-versions 5    ; keep some new versions
-     kept-old-versions 2)   ; and some old ones, too
+      delete-old-versions t  ; Clean up the backups
+      version-control t      ; Use version numbers on backups,
+      kept-new-versions 5    ; keep some new versions
+      kept-old-versions 2)   ; and some old ones, too
+
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "nyxt")
 
 (provide 'gt-ui-config)
 ;;; gt-ui-config.el ends here
