@@ -1,0 +1,124 @@
+
+*mu4e Dashboard*
+
+mu4e dashboard provides a new =mu4e= org link type that allows to execute
+various mu4e queries when clicked. Such links can be organised into a
+dashboard, by simply writing an org file as shown below:
+
+*Screenshot 1*: Full page dashboard
+
+[[./dashboard.png]]
+
+*Screenshot 2*: Side dashboard
+
+[[./dashboard-2.png]]
+
+** Installation
+
+Evaluate the buffer and you're good to go. It is your responsibility to
+write an org file with links pointing to varius queries on your mailboxes.
+
+** Configuration
+
+*** Links
+
+The link syntax is quite intuitive:
+
+#+begin_src org
+[[mu:query|format|count][description]]
+#+end_src
+
+=query= must be a valid mu4e query and =count= (optional) is the maximum
+number of results to be returned. When the link is clicked,
+=mu4e-headers-search= is called with the proper query.
+
+#+begin_src org
+[[mu:flag:unread][All unread]]
+[[mu:flag:unread||10][Last 10 unread]]
+#+end_src
+
+=format= can be used to specify that =query= results are to be counted in
+order to update the description using the given format:
+
+#+begin_src org
+[[mu:flag:unread|%3d][---]]
+#+end_src
+
+With the example above, when the link is cliked, the =---= part will be
+replaced by the number of unread mails.
+
+*** Using mu4e-bookmarks
+
+Queries can include references to mu4e-bookmarks. A bookmark is denoted with
+~bm:<bookmarkName>~
+ 
+~bookmarkName~ cannot contain spaces nor ]. A query can contain several bookmarks,
+but their expansion is not recursive.
+
+For example, assuming the following bookmark exists:
+
+#+begin_src emacs-lisp   :exports both
+(add-to-list 'mu4e-bookmarks
+     '(:name "Unread"
+           :query "flag:unread and not flag:trashed"
+           :key ?f)
+     t)
+#+end_src
+
+the dashboard query:
+
+#+begin_src emacs-lisp   :exports both
+mu:bm:Unread and date:7d..now
+#+end_src
+
+will be expanded to:
+
+#+begin_src emacs-lisp   :exports both
+mu:(flag:unread and not flag:trashed) and date:7d..now
+#+end_src
+
+Note that parenthesis are added around the bookmark to make sure the expansion is hygienic.
+
+*** Key bindings
+
+Keybindings can be configured using the =KEYMAP= keyword in your org file:
+
+#+begin_src org
+#+KEYMAP: key | elisp function
+#+end_src
+
+For example, if you want to bind =;= to context switch, you would write:
+
+#+begin_src org
+#+KEYMAP: ; | mu4e-context-switch
+#+end_src
+
+*** Query test
+
+In the provided [[dashboard.org]], there's a definition for a mu query that can be
+called directly inside the org file using [[https://orgmode.org/worg/org-contrib/babel/][org-babel]]. This can be convenient if
+you want to test a query before creating a link. Usage is quite simple:
+
+#+begin_src org
+#+CALL: query(flag:unread, 10)
+#+RESULTS:
+#+end_src
+
+Just type *C-c C-c* on the call line and you should see query results under the
+RESULTS line.
+
+** Usage
+
+To activate the dashboard, type =mu4e-dashboard-mode=. This will turn on
+=mu4e-dashboard-mode= minor mode and install any custom keybindings in
+the current buffer.
+
+To edit the org file, you'll need to turn off =mu4e-dashboard-mode=.
+
+
+
+** Related
+
+There is a fork of this software which is designed to be used with
+[[https://notmuchmail.org/][notmuch]] instead of with mu4e. It replaces the standard =notmuch-hello=
+dashboard with an org-mode version. You can find it [[https://git.sr.ht/~inwit/org-notmuch-hello][here]].

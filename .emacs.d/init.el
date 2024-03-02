@@ -31,7 +31,7 @@
                                         ; `package-selected-packages'
                                         ; list
 (require 'crafted-ide-packages)
-;; (require 'crafted-evil-packages)
+(require 'crafted-evil-packages)
 (require 'crafted-org-packages)
 (require 'crafted-ui-packages)
 (require 'crafted-writing-packages)
@@ -80,20 +80,20 @@
 
 
 (setq mastodon-instance-url "https://mstdn.social"
-          mastodon-active-user "GeeTee")
+      mastodon-active-user "GeeTee")
 
 (with-eval-after-load 'ox-latex
-(add-to-list 'org-latex-classes
-             '("org-plain-latex"
-               "\\documentclass{article}
+  (add-to-list 'org-latex-classes
+               '("org-plain-latex"
+                 "\\documentclass{article}
            [NO-DEFAULT-PACKAGES]
            [PACKAGES]
            [EXTRA]"
-               ("\\section{%s}" . "\\section*{%s}")
-               ("\\subsection{%s}" . "\\subsection*{%s}")
-               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-               ("\\paragraph{%s}" . "\\paragraph*{%s}")
-               ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+                 ("\\section{%s}" . "\\section*{%s}")
+                 ("\\subsection{%s}" . "\\subsection*{%s}")
+                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
 
 (setopt use-short-answers t)
 
