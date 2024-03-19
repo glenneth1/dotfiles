@@ -18,20 +18,6 @@
   (ement-save-sessions t) ;; Beware, this stores your token to disk in plain text!
   )
 
-(defun gt-irc-connect ()
-  "Connect to an IRC server and join a specific channel."
-  (interactive)
-  (erc-tls :server "irc.twitch.tv"
-           :password "oauth:m6u6sjrcwz6z9wxfoo8vq8i6hnkl5u"
-           :nick "glenneth1"
-           :id "twitch.tv/systemcrafters")
-  (sleep-for 3) ; Wait for a few seconds
-  (erc-cmd-QUOTE "CAP REQ :twitch.tv/membership")
-  (erc-cmd-JOIN "#systemcrafters"))
-
-(global-set-key (kbd "C-c C-i") 'gt-irc-connect)
-
-
 (erc-colorize-mode 1)
 
 (require 'erc-services)
@@ -42,41 +28,14 @@
 
      (setq erc-prompt-for-nickserv-password "")))
 
-
-;; Set autoconnect networks
-(defun my-erc ()
-  "Connect to my ZNC Bouncer server."
-
-  (interactive)
-  (erc-tls :server "100.98.92.133" :port 5555 :nick "glenneth" :full-name "glenneth"))
-
 (erc-hl-nicks-mode 1)
 
 (setq erc-hide-list '("JOIN" "PART" "QUIT"))
 
-;; (require 'rcirc)
-;; (require 'auth-source)
-;; (require 'password-cache)
+(require 'rcirc)
+(require 'auth-source)
+(require 'password-cache)
 
-;; (defun my-rcirc-connect ()
-;;   "Connect to IRC using rcirc with authentication and channel auto-join."
-;;   (interactive)
-;;   (let* ((auth-info (car (auth-source-search :max 1
-;;                                               :host "100.98.92.133"
-;;                                               :port "5555"
-;;                                               :require '(:user :secret))))
-;;          (username (plist-get auth-info :user))
-;;          (password (funcall (plist-get auth-info :secret)))
-;;          (irc-port "5555") ; Replace "your-irc-port" with your actual port number
-;;          (server-info (list "100.98.92.133"
-;;                             :port irc-port
-;;                             :nick username
-;;                             :user username
-;;                             :password (list "100.98.92.133" 5555 username password)
-;;                             :channels '("#systencrafters" "#systemcrafters-live" "#nyxt"))))
-;;     (apply 'rcirc-connect server-info)))
-
-;; (my-rcirc-connect)
 
 ;; set browser to emacs browser
 ;; (setq browse-url-browser-function 'eww-browse-url)
@@ -94,6 +53,34 @@
 ;;         seriestracker--fold-cycle 'seriestracker-all-folded ;; can also be 'seriestracker-all-unfolded or 'seriestracker-series-folded. Will deternine the folding at startup
 ;;         seriestracker-show-watched "hide"                   ;; whether to hide or "show" the watched episodes
 ;;         seriestracker-sorting-type "next")))                 ;; or "alpha" for alphabetic sort
+
+(defun erc-sr-ht ()
+  (interactive)
+  (require 'erc)
+  (require 'erc-sasl)
+  (let ((erc-sasl-auth-source-function #'erc-auth-source-search))
+    (erc-tls :server "chat.sr.ht" :port 6697 :user "glenneth/irc.libera.chat" :nick "glenneth")))
+
+(setq auth-sources '("~/.authinfo.gpg"))
+
+(defun my-fetch-password (&rest params)
+  (require 'auth-source)
+  (let ((match (car (apply 'auth-source-search params))))
+    (if match
+        (let ((secret (plist-get match :secret)))
+          (if (functionp secret)
+              (funcall secret)
+            secret))
+      (error "Password not found for %S" params))))
+
+(defun my-nickserv-password (server)
+  (my-fetch-password :user "glenneth/irc.libera.chat" :machine "chat.sr.ht"))
+
+(setq circe-network-options
+      '(("chat.sr.ht"
+         :port 6697
+         :nick "glenneth"
+         :nickserv-password my-nickserv-password)))
 
 (provide 'gt-social-config)
 ;;; gt-social-config.el ends here

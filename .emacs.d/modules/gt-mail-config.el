@@ -14,52 +14,52 @@
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e/")
 (require 'mu4e)
 :ensure nil
-  :config
+:config
 
-  ;; This is set to 't' to avoid mail syncing issues when using mbsync
-  (setq mu4e-change-filenames-when-moving t)
+;; This is set to 't' to avoid mail syncing issues when using mbsync
+(setq mu4e-change-filenames-when-moving t)
 
-  ;; Refresh mail using isync every 60 minutes
-  (setq mu4e-update-interval (* 60 60))
-  (setq mu4e-get-mail-command "mbsync -a")
-  (setq mu4e-maildir "~/Mail")
+;; Refresh mail using isync every 60 minutes
+(setq mu4e-update-interval (* 60 60))
+(setq mu4e-get-mail-command "mbsync -a")
+(setq mu4e-maildir "~/Mail")
 
 ;; Make sure plain text mails flow correctly for recipients
-  (setq mu4e-compose-format-flowed t)
+(setq mu4e-compose-format-flowed t)
 
-  ;; Configure the function to use for sending mail
-  (setq message-send-mail-function 'smtpmail-send-it)
+;; Configure the function to use for sending mail
+(setq message-send-mail-function 'smtpmail-send-it)
 
-  (setq mu4e-contexts
-        (list
-         ;; Work account
-         (make-mu4e-context
-          :name "Gmail"
-          :match-func
-            (lambda (msg)
-              (when msg
-                (string-prefix-p "/Gmail" (mu4e-message-field msg :maildir))))
-          :vars '((user-mail-address . "glennt40@gmail.com")
-                  (user-full-name    . "Glenn Thompson")
-      (smtpmail-smtp-server  . "smtp.gmail.com")
-                  (smtpmail-smtp-service . 465)
-                  (smtpmail-stream-type  . ssl)
-                  (mu4e-compose-signature . "Glenn via Gmail")
-                  (mu4e-drafts-folder  . "/Gmail/[Google Mail]/Drafts")
-                  (mu4e-sent-folder  . "/Gmail/[Google Mail]/Sent Mail")
-                  (mu4e-refile-folder  . "/Gmail/[Google Mail]/All Mail")
-                  (mu4e-trash-folder  . "/Gmail/[Google Mail]/Bin")))
+(setq mu4e-contexts
+      (list
+       ;; Work account
+       (make-mu4e-context
+        :name "Gmail"
+        :match-func
+        (lambda (msg)
+          (when msg
+            (string-prefix-p "/Gmail" (mu4e-message-field msg :maildir))))
+        :vars '((user-mail-address . "glennt40@gmail.com")
+                (user-full-name    . "Glenn Thompson")
+                (smtpmail-smtp-server  . "smtp.gmail.com")
+                (smtpmail-smtp-service . 465)
+                (smtpmail-stream-type  . ssl)
+                (mu4e-compose-signature . "Glenn via Gmail")
+                (mu4e-drafts-folder  . "/Gmail/[Google Mail]/Drafts")
+                (mu4e-sent-folder  . "/Gmail/[Google Mail]/Sent Mail")
+                (mu4e-refile-folder  . "/Gmail/[Google Mail]/All Mail")
+                (mu4e-trash-folder  . "/Gmail/[Google Mail]/Bin")))
 
-;; Personal account
+       ;; Personal account
        (make-mu4e-context
         :name "Kirstol"
         :match-func
-          (lambda (msg)
-            (when msg
-              (string-prefix-p "/Kirstol" (mu4e-message-field msg :maildir))))
+        (lambda (msg)
+          (when msg
+            (string-prefix-p "/Kirstol" (mu4e-message-field msg :maildir))))
         :vars '((user-mail-address . "glenn@kirstol.org")
                 (user-full-name    . "Glenn Kirstol")
-    (smtpmail-smtp-server  . "eu05.server.plus")
+                (smtpmail-smtp-server  . "eu05.server.plus")
                 (smtpmail-smtp-service . 465)
                 (smtpmail-stream-type  . ssl)
                 (mu4e-compose-signature . "Glenn via Kirstol")
@@ -68,16 +68,16 @@
                 (mu4e-refile-folder  . "/Kirstol/Archive")
                 (mu4e-trash-folder  . "/Kirstol/Trash")))
 
-;; Personal account
+       ;; Personal account
        (make-mu4e-context
         :name "Purpl"
         :match-func
-          (lambda (msg)
-            (when msg
-              (string-prefix-p "/Kirstol" (mu4e-message-field msg :maildir))))
+        (lambda (msg)
+          (when msg
+            (string-prefix-p "/Kirstol" (mu4e-message-field msg :maildir))))
         :vars '((user-mail-address . "glenn@purplasylum.net")
                 (user-full-name    . "Glenn Purpl")
-    (smtpmail-smtp-server  . "mail.privateemail.com")
+                (smtpmail-smtp-server  . "mail.privateemail.com")
                 (smtpmail-smtp-service . 465)
                 (smtpmail-stream-type  . ssl)
                 (mu4e-compose-signature . "Glenn via PurplAsylum")
@@ -86,16 +86,16 @@
                 (mu4e-refile-folder  . "/Purpl/Archive")
                 (mu4e-trash-folder  . "/Purpl/Trash")))
 
-;; Work mirror account
+       ;; Work mirror account
        (make-mu4e-context
         :name "Versar"
         :match-func
-          (lambda (msg)
-            (when msg
-              (string-prefix-p "/Versar" (mu4e-message-field msg :maildir))))
+        (lambda (msg)
+          (when msg
+            (string-prefix-p "/Versar" (mu4e-message-field msg :maildir))))
         :vars '((user-mail-address . "versar@kirstol.org")
                 (user-full-name    . "Glenn Versar")
-    (smtpmail-smtp-server  . "eu05.server.plus")
+                (smtpmail-smtp-server  . "eu05.server.plus")
                 (smtpmail-smtp-service . 465)
                 (smtpmail-stream-type  . ssl)
                 (mu4e-compose-signature . "Glenn via Versar Mirror")
@@ -104,12 +104,12 @@
                 (mu4e-refile-folder  . "/Versar/Archive")
                 (mu4e-trash-folder  . "/Versar/Trash")))))
 
-  (setq mu4e-maildir-shortcuts
-        '(("/Gmail/Inbox"             . ?i)
-          ("/Gmail/[Google Mail]/Sent Mail" . ?s)
-          ("/Gmail/[Google Mail]/Bin"     . ?t)
-          ("/Gmail/[Google Mail]/Drafts"    . ?d)
-          ("/Gmail/[Google Mail]/All Mail"  . ?a)))
+(setq mu4e-maildir-shortcuts
+      '(("/Gmail/Inbox"             . ?i)
+        ("/Gmail/[Google Mail]/Sent Mail" . ?s)
+        ("/Gmail/[Google Mail]/Bin"     . ?t)
+        ("/Gmail/[Google Mail]/Drafts"    . ?d)
+        ("/Gmail/[Google Mail]/All Mail"  . ?a)))
 
 (require 'mu4e-org)
 
@@ -149,30 +149,30 @@
   :demand t
   :config
   (setq org-mime-export-options '(:section-numbers nil
-                                :with-author nil
-                                :with-toc nil)))
+                                                   :with-author nil
+                                                   :with-toc nil)))
 
 (add-hook 'org-mime-html-hook
           (lambda ()
             (org-mime-change-element-style
-            "pre" (format "color: %s; background-color: %s; padding: 0.5em;"
-                          "#E6E1DC" "#232323"))))
+             "pre" (format "color: %s; background-color: %s; padding: 0.5em;"
+                           "#E6E1DC" "#232323"))))
 
 (add-hook 'message-send-hook 'org-mime-confirm-when-no-multipart)
 
 
 (setq gnus-secondary-select-methods
-  '(
-    (nnimap "localhost"
-    (nnimap-address "localhost")
-    (nnimap-server-port 1143)
-    (nnimap-stream network))))
+      '(
+        (nnimap "localhost"
+                (nnimap-address "localhost")
+                (nnimap-server-port 1143)
+                (nnimap-stream network))))
 
 (setq gnus-posting-styles
-  '((".*" ; Matches all groups of messages
-    (address "Glenn Thompson <GThompson@versar.com>")
-    (From "Glenn Thompson <GThompson@versar.com>")
-    ("X-Message-SMTP-Method" "smtp localhost 1025 GThompson@versar.com"))))
+      '((".*" ; Matches all groups of messages
+         (address "Glenn Thompson <GThompson@versar.com>")
+         (From "Glenn Thompson <GThompson@versar.com>")
+         ("X-Message-SMTP-Method" "smtp localhost 1025 GThompson@versar.com"))))
 
 
 (add-hook 'mu4e-view-mode-hook
@@ -181,6 +181,24 @@
   "Custom 'mu4e-view-mode' behaviours.
 Used in 'mu4e-view-mode-hook'."
   (setq-local shr-use-colors nil))
+
+;; (add-to-list 'load-path "~/.emacs.d/src/consult-mu/")
+;; (add-to-list 'load-path "~/.emacs.d/src/consult-mu/extras/")
+;; (use-package consult-mu
+;;   :after (consult mu4e)
+;;   :custom
+;;   ;;maximum number of results shown in minibuffer
+;;   (consult-mu-maxnum 200)
+;;   ;;show preview when pressing any keys
+;;   (consult-mu-preview-key 'any)
+;;   ;;do not mark email as read when previewed
+;;   (consult-mu-mark-previewed-as-read nil)
+;;   ;;do not amrk email as read when selected. This is a good starting point to ensure you would not miss important emails marked as read by mistake especially when trying this package out. Later you can change this to t.
+;;   (consult-mu-mark-viewed-as-read nil)
+;;   ;; open the message in mu4e-view-buffer when selected.
+;;   (consult-mu-action #'consult-mu--view-action)
+;;   )
+
 
 (provide 'gt-mail-config)
 

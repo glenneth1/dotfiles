@@ -20,11 +20,51 @@
      "5f128efd37c6a87cd4ad8e8b7f2afaba425425524a68133ac0efd87291d05874" default))
  '(dired-auto-revert-buffer t)
  '(dired-dwim-target t)
+ '(easy-hugo-basedir /home/glenn/blog/)
+ '(easy-hugo-bloglist
+   '(((easy-hugo-basedir . "/home/glenn/blog/") (easy-hugo-bin . "hugo")
+      (easy-hugo-url) (easy-hugo-root . "/home/glenn/blog/")
+      (easy-hugo-sshdomain) (easy-hugo-amazon-s3-bucket-name)
+      (easy-hugo-google-cloud-storage-bucket-name)
+      (easy-hugo-github-deploy-script . "deploy.sh")
+      (easy-hugo-image-directory . "images")
+      (easy-hugo-default-picture-directory . "~")
+      (easy-hugo-postdir . "content/posts")
+      (easy-hugo-publish-chmod . "Du=rwx,Dgo=rx,Fu=rw,Fog=r")
+      (easy-hugo-previewtime . 300)
+      (easy-hugo-preview-url . "http://localhost:1313/")
+      (easy-hugo-sort-default-char) (easy-hugo-asciidoc-extension . "ad")
+      (easy-hugo-html-extension . "html") (easy-hugo-markdown-extension . "md")
+      (easy-hugo-default-ext . ".md"))
+     ((easy-hugo-basedir) (easy-hugo-bin . "hugo") (easy-hugo-url)
+      (easy-hugo-root) (easy-hugo-sshdomain) (easy-hugo-amazon-s3-bucket-name)
+      (easy-hugo-google-cloud-storage-bucket-name)
+      (easy-hugo-github-deploy-script . "deploy.sh")
+      (easy-hugo-image-directory . "images")
+      (easy-hugo-default-picture-directory . "~")
+      (easy-hugo-postdir . "content/posts")
+      (easy-hugo-publish-chmod . "Du=rwx,Dgo=rx,Fu=rw,Fog=r")
+      (easy-hugo-previewtime . 300)
+      (easy-hugo-preview-url . "http://localhost:1313/")
+      (easy-hugo-sort-default-char) (easy-hugo-asciidoc-extension . "ad")
+      (easy-hugo-html-extension . "html") (easy-hugo-markdown-extension . "md")
+      (easy-hugo-default-ext . ".md"))))
+ '(easy-hugo-default-ext ".md")
+ '(easy-hugo-markdown-extension "md")
+ '(easy-hugo-postdir "content/posts")
+ '(easy-hugo-root "/home/glenn/blog/")
+ '(easy-hugo-url nil)
  '(ediff-window-setup-function 'ediff-setup-windows-plain t)
  '(eglot-autoshutdown t t)
  '(elfeed-feeds
-   '("https://en.royanews.tv/rss" "http://feeds.bbci.co.uk/news/rss.xml"
-     "https://sachachua.com/blog/feed"
+   '("https://news.ycombinator.com/rss"
+     "https://glenneth1.github.io/glenneth/feed.xml"
+     "https://chris-hughes.dev/rss"
+     "https://www.youtube.com/feeds/videos.xml?channel_id=UCEqYjPJdmEcUVfHmQwJVM9A"
+     "https://www.youtube.com/feeds/videos.xml?channel_id=UCmuv5SNK1NYi5mtZHJqKXSg"
+     "https://www.youtube.com/feeds/videos.xml?channel_id=UCAiiOTio8Yu69c3XnR7nQBQ"
+     "https://www.youtube.com/@SystemCrafters" "https://en.royanews.tv/rss"
+     "http://feeds.bbci.co.uk/news/rss.xml" "https://sachachua.com/blog/feed"
      "https://sachachua.com/blog/2003/08/rss-feed/"
      "https://feeds.megaphone.fm/the-pitchfork-review"
      "indieisnotagenre.com/feed" "https://www.reddit.com/r/linux/.rss"
@@ -44,6 +84,7 @@
  '(ibuffer-movement-cycle nil)
  '(ibuffer-old-time 24)
  '(kill-do-not-save-duplicates t)
+ '(listen-directory "/mnt/Music Backup/")
  '(listen-mode t)
  '(load-prefer-newer t t)
  '(marginalia-annotators
@@ -59,34 +100,11 @@
  '(org-return-follows-link t)
  '(package-archive-priorities
    '(("gnu" . 99) ("nongnu" . 80) ("stable" . 70) ("melpa" . 0)))
- '(package-selected-packages
-   '(0x0 ac-geiser activities aggressive-indent all-the-icons-nerd-fonts apheleia
-         auctex-latexmk blamer bufler burly cape catppuccin-theme cdlatex
-         chatgpt-shell circe company corfu-terminal dashboard denote diff-hl
-         dired-preview dirvish djvu doct doom-modeline doom-themes easy-hugo eat
-         editorconfig edwina ef-themes elfeed-webkit elisp-demos embark-consult
-         ement emms emojify epkg-marginalia erc-colorize erc-hl-nicks erc-yt
-         ercn evil-collection evil-mu4e evil-nerd-commenter ffmpeg-player
-         fireplace fix-word geiser-guile git-gutter hammy helpful
-         highlight-indent-guides hyperbole hyperdrive ibuffer-project ivy-mpdel
-         ix jupyter latex-preview-pane listen magit markdown-mode mastodon mpv
-         mu4e-alert nerd-icons-dired nerd-icons-ivy-rich nov ob-sagemath
-         orderless org-appear org-bullets org-contacts org-fancy-priorities
-         org-gtd org-media-note org-mime org-modern org-noter-pdftools
-         org-projectile org-protocol-jekyll org-ql org-ref org-sidebar
-         org-superstar org-web-tools ox-hugo ox-pandoc pandoc pandoc-mode
-         podcaster prettier prism quelpa-use-package rainbow-delimiters
-         seriestracker spacemacs-theme svg-tag-mode swiper tabspaces telega
-         toc-org tree-sitter-langs treesit-auto valign vertico-posframe vterm
-         which-key-posframe xenops yasnippet-snippets yequake zoxide))
+ '(package-selected-packages nil)
  '(package-vc-selected-packages
    '((org-media-note :vc-backend Git :url
                      "https://github.com/yuchen-lea/org-media-note")
      (listen :vc-backend Git :url "https://github.com/alphapapa/listen.el")))
- '(rcirc-authinfo
-   '(("100.98.92.133" nickserv "glenneth" "glenneth:b3l0wz3r0")))
- '(rcirc-server-alist
-   '(("100.98.92.133" :port 5555 :channels ("" "") :encryption tls)))
  '(scroll-conservatively 101)
  '(scroll-margin 0)
  '(scroll-preserve-screen-position t)

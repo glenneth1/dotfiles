@@ -1,4 +1,4 @@
-;;; gt-ui-config.el -*- lexical-binding: t; -*-
+;;; new-gt-ui-config.el -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023
 ;; SPDX-License-Identifier: MIT
@@ -79,7 +79,7 @@
 ;;    ;; `org-directory' is not yet defined).
 ;;    (dir (if (bound-and-true-p org-directory)
 ;;             org-directory
-;;           "~/Dropbox/org"))
+;;           "~/Nextcloud/org"))
 ;;    (group
 ;;     ;; Subgroup collecting indirect Org buffers, grouping them by file.
 ;;     ;; This is very useful when used with `org-tree-to-indirect-buffer'.
@@ -149,7 +149,7 @@
 (setq user-full-name "Glenn Thompson"
       user-mail-address "Glenn@kirstol.org")
 
-;; (setq org-directory "~/Dropbox/org/")
+;; (setq org-directory "~/Nextcloud/org/")
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -237,7 +237,7 @@
 (keymap-global-set "M-c" 'fix-word-capitalize)
 (keymap-global-set "C-c o f" '0x0-upload-file)
 (keymap-global-set "C-c o t" '0x0-upload-text)
-(keymap-global-set "C-c r c" 'erc-sr-ht)
+(keymap-global-set "C-c r c" 'my-erc)
 (keymap-global-unset "C-1")
 (keymap-global-unset "C-2")
 (keymap-global-set "C-1" 'tab-previous)
@@ -267,33 +267,18 @@
 (require 'vertico-posframe)
 (vertico-posframe-mode 1)
 
-;; Transparency
-(defvar nao/alpha-background 90)
-(set-frame-parameter nil 'alpha-background nao/alpha-background)
-
-(defun nao/toggle-alpha-background ()
-  "Toggle alpha-background between 70 and 100."
+(defun toggle-transparency ()
   (interactive)
-  (cond ((= nao/alpha-background 70) (setq nao/alpha-background 80))
-        ((= nao/alpha-background 80) (setq nao/alpha-background 90))
-        ((= nao/alpha-background 90) (setq nao/alpha-background 100))
-        ((= nao/alpha-background 100) (setq nao/alpha-background 70)))
-  (set-frame-parameter nil 'alpha-background nao/alpha-background))
-
-(global-set-key (kbd "C-c t") 'nao/toggle-alpha-background)
-
-;; (defun toggle-transparency ()
-;;   (interactive)
-;;   (let ((alpha (frame-parameter nil 'alpha)))
-;;     (set-frame-parameter
-;;      nil 'alpha
-;;      (if (eql (cond ((numberp alpha) alpha)
-;;                     ((numberp (cdr alpha)) (cdr alpha))
-;;                     ;; Also handle undocumented (<active> <inactive>) form.
-;;                     ((numberp (cadr alpha)) (cadr alpha)))
-;;               100)
-;;          '(85 . 50) '(100 . 100)))))
-;; (global-set-key (kbd "C-c t") 'toggle-transparency)
+  (let ((alpha (frame-parameter nil 'alpha)))
+    (set-frame-parameter
+     nil 'alpha
+     (if (eql (cond ((numberp alpha) alpha)
+                    ((numberp (cdr alpha)) (cdr alpha))
+                    ;; Also handle undocumented (<active> <inactive>) form.
+                    ((numberp (cadr alpha)) (cadr alpha)))
+              100)
+         '(85 . 50) '(100 . 100)))))
+(global-set-key (kbd "C-c t") 'toggle-transparency)
 
 ;; Fonts
 (set-face-attribute 'default nil :font "Monofur NF-16" :weight 'Book)
@@ -450,8 +435,8 @@
 (activities-tabs-mode)
 
 ;; Put backup files neatly away
-(let ((backup-dir "~/Dropbox/org/Backups/")
-      (auto-saves-dir "~/Dropbox/org/Backups/auto-saves/"))
+(let ((backup-dir "~/Nextcloud/org/Backups/")
+      (auto-saves-dir "~/Nextcloud/org/Backups/auto-saves/"))
   (dolist (dir (list backup-dir auto-saves-dir))
     (when (not (file-directory-p dir))
       (make-directory dir t)))
@@ -569,5 +554,5 @@
   (setq easy-hugo-previewtime "300"))
 ;;   :bind ("C-c C-e" . easy-hugo))
 
-(provide 'gt-ui-config)
+(provide 'new-gt-ui-config)
 ;;; gt-ui-config.el ends here

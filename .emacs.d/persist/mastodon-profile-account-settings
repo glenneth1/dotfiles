@@ -1,2 +1,2 @@
 
-(locked nil discoverable nil display_name "Gee" bot nil privacy "public" sensitive nil language nil max_toot_chars nil)
+(locked nil discoverable nil display_name "Gee" bot nil privacy "public" sensitive nil language nil max_toot_chars 500)
