@@ -55,7 +55,7 @@
  '(easy-hugo-root "/home/glenn/blog/")
  '(easy-hugo-url nil)
  '(ediff-window-setup-function 'ediff-setup-windows-plain t)
- '(eglot-autoshutdown t t)
+ '(eglot-autoshutdown t)
  '(elfeed-feeds
    '("https://news.ycombinator.com/rss"
      "https://glenneth1.github.io/glenneth/feed.xml"
@@ -86,7 +86,7 @@
  '(kill-do-not-save-duplicates t)
  '(listen-directory "/mnt/Music Backup/")
  '(listen-mode t)
- '(load-prefer-newer t t)
+ '(load-prefer-newer t)
  '(marginalia-annotators
    '(marginalia-annotators-heavy marginalia-annotators-light nil) t)
  '(org-agenda-files
@@ -100,7 +100,27 @@
  '(org-return-follows-link t)
  '(package-archive-priorities
    '(("gnu" . 99) ("nongnu" . 80) ("stable" . 70) ("melpa" . 0)))
- '(package-selected-packages nil)
+ '(package-selected-packages
+   '(0x0 ac-geiser activities aggressive-indent all-the-icons-dired
+         all-the-icons-nerd-fonts apheleia auctex-latexmk blamer bufler burly
+         cape catppuccin-theme cdlatex chatgpt-shell circe company
+         corfu-terminal dashboard denote diff-hl dired-preview dirvish djvu doct
+         doom-modeline doom-themes easy-hugo eat editorconfig edwina ef-themes
+         eglot elfeed-webkit elisp-demos embark-consult ement emojify
+         epkg-marginalia erc-colorize erc-hl-nicks erc-yt ercn evil-collection
+         evil-mu4e evil-nerd-commenter ffmpeg-player fireplace fix-word
+         geiser-guile git-gutter gptai hammy helpful highlight-indent-guides
+         hyperbole hyperdrive ibuffer-project image-dired+ ivy-mpdel ix jupyter
+         latex-preview-pane lispy listen magit markdown-mode mastodon meow mpv
+         mpvi mu4e-alert nerd-icons-dired nerd-icons-ivy-rich nov ob-sagemath
+         orderless org-appear org-bullets org-contacts org-fancy-priorities
+         org-gtd org-media-note org-mime org-modern org-noter-pdftools
+         org-projectile org-protocol-jekyll org-ref org-sidebar org-superstar
+         org-web-tools ox-hugo ox-pandoc pandoc pandoc-mode podcaster prettier
+         prism quelpa-use-package rainbow-delimiters rcirc-color seriestracker
+         spacemacs-theme svg-tag-mode tabspaces telega toc-org tree-sitter-langs
+         treesit-auto valign vertico-posframe vterm which-key-posframe xenops
+         yasnippet-snippets yeetube yequake zoxide))
  '(package-vc-selected-packages
    '((org-media-note :vc-backend Git :url
                      "https://github.com/yuchen-lea/org-media-note")
@@ -112,7 +132,7 @@
  '(switch-to-buffer-obey-display-actions t)
  '(tab-always-indent 'complete)
  '(vertico-cycle t)
- '(xref-show-definitions-function 'xref-show-definitions-completing-read t))
+ '(xref-show-definitions-function 'xref-show-definitions-completing-read))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -63,9 +63,9 @@
 (require 'crafted-writing-config)
 (require 'gt-mail-config)
 (require 'gt-org-gtd-config)
-(require 'gt-python-config)
+;;(require 'gt-python-config)
 (require 'gt-social-config)
-(require 'gt-superagenda-config)
+;;(require 'gt-superagenda-config)
 (require 'gt-ui-config)
 (require 'gt-writing-config)
 
