@@ -362,11 +362,11 @@
   ;;(setq dashboard-startup-banner 'logo) ;; use standard emacs logo as banner
   (setq dashboard-startup-banner "~/.emacs.d/system-crafters-logo.png")  ;; use custom image as banner
   (setq dashboard-center-content nil) ;; set to 't' for centered content
-  (setq dashboard-items '((recents . 5)
-                          (agenda . 5)
-                          (bookmarks . 3)
-                          (projects . 3)
-                          (registers . 3)))
+  (setq dashboard-items '((recents . 8)
+                          (agenda . 12)
+                          (bookmarks . 5)
+                          (projects . 8)
+                          (registers . 5)))
   :custom 
   (dashboard-modify-heading-icons '((recents . "file-text")
 				                    (bookmarks . "book")))
@@ -379,6 +379,14 @@
             (org-agenda-list)
             (prog1 (buffer-string)
               (kill-buffer)))))
+
+(use-package recentf
+  :config
+  ;; Initialize recentf or ensure it's started
+  (recentf-mode 1)
+  ;; Exclude all files within the `org-agenda-files` list
+  (setq recentf-exclude (list (lambda (filename)
+                                (member filename org-agenda-files)))))
 
 (setq dashboard-mode t)
 (setq dashboard-set-file-icons t)
@@ -568,6 +576,51 @@
   (setq easy-hugo-root "/home/glenn/blog/")
   (setq easy-hugo-previewtime "300"))
 ;;   :bind ("C-c C-e" . easy-hugo))
+
+(use-package dired
+  :ensure nil
+  :config
+  (setq dired-listing-switches "-agho --group-directories-first"
+        dired-omit-files "^\\.[^.].*"
+        dired-omit-verbose nil
+        dired-dwim-target 'dired-dwim-target-next
+        dired-hide-details-hide-symlink-targets nil
+        dired-kill-when-opening-new-dired-buffer t
+        delete-by-moving-to-trash t))
+
+(use-package dired-rainbow
+  :after dired
+  :config
+  (progn
+    (dired-rainbow-define-chmod directory "#6cb2eb" "d.*")
+    (dired-rainbow-define html "#eb5286" ("css" "less" "sass" "scss" "htm" "html" "jhtm" "mht" "eml" "mustache" "xhtml"))
+    (dired-rainbow-define xml "#f2d024" ("xml" "xsd" "xsl" "xslt" "wsdl" "bib" "json" "msg" "pgn" "rss" "yaml" "yml" "rdata"))
+    (dired-rainbow-define document "#9561e2" ("docm" "doc" "docx" "odb" "odt" "pdb" "pdf" "ps" "rtf" "djvu" "epub" "odp" "ppt" "pptx"))
+    (dired-rainbow-define markdown "#ffed4a" ("org" "etx" "info" "markdown" "md" "mkd" "nfo" "pod" "rst" "tex" "textfile" "txt"))
+    (dired-rainbow-define database "#6574cd" ("xlsx" "xls" "csv" "accdb" "db" "mdb" "sqlite" "nc"))
+    (dired-rainbow-define media "#de751f" ("mp3" "mp4" "MP3" "MP4" "avi" "mpeg" "mpg" "flv" "ogg" "mov" "mid" "midi" "wav" "aiff" "flac"))
+    (dired-rainbow-define image "#f66d9b" ("tiff" "tif" "cdr" "gif" "ico" "jpeg" "jpg" "png" "psd" "eps" "svg"))
+    (dired-rainbow-define log "#c17d11" ("log"))
+    (dired-rainbow-define shell "#f6993f" ("awk" "bash" "bat" "sed" "sh" "zsh" "vim"))
+    (dired-rainbow-define interpreted "#38c172" ("py" "ipynb" "rb" "pl" "t" "msql" "mysql" "pgsql" "sql" "r" "clj" "cljs" "scala" "js"))
+    (dired-rainbow-define compiled "#4dc0b5" ("asm" "cl" "lisp" "el" "c" "h" "c++" "h++" "hpp" "hxx" "m" "cc" "cs" "cp" "cpp" "go" "f" "for" "ftn" "f90" "f95" "f03" "f08" "s" "rs" "hi" "hs" "pyc" ".java"))
+    (dired-rainbow-define executable "#8cc4ff" ("exe" "msi"))
+    (dired-rainbow-define compressed "#51d88a" ("7z" "zip" "bz2" "tgz" "txz" "gz" "xz" "z" "Z" "jar" "war" "ear" "rar" "sar" "xpi" "apk" "xz" "tar"))
+    (dired-rainbow-define packaged "#faad63" ("deb" "rpm" "apk" "jad" "jar" "cab" "pak" "pk3" "vdf" "vpk" "bsp"))
+    (dired-rainbow-define encrypted "#ffed4a" ("gpg" "pgp" "asc" "bfe" "enc" "signature" "sig" "p12" "pem"))
+    (dired-rainbow-define fonts "#6cb2eb" ("afm" "fon" "fnt" "pfb" "pfm" "ttf" "otf"))
+    (dired-rainbow-define partition "#e3342f" ("dmg" "iso" "bin" "nrg" "qcow" "toast" "vcd" "vmdk" "bak"))
+    (dired-rainbow-define vc "#0074d9" ("git" "gitignore" "gitattributes" "gitmodules"))
+    (dired-rainbow-define-chmod executable-unix "#38c172" "-.*x.*")
+    )) 
+
+(use-package smartparens
+  :hook (prog.mode . smartparens-mode)
+  :config
+  (sp-use-smartparens-bindings))
+
+(require 'undo-tree)
+(global-undo-tree-mode)
 
 (provide 'gt-ui-config)
 ;;; gt-ui-config.el ends here

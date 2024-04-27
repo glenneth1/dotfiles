@@ -141,5 +141,22 @@ installed."
 
 (apheleia-global-mode +1)
 
+(use-package org-tempo
+  :ensure nil
+  :after org
+  :config
+  (dolist (item '(("sh" . "src sh")
+                  ("el" . "src emacs-lisp")
+                  ("li" . "src lisp")
+				  ("sc" . "src scheme")
+				  ("ts" . "src typescript")
+				  ("py" . "src python")
+				  ("go" . "src go")
+				  ("einit" . "src emacs-lisp :tangle ~/.dotfiles/.emacs.d/init.el")
+				  ("emod" . "src emacs-lisp :tangle ~/.dotfiles/.emacs.d/modules :mkdirp yes")
+				  ("yaml" . "src yaml")
+				  ("json" . "src json")))
+    (add-to-list 'org-structure-template-alist item)))
+
 (provide 'crafted-ide-config)
 ;;; crafted-ide-config.el ends here

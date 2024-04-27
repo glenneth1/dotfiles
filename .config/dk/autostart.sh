@@ -13,7 +13,7 @@ function run {
 #xrandr --output LVDS1 --mode 1366x768 --output DP3 --mode 1920x1080 --right-of LVDS1
 #xrandr --output HDMI2 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
 #autorandr horizontal
-xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1834x1080 --rotate normal --output DP-1-0.1 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-1-0 --off --output DP-1-1 --off --output HDMI-1-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1-2 --off
+xxrandr --output eDP-2 --mode 1920x1080 --pos 0x1080 --rotate normal --output DP-1-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1-1 --off --output HDMI-1-0 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-1-2 --off
 
 $HOME/.config/dk/polybar/launch.sh &
 

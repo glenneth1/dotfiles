@@ -13,7 +13,8 @@
  '(corfu-auto-prefix 2)
  '(corfu-cycle t)
  '(custom-safe-themes
-   '("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476"
+   '("adaf421037f4ae6725aa9f5654a2ed49e2cd2765f71e19a7d26a454491b486eb"
+     "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476"
      "ae426fc51c58ade49774264c17e666ea7f681d8cae62570630539be3d06fd964"
      "b5367e48da33f76c5423869034124db4ec68ab712b2dd3b908afa3fe080f0da6"
      "f1882fc093d7af0794aa8819f15aab9405ca109236e5f633385a876052532468"
@@ -55,10 +56,9 @@
  '(easy-hugo-root "/home/glenn/blog/")
  '(easy-hugo-url nil)
  '(ediff-window-setup-function 'ediff-setup-windows-plain t)
- '(eglot-autoshutdown t)
+ '(eglot-autoshutdown t t)
  '(elfeed-feeds
-   '("https://news.ycombinator.com/rss"
-     "https://glenneth1.github.io/glenneth/feed.xml"
+   '("https://glenneth.srht.site/feed.xml/" "https://news.ycombinator.com/rss"
      "https://chris-hughes.dev/rss"
      "https://www.youtube.com/feeds/videos.xml?channel_id=UCEqYjPJdmEcUVfHmQwJVM9A"
      "https://www.youtube.com/feeds/videos.xml?channel_id=UCmuv5SNK1NYi5mtZHJqKXSg"
@@ -86,7 +86,7 @@
  '(kill-do-not-save-duplicates t)
  '(listen-directory "/mnt/Music Backup/")
  '(listen-mode t)
- '(load-prefer-newer t)
+ '(load-prefer-newer t t)
  '(marginalia-annotators
    '(marginalia-annotators-heavy marginalia-annotators-light nil) t)
  '(org-agenda-files
@@ -100,27 +100,7 @@
  '(org-return-follows-link t)
  '(package-archive-priorities
    '(("gnu" . 99) ("nongnu" . 80) ("stable" . 70) ("melpa" . 0)))
- '(package-selected-packages
-   '(0x0 ac-geiser activities aggressive-indent all-the-icons-dired
-         all-the-icons-nerd-fonts apheleia auctex-latexmk blamer bufler burly
-         cape catppuccin-theme cdlatex chatgpt-shell circe company
-         corfu-terminal dashboard denote diff-hl dired-preview dirvish djvu doct
-         doom-modeline doom-themes easy-hugo eat editorconfig edwina ef-themes
-         eglot elfeed-webkit elisp-demos embark-consult ement emojify
-         epkg-marginalia erc-colorize erc-hl-nicks erc-yt ercn evil-collection
-         evil-mu4e evil-nerd-commenter ffmpeg-player fireplace fix-word
-         geiser-guile git-gutter gptai hammy helpful highlight-indent-guides
-         hyperbole hyperdrive ibuffer-project image-dired+ ivy-mpdel ix jupyter
-         latex-preview-pane lispy listen magit markdown-mode mastodon meow mpv
-         mpvi mu4e-alert nerd-icons-dired nerd-icons-ivy-rich nov ob-sagemath
-         orderless org-appear org-bullets org-contacts org-fancy-priorities
-         org-gtd org-media-note org-mime org-modern org-noter-pdftools
-         org-projectile org-protocol-jekyll org-ref org-sidebar org-superstar
-         org-web-tools ox-hugo ox-pandoc pandoc pandoc-mode podcaster prettier
-         prism quelpa-use-package rainbow-delimiters rcirc-color seriestracker
-         spacemacs-theme svg-tag-mode tabspaces telega toc-org tree-sitter-langs
-         treesit-auto valign vertico-posframe vterm which-key-posframe xenops
-         yasnippet-snippets yeetube yequake zoxide))
+ '(package-selected-packages nil)
  '(package-vc-selected-packages
    '((org-media-note :vc-backend Git :url
                      "https://github.com/yuchen-lea/org-media-note")
@@ -132,7 +112,7 @@
  '(switch-to-buffer-obey-display-actions t)
  '(tab-always-indent 'complete)
  '(vertico-cycle t)
- '(xref-show-definitions-function 'xref-show-definitions-completing-read))
+ '(xref-show-definitions-function 'xref-show-definitions-completing-read t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
