@@ -30,16 +30,36 @@ sudo apt install -y libjansson4 libjansson-dev
 
 # Native compilation support
 echo "📦 Installing native compilation support..."
-sudo apt install -y libgccjit0 libgccjit-10-dev gcc-10 g++-10
+# Try to find available GCC version
+if apt-cache search libgccjit-13-dev | grep -q libgccjit-13-dev; then
+    echo "Found GCC 13, installing..."
+    sudo apt install -y libgccjit0 libgccjit-13-dev gcc-13 g++-13
+    export CC=/usr/bin/gcc-13
+    export CXX=/usr/bin/g++-13
+elif apt-cache search libgccjit-12-dev | grep -q libgccjit-12-dev; then
+    echo "Found GCC 12, installing..."
+    sudo apt install -y libgccjit0 libgccjit-12-dev gcc-12 g++-12
+    export CC=/usr/bin/gcc-12
+    export CXX=/usr/bin/g++-12
+elif apt-cache search libgccjit-11-dev | grep -q libgccjit-11-dev; then
+    echo "Found GCC 11, installing..."
+    sudo apt install -y libgccjit0 libgccjit-11-dev gcc-11 g++-11
+    export CC=/usr/bin/gcc-11
+    export CXX=/usr/bin/g++-11
+else
+    echo "Installing default GCC and libgccjit..."
+    sudo apt install -y libgccjit0 libgccjit-dev gcc g++
+    export CC=/usr/bin/gcc
+    export CXX=/usr/bin/g++
+fi
 
 # Cairo and SVG support
 echo "📦 Installing Cairo and SVG support..."
 sudo apt install -y libcairo2-dev librsvg2-dev
 
-# Set compiler to GCC 10 for native compilation
-echo "🔧 Setting compiler to GCC 10..."
-export CC=/usr/bin/gcc-10
-export CXX=/usr/bin/gcc-10
+# Show which compiler we're using
+echo "🔧 Using compiler: $CC"
+gcc --version | head -1
 
 echo ""
 echo "📥 Cloning Emacs repository..."
