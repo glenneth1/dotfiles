@@ -1,0 +1,8 @@
+((:/LAST-LOGIN (NIL) :/CREATED-DATE (1758038842) :/ACTIVE (1) :/ROLE ("admin")
+  :/PASSWORD-HASH
+  ("a3144ec6cb05765e5128159150d8ee24db2139b3a1db694a8175e5a60d9f8482") :/EMAIL
+  ("admin@asteroid.radio") :/USERNAME ("admin") :/_ID 1)
+ (:/LAST-LOGIN (NIL) :/CREATED-DATE (1759734003) :/ACTIVE (1) :/ROLE
+  ("listener") :/PASSWORD-HASH
+  ("9ddb2270568f1a4eab0e24e6da0e1153b18959ab13d5ec35691045e675e8a416") :/EMAIL
+  ("glennt40@gmail.com") :/USERNAME ("glenneth") :/_ID 2))

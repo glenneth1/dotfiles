@@ -1,0 +1,17 @@
+# Installed Tools and Versions
+Generated: Mon Oct  6 10:55:10 +03 2025
+
+SBCL: SBCL 2.5.9
+Emacs: GNU Emacs 31.0.50
+Starship: starship 1.23.0
+branch:master
+commit_hash:661c8a2
+build_time:2025-04-27 15:55:02 +00:00
+build_env:rustc 1.86.0 (05f9846f8 2025-03-31),
+FZF: 0.65.2 (416aff86)
+Eza: eza - A modern, maintained replacement for ls
+Zoxide: zoxide 0.9.3
+Bat: bat 0.24.0
+Delta: delta 0.16.5
+Fd: fdfind 9.0.0
+Rlwrap: installed

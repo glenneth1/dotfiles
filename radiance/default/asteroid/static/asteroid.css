@@ -1,0 +1,125 @@
+/* Asteroid Radio CSS - Hacker-themed green terminal styling */
+
+body {
+    font-family: 'Courier New', monospace;
+    background: #0a0a0a;
+    color: #00ff00;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #ff6600;
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #ff6600;
+}
+
+.status {
+    background: #1a1a1a;
+    padding: 20px;
+    border: 1px solid #333;
+    margin: 20px 0;
+}
+
+.panel {
+    background: #1a1a1a;
+    padding: 20px;
+    border: 1px solid #333;
+    margin: 20px 0;
+}
+
+.nav {
+    margin: 20px 0;
+}
+
+.nav a {
+    color: #00ff00;
+    text-decoration: none;
+    margin: 0 15px;
+    padding: 10px 20px;
+    border: 1px solid #333;
+    background: #1a1a1a;
+    display: inline-block;
+}
+
+.nav a:hover {
+    background: #333;
+}
+
+.controls {
+    margin: 20px 0;
+}
+
+.controls button {
+    background: #1a1a1a;
+    color: #00ff00;
+    border: 1px solid #333;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.controls button:hover {
+    background: #333;
+}
+
+button {
+    background: #333;
+    color: #00ff00;
+    border: 1px solid #555;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #555;
+}
+
+.now-playing {
+    background: #1a1a1a;
+    padding: 20px;
+    border: 1px solid #333;
+    margin: 20px 0;
+    font-size: 1.5em;
+    color: #ff6600;
+}
+
+.back {
+    color: #00ff00;
+    text-decoration: none;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.back:hover {
+    text-decoration: underline;
+}
+
+.player {
+    background: #1a1a1a;
+    padding: 40px;
+    border: 1px solid #333;
+    margin: 40px auto;
+    max-width: 600px;
+}
+
+.player .controls button {
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 1.2em;
+}
+
+body.player-page {
+    text-align: center;
+}

@@ -1,0 +1,360 @@
+((:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Lorde/2013 - Pure Heroine/01 Tennis Court - Lorde.flac")
+  :/DURATION (0) :/ALBUM ("Pure Heroine") :/ARTIST ("Lorde") :/TITLE
+  ("Tennis Court") :/_ID 370)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Lorde/2013 - Pure Heroine/02 400 Lux - Lorde.flac")
+  :/DURATION (0) :/ALBUM ("Pure Heroine") :/ARTIST ("Lorde") :/TITLE
+  ("400 Lux") :/_ID 371)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Lorde/2013 - Pure Heroine/03 Royals - Lorde.flac")
+  :/DURATION (0) :/ALBUM ("Pure Heroine") :/ARTIST ("Lorde") :/TITLE ("Royals")
+  :/_ID 372)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Lorde/2013 - Pure Heroine/04 Ribs - Lorde.flac")
+  :/DURATION (0) :/ALBUM ("Pure Heroine") :/ARTIST ("Lorde") :/TITLE ("Ribs")
+  :/_ID 373)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Lorde/2013 - Pure Heroine/05 Buzzcut Season - Lorde.flac")
+  :/DURATION (0) :/ALBUM ("Pure Heroine") :/ARTIST ("Lorde") :/TITLE
+  ("Buzzcut Season") :/_ID 374)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Lorde/2013 - Pure Heroine/06 Team - Lorde.flac")
+  :/DURATION (0) :/ALBUM ("Pure Heroine") :/ARTIST ("Lorde") :/TITLE ("Team")
+  :/_ID 375)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Lorde/2013 - Pure Heroine/07 Glory and Gore - Lorde.flac")
+  :/DURATION (0) :/ALBUM ("Pure Heroine") :/ARTIST ("Lorde") :/TITLE
+  ("Glory and Gore") :/_ID 376)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Lorde/2013 - Pure Heroine/08 Still Sane - Lorde.flac")
+  :/DURATION (0) :/ALBUM ("Pure Heroine") :/ARTIST ("Lorde") :/TITLE
+  ("Still Sane") :/_ID 377)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Lorde/2013 - Pure Heroine/09 White Teeth Teens - Lorde.flac")
+  :/DURATION (0) :/ALBUM ("Pure Heroine") :/ARTIST ("Lorde") :/TITLE
+  ("White Teeth") :/_ID 378)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Lorde/2013 - Pure Heroine/10 A World Alone - Lorde.flac")
+  :/DURATION (0) :/ALBUM ("Pure Heroine") :/ARTIST ("Lorde") :/TITLE
+  ("World Alone") :/_ID 379)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Model500/2015 - Digital Solutions/01-model_500-hi_nrg.flac")
+  :/DURATION (0) :/ALBUM ("Digital Solutions") :/ARTIST ("Model 500") :/TITLE
+  ("Hi Nrg") :/_ID 380)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Model500/2015 - Digital Solutions/02-model_500-electric_night.flac")
+  :/DURATION (0) :/ALBUM ("Digital Solutions") :/ARTIST ("Model 500") :/TITLE
+  ("Electric Night") :/_ID 381)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Model500/2015 - Digital Solutions/03-model_500-standing_in_tomorow.flac")
+  :/DURATION (0) :/ALBUM ("Digital Solutions") :/ARTIST ("Model 500") :/TITLE
+  ("Standing In Tomorow") :/_ID 382)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Model500/2015 - Digital Solutions/04-model_500-encounter.flac")
+  :/DURATION (0) :/ALBUM ("Digital Solutions") :/ARTIST ("Model 500") :/TITLE
+  ("Encounter") :/_ID 383)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Model500/2015 - Digital Solutions/05-model_500-storm.flac")
+  :/DURATION (0) :/ALBUM ("Digital Solutions") :/ARTIST ("Model 500") :/TITLE
+  ("Storm") :/_ID 384)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Model500/2015 - Digital Solutions/06-model_500-the_groove.flac")
+  :/DURATION (0) :/ALBUM ("Digital Solutions") :/ARTIST ("Model 500") :/TITLE
+  ("The Groove") :/_ID 385)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Model500/2015 - Digital Solutions/07-model_500-station.flac")
+  :/DURATION (0) :/ALBUM ("Digital Solutions") :/ARTIST ("Model 500") :/TITLE
+  ("Station") :/_ID 386)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Model500/2015 - Digital Solutions/08-model_500-digital_solutions.flac")
+  :/DURATION (0) :/ALBUM ("Digital Solutions") :/ARTIST ("Model 500") :/TITLE
+  ("Digital Solutions") :/_ID 387)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Model500/2015 - Digital Solutions/09-model_500-control.flac")
+  :/DURATION (0) :/ALBUM ("Digital Solutions") :/ARTIST ("Model 500") :/TITLE
+  ("Control") :/_ID 388)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("mp3")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Model500/\\[1985] - Night Drive/01. Night Drive (Thru Babylon).mp3")
+  :/DURATION (0) :/ALBUM ("Night Drive [M-002] ") :/ARTIST ("Model 500")
+  :/TITLE ("Night Drive (Thru Babylon)") :/_ID 389)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("mp3")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Model500/\\[1985] - Night Drive/02. Time Space Transmat.mp3")
+  :/DURATION (0) :/ALBUM ("Night Drive [M-002] ") :/ARTIST ("Model 500")
+  :/TITLE ("Time Space Transmat") :/_ID 390)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("mp3")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Model500/\\[1985] - Night Drive/03. No Ufo's (D-Mix).mp3")
+  :/DURATION (0) :/ALBUM ("Night Drive [M-002] ") :/ARTIST ("Model 500")
+  :/TITLE ("No Ufo's (D-Mix)") :/_ID 391)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("mp3")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Model500/\\[1988] - Interference/01. Interference Mix 1.mp3")
+  :/DURATION (0) :/ALBUM ("Interference / Electronic") :/ARTIST ("Model 500")
+  :/TITLE ("Interference Mix 1") :/_ID 392)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("mp3")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Model500/\\[1988] - Interference/02. Interference Mix 2.mp3")
+  :/DURATION (0) :/ALBUM ("Interference / Electronic") :/ARTIST ("Model 500")
+  :/TITLE ("Interference Mix 2") :/_ID 393)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("mp3")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Model500/\\[1988] - Interference/03. Electronic.mp3")
+  :/DURATION (0) :/ALBUM ("Interference / Electronic") :/ARTIST ("Model 500")
+  :/TITLE ("Electronic") :/_ID 394)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("mp3")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Model500/\\[1988] - Interference/04. What's The Game.mp3")
+  :/DURATION (0) :/ALBUM ("Interference / Electronic") :/ARTIST ("Model 500")
+  :/TITLE ("What's The Game") :/_ID 395)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("mp3")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Model500/\\[1988] - Interference/05. OK Corral.mp3")
+  :/DURATION (0) :/ALBUM ("TIMELESS") :/ARTIST ("Model 500") :/TITLE
+  ("OK Corral") :/_ID 396)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Pearl Jam/1996 - No Code/01. Sometimes - Pearl Jam.flac")
+  :/DURATION (0) :/ALBUM ("No Code") :/ARTIST ("Pearl Jam") :/TITLE
+  ("Sometimes") :/_ID 397)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Pearl Jam/1996 - No Code/02. Hail, Hail - Pearl Jam.flac")
+  :/DURATION (0) :/ALBUM ("No Code") :/ARTIST ("Pearl Jam") :/TITLE
+  ("Hail, Hail") :/_ID 398)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Pearl Jam/1996 - No Code/03. Who You Are - Pearl Jam.flac")
+  :/DURATION (0) :/ALBUM ("No Code") :/ARTIST ("Pearl Jam") :/TITLE
+  ("Who You Are") :/_ID 399)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Pearl Jam/1996 - No Code/04. In My Tree - Pearl Jam.flac")
+  :/DURATION (0) :/ALBUM ("No Code") :/ARTIST ("Pearl Jam") :/TITLE
+  ("In My Tree") :/_ID 400)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Pearl Jam/1996 - No Code/05. Smile - Pearl Jam.flac")
+  :/DURATION (0) :/ALBUM ("No Code") :/ARTIST ("Pearl Jam") :/TITLE ("Smile")
+  :/_ID 401)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Pearl Jam/1996 - No Code/06. Off He Goes - Pearl Jam.flac")
+  :/DURATION (0) :/ALBUM ("No Code") :/ARTIST ("Pearl Jam") :/TITLE
+  ("Off He Goes") :/_ID 402)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Pearl Jam/1996 - No Code/07. Habit - Pearl Jam.flac")
+  :/DURATION (0) :/ALBUM ("No Code") :/ARTIST ("Pearl Jam") :/TITLE ("Habit")
+  :/_ID 403)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Pearl Jam/1996 - No Code/08. Red Mosquito - Pearl Jam.flac")
+  :/DURATION (0) :/ALBUM ("No Code") :/ARTIST ("Pearl Jam") :/TITLE
+  ("Red Mosquito") :/_ID 404)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Pearl Jam/1996 - No Code/09. Lukin - Pearl Jam.flac")
+  :/DURATION (0) :/ALBUM ("No Code") :/ARTIST ("Pearl Jam") :/TITLE ("Lukin")
+  :/_ID 405)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Pearl Jam/1996 - No Code/10. Present Tense - Pearl Jam.flac")
+  :/DURATION (0) :/ALBUM ("No Code") :/ARTIST ("Pearl Jam") :/TITLE
+  ("Present Tense") :/_ID 406)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Pearl Jam/1996 - No Code/11. Mankind - Pearl Jam.flac")
+  :/DURATION (0) :/ALBUM ("No Code") :/ARTIST ("Pearl Jam") :/TITLE ("Mankind")
+  :/_ID 407)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Pearl Jam/1996 - No Code/12. I'm Open - Pearl Jam.flac")
+  :/DURATION (0) :/ALBUM ("No Code") :/ARTIST ("Pearl Jam") :/TITLE
+  ("I'm Open") :/_ID 408)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Pearl Jam/1996 - No Code/13. Around The Bend - Pearl Jam.flac")
+  :/DURATION (0) :/ALBUM ("No Code") :/ARTIST ("Pearl Jam") :/TITLE
+  ("Around The Bend") :/_ID 409)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/This Mortal Coil/1984 - It'll End In Tears/01 - Kangaroo.flac")
+  :/DURATION (0) :/ALBUM ("It'll End In Tears") :/ARTIST ("This Mortal Coil")
+  :/TITLE ("Kangaroo") :/_ID 410)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/This Mortal Coil/1984 - It'll End In Tears/02 - Song to the Siren.flac")
+  :/DURATION (0) :/ALBUM ("It'll End In Tears") :/ARTIST ("This Mortal Coil")
+  :/TITLE ("Song to the Siren") :/_ID 411)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/This Mortal Coil/1984 - It'll End In Tears/03 - Holocaust.flac")
+  :/DURATION (0) :/ALBUM ("It'll End In Tears") :/ARTIST ("This Mortal Coil")
+  :/TITLE ("Holocaust") :/_ID 412)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/This Mortal Coil/1984 - It'll End In Tears/04 - Fyt.flac")
+  :/DURATION (0) :/ALBUM ("It'll End In Tears") :/ARTIST ("This Mortal Coil")
+  :/TITLE ("Fyt") :/_ID 413)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/This Mortal Coil/1984 - It'll End In Tears/05 - Fond Affections.flac")
+  :/DURATION (0) :/ALBUM ("It'll End In Tears") :/ARTIST ("This Mortal Coil")
+  :/TITLE ("Fond Affections") :/_ID 414)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/This Mortal Coil/1984 - It'll End In Tears/06 - The Last Ray.flac")
+  :/DURATION (0) :/ALBUM ("It'll End In Tears") :/ARTIST ("This Mortal Coil")
+  :/TITLE ("The Last Ray") :/_ID 415)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/This Mortal Coil/1984 - It'll End In Tears/07 - Another Day.flac")
+  :/DURATION (0) :/ALBUM ("It'll End In Tears") :/ARTIST ("This Mortal Coil")
+  :/TITLE ("Another Day") :/_ID 416)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/This Mortal Coil/1984 - It'll End In Tears/08 - Waves Become Wings.flac")
+  :/DURATION (0) :/ALBUM ("It'll End In Tears") :/ARTIST ("This Mortal Coil")
+  :/TITLE ("Waves Become Wings") :/_ID 417)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/This Mortal Coil/1984 - It'll End In Tears/09 - Barramundi.flac")
+  :/DURATION (0) :/ALBUM ("It'll End In Tears") :/ARTIST ("This Mortal Coil")
+  :/TITLE ("Barramundi") :/_ID 418)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/This Mortal Coil/1984 - It'll End In Tears/10 - Dreams Made Flesh.flac")
+  :/DURATION (0) :/ALBUM ("It'll End In Tears") :/ARTIST ("This Mortal Coil")
+  :/TITLE ("Dreams Made Flesh") :/_ID 419)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/This Mortal Coil/1984 - It'll End In Tears/11 - Not Me.flac")
+  :/DURATION (0) :/ALBUM ("It'll End In Tears") :/ARTIST ("This Mortal Coil")
+  :/TITLE ("Not Me") :/_ID 420)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/This Mortal Coil/1984 - It'll End In Tears/12 - A Single Wish.flac")
+  :/DURATION (0) :/ALBUM ("It'll End In Tears") :/ARTIST ("This Mortal Coil")
+  :/TITLE ("A Single Wish") :/_ID 421)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Underworld/1996 - Second Toughest In The Infants/01. Underworld - Juanita, Kiteless, To Dream Of Love.flac")
+  :/DURATION (0) :/ALBUM ("Second Toughest In The Infants") :/ARTIST
+  ("Underworld") :/TITLE ("Juanita, Kiteless, To Dream Of Love") :/_ID 422)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Underworld/1996 - Second Toughest In The Infants/02. Underworld - Banstyle Sappys Curry.flac")
+  :/DURATION (0) :/ALBUM ("Second Toughest In The Infants") :/ARTIST
+  ("Underworld") :/TITLE ("Banstyle Sappys Curry") :/_ID 423)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Underworld/1996 - Second Toughest In The Infants/03. Underworld - Confusion The Waitress.flac")
+  :/DURATION (0) :/ALBUM ("Second Toughest In The Infants") :/ARTIST
+  ("Underworld") :/TITLE ("Confusion The Waitress") :/_ID 424)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Underworld/1996 - Second Toughest In The Infants/04. Underworld - Rowla.flac")
+  :/DURATION (0) :/ALBUM ("Second Toughest In The Infants") :/ARTIST
+  ("Underworld") :/TITLE ("Rowla") :/_ID 425)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Underworld/1996 - Second Toughest In The Infants/05. Underworld - Pearls Girl.flac")
+  :/DURATION (0) :/ALBUM ("Second Toughest In The Infants") :/ARTIST
+  ("Underworld") :/TITLE ("Pearls Girl") :/_ID 426)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Underworld/1996 - Second Toughest In The Infants/06. Underworld - Air Towel.flac")
+  :/DURATION (0) :/ALBUM ("Second Toughest In The Infants") :/ARTIST
+  ("Underworld") :/TITLE ("Air Towel") :/_ID 427)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Underworld/1996 - Second Toughest In The Infants/07. Underworld - Blueski.flac")
+  :/DURATION (0) :/ALBUM ("Second Toughest In The Infants") :/ARTIST
+  ("Underworld") :/TITLE ("Blueski") :/_ID 428)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("flac")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Underworld/1996 - Second Toughest In The Infants/08. Underworld - Stagger.flac")
+  :/DURATION (0) :/ALBUM ("Second Toughest In The Infants") :/ARTIST
+  ("Underworld") :/TITLE ("Stagger") :/_ID 429)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("mp3")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Vector Lovers/2005 - Capsule For One/01 - City Lights From A Train.mp3")
+  :/DURATION (0) :/ALBUM ("Capsule For One") :/ARTIST ("Vector Lovers") :/TITLE
+  ("City Lights From A Train") :/_ID 430)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("mp3")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Vector Lovers/2005 - Capsule For One/02 - Arrival, Metropolis.mp3")
+  :/DURATION (0) :/ALBUM ("Capsule For One") :/ARTIST ("Vector Lovers") :/TITLE
+  ("Arrival, Metropolis") :/_ID 431)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("mp3")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Vector Lovers/2005 - Capsule For One/03 - Substrata.mp3")
+  :/DURATION (0) :/ALBUM ("Capsule For One") :/ARTIST ("Vector Lovers") :/TITLE
+  ("Substrata") :/_ID 432)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("mp3")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Vector Lovers/2005 - Capsule For One/04 - Microtron.mp3")
+  :/DURATION (0) :/ALBUM ("Capsule For One") :/ARTIST ("Vector Lovers") :/TITLE
+  ("Microtron") :/_ID 433)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("mp3")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Vector Lovers/2005 - Capsule For One/05 - Nostalgia 4 The Future.mp3")
+  :/DURATION (0) :/ALBUM ("Capsule For One") :/ARTIST ("Vector Lovers") :/TITLE
+  ("Nostalgia 4 The Future") :/_ID 434)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("mp3")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Vector Lovers/2005 - Capsule For One/06 - Post Arctic Industries.mp3")
+  :/DURATION (0) :/ALBUM ("Capsule For One") :/ARTIST ("Vector Lovers") :/TITLE
+  ("Post Arctic Industries") :/_ID 435)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("mp3")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Vector Lovers/2005 - Capsule For One/07 - Melodies And Memory.mp3")
+  :/DURATION (0) :/ALBUM ("Capsule For One") :/ARTIST ("Vector Lovers") :/TITLE
+  ("Melodies And Memory") :/_ID 436)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("mp3")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Vector Lovers/2005 - Capsule For One/08 - Empty Buildings, Falling Rain.mp3")
+  :/DURATION (0) :/ALBUM ("Capsule For One") :/ARTIST ("Vector Lovers") :/TITLE
+  ("Empty Buildings, Falling Rain") :/_ID 437)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("mp3")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Vector Lovers/2005 - Capsule For One/09 - Boulevard.mp3")
+  :/DURATION (0) :/ALBUM ("Capsule For One") :/ARTIST ("Vector Lovers") :/TITLE
+  ("Boulevard") :/_ID 438)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("mp3")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Vector Lovers/2005 - Capsule For One/10 - Neon Sky Rain.mp3")
+  :/DURATION (0) :/ALBUM ("Capsule For One") :/ARTIST ("Vector Lovers") :/TITLE
+  ("Neon Sky Rain") :/_ID 439)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("mp3")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Vector Lovers/2005 - Capsule For One/11 - Capsule For One.mp3")
+  :/DURATION (0) :/ALBUM ("Capsule For One") :/ARTIST ("Vector Lovers") :/TITLE
+  ("Capsule For One") :/_ID 440)
+ (:/PLAY-COUNT (0) :/ADDED-DATE (1759734976) :/BITRATE (0) :/FORMAT ("mp3")
+  :/FILE-PATH
+  ("/home/glenn/Projects/Code/asteroid/music/library/Vector Lovers/2005 - Capsule For One/12 - To The Stars.mp3")
+  :/DURATION (0) :/ALBUM ("Capsule For One") :/ARTIST ("Vector Lovers") :/TITLE
+  ("To The Stars...") :/_ID 441))
