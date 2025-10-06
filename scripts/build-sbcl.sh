@@ -4,6 +4,23 @@
 
 clear
 
+echo "🚀 Building SBCL from source..."
+echo "================================"
+echo ""
+
+# Check if bootstrap SBCL is installed
+if ! command -v sbcl >/dev/null 2>&1; then
+    echo "📦 Installing bootstrap SBCL from package manager..."
+    sudo apt update
+    sudo apt install -y sbcl
+    BOOTSTRAP_INSTALLED=true
+else
+    echo "✅ Bootstrap SBCL already available"
+    BOOTSTRAP_INSTALLED=false
+fi
+
+echo ""
+
 # script should scale to accomodate systems with only one cpu, or systems with many.
 system_type=$(uname)
 
@@ -122,3 +139,31 @@ echo "Running the tests... "
 sleep 5
 
 cd "$source_location"/tests && sh ./run-tests.sh
+
+echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+
+# Install SBCL
+echo "📦 Installing SBCL..."
+cd "$source_location"
+sudo sh install.sh
+
+echo ""
+echo "✅ SBCL installed successfully!"
+echo ""
+sbcl --version
+
+# Remove bootstrap SBCL if we installed it
+if [ "$BOOTSTRAP_INSTALLED" = true ]; then
+    echo ""
+    echo "🧹 Removing bootstrap SBCL from package manager..."
+    sudo apt remove -y sbcl
+    sudo apt autoremove -y
+    echo "✅ Bootstrap SBCL removed"
+fi
+
+echo ""
+echo "🎉 SBCL build complete!"
+echo ""
+echo "💡 Next steps:"
+echo "   1. Install Quicklisp: ./install-quicklisp.sh"
+echo "   2. Install Lisp dependencies: ./install-lisp-dependencies.sh"
