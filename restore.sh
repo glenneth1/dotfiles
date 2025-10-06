@@ -33,6 +33,24 @@ if [ -f "$DOTFILES_DIR/home/.profile" ]; then
     cp -v "$DOTFILES_DIR/home/.profile" ~/.profile
 fi
 
+# Restore Emacs configuration
+echo "📁 Restoring Emacs configuration..."
+if [ -d "$DOTFILES_DIR/emacs.d" ]; then
+    mkdir -p ~/.emacs.d
+    cp -v "$DOTFILES_DIR/emacs.d/init.el" ~/.emacs.d/ 2>/dev/null || true
+    cp -v "$DOTFILES_DIR/emacs.d/early-init.el" ~/.emacs.d/ 2>/dev/null || true
+    cp -v "$DOTFILES_DIR/emacs.d/config.org" ~/.emacs.d/ 2>/dev/null || true
+    cp -v "$DOTFILES_DIR/emacs.d/custom.el" ~/.emacs.d/ 2>/dev/null || true
+    
+    # Restore directories
+    if [ -d "$DOTFILES_DIR/emacs.d/snippets" ]; then
+        cp -rv "$DOTFILES_DIR/emacs.d/snippets" ~/.emacs.d/ 2>/dev/null || true
+    fi
+    if [ -d "$DOTFILES_DIR/emacs.d/themes" ]; then
+        cp -rv "$DOTFILES_DIR/emacs.d/themes" ~/.emacs.d/ 2>/dev/null || true
+    fi
+fi
+
 # Restore .config directories
 echo "📁 Restoring .config directories..."
 mkdir -p ~/.config

@@ -20,6 +20,25 @@ cp -v ~/.sbclrc "$BACKUP_DIR/home/.sbclrc"
 cp -v ~/.gitconfig "$BACKUP_DIR/home/.gitconfig"
 cp -v ~/.profile "$BACKUP_DIR/home/.profile" 2>/dev/null || true
 
+# Backup Emacs configuration
+echo "📁 Backing up Emacs configuration..."
+if [ -d ~/.emacs.d ]; then
+    mkdir -p "$BACKUP_DIR/emacs.d"
+    # Backup main config files
+    cp -v ~/.emacs.d/init.el "$BACKUP_DIR/emacs.d/" 2>/dev/null || true
+    cp -v ~/.emacs.d/early-init.el "$BACKUP_DIR/emacs.d/" 2>/dev/null || true
+    cp -v ~/.emacs.d/config.org "$BACKUP_DIR/emacs.d/" 2>/dev/null || true
+    cp -v ~/.emacs.d/custom.el "$BACKUP_DIR/emacs.d/" 2>/dev/null || true
+    
+    # Backup important directories
+    if [ -d ~/.emacs.d/snippets ]; then
+        cp -rv ~/.emacs.d/snippets "$BACKUP_DIR/emacs.d/" 2>/dev/null || true
+    fi
+    if [ -d ~/.emacs.d/themes ]; then
+        cp -rv ~/.emacs.d/themes "$BACKUP_DIR/emacs.d/" 2>/dev/null || true
+    fi
+fi
+
 # Backup .config directories
 echo "📁 Backing up .config directories..."
 if [ -d ~/.config/common-lisp ]; then
