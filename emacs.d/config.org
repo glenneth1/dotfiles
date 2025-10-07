@@ -3546,4 +3546,20 @@ And here's how we tell Emacs which font we want. See [[https://protesilaos.com/e
       (message "Generating autoloads for %s...done" package-name)))
 #+END_SRC
 
-#+END_SRC
+* Relative Line Numbers
+Enable relative line numbers for programming and text modes.
+#+begin_src emacs-lisp
+;; Relative line numbers for specific modes
+(setq display-line-numbers-type 'relative)
+
+(dolist (mode '(lisp-mode-hook
+                emacs-lisp-mode-hook
+                common-lisp-mode-hook
+                scheme-mode-hook
+                python-mode-hook
+                c-mode-hook
+                c++-mode-hook
+                markdown-mode-hook
+                css-mode-hook))
+  (add-hook mode #'display-line-numbers-mode))
+#+end_src
